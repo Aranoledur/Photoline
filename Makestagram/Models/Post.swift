@@ -46,17 +46,19 @@ class Post : PFObject, PFSubclassing {
     }
     
     func downloadImage() {
-        // 1
         image.value = Post.imageCache[self.imageFile!.name]
         
         // if image is not downloaded yet, get it
         if (image.value == nil) {
             
             imageFile?.getDataInBackgroundWithBlock { (data: NSData?, error: NSError?) -> Void in
+                if let error = error {
+                    ErrorHandling.defaultErrorHandler(error)
+                }
+                
                 if let data = data {
                     let image = UIImage(data: data, scale:1.0)!
                     self.image.value = image
-                    // 2
                     Post.imageCache[self.imageFile!.name] = image
                 }
             }

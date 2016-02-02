@@ -24,6 +24,14 @@ class PhotoTakingHelper: NSObject {
         showPhotoSourceSelection()
     }
     
+    func pushModalViewController(newViewController: UIViewController) {
+        viewController.presentedViewController!.presentViewController(newViewController, animated: true, completion: nil)
+    }
+    
+    func popModalViewController() {
+        viewController.dismissViewControllerAnimated(false, completion: nil)
+    }
+    
     func showPhotoSourceSelection() {
         let alertController = UIAlertController(title: nil, message: "Where do you want to get your picture from?", preferredStyle: .ActionSheet);
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
@@ -55,14 +63,30 @@ class PhotoTakingHelper: NSObject {
     
 }
 
-extension PhotoTakingHelper : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension PhotoTakingHelper: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
-        viewController.dismissViewControllerAnimated(false, completion: nil)
-        
-        callback(image)
+        let filterViewController = FilterViewController(image: image)
+        filterViewController.delegate = self
+        pushModalViewController(filterViewController)
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        viewController.dismissViewControllerAnimated(true, completion: nil)
+        popModalViewController()
     }
+    
+}
+
+extension PhotoTakingHelper: FilterViewControllerDelegate {
+    
+    func filterViewController(controller: FilterViewController, selectedImage: UIImage) {
+        viewController.dismissViewControllerAnimated(false, completion: nil)
+        
+        callback(selectedImage)
+    }
+    
+    func filterViewControllerCancelled(controller: FilterViewController) {
+        popModalViewController()
+    }
+    
 }

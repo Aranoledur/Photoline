@@ -31,12 +31,16 @@ class PostTableViewCell: UITableViewCell {
             likeDisposable?.dispose()
             // free memory of image stored with post that is no longer displayed
             // 1
-//            if let oldValue = oldValue where oldValue != post {
-//                oldValue.image.value = nil
-//            }
+            if let oldValue = oldValue where oldValue != post {
+                oldValue.image.value = nil
+            }
             
             if let post = post {
-                postDisposable = post.image.bindTo(postImageView.bnd_image)
+                if let _ = post.image.value { //if already has an image then update
+                    postImageView.image = post.image.value
+                }
+                
+                postDisposable = post.image.bindTo(postImageView.bnd_image)                
                 
                 likeDisposable = post.likes.observe { (value: [PFUser]?) -> () in
                     if let value = value {
