@@ -90,7 +90,7 @@
                 <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
                 <false/>
             </dict>
-            <key>parse.com</key>
+            <key>files.parsetfss.com</key>
             <dict>
                 <!--Include to allow subdomains-->
                 <key>NSIncludesSubdomains</key>

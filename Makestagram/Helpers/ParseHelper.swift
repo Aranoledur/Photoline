@@ -79,9 +79,12 @@ class ParseHelper {
         likeQuery.whereKey(ParseLikeToPost, equalTo: post)
         
         likeQuery.findObjectsInBackgroundWithBlock { (results: [AnyObject]?, error: NSError?) -> Void in
+            if let error = error {
+                ErrorHandling.defaultErrorHandler(error)
+            }
             if let results = results as? [PFObject] {
                 for likes in results {
-                    likes.deleteInBackgroundWithBlock(nil)
+                    likes.deleteInBackgroundWithBlock(ErrorHandling.errorHandlingCallback)
                 }
             }
         }
@@ -136,6 +139,21 @@ class ParseHelper {
                 follow.deleteInBackgroundWithBlock(nil)
             }
         }
+    }
+    
+    //MARK: Flagging
+    
+    static func flagPost(user: PFUser, post: Post) {
+        let flagObject = PFObject(className: ParseFlaggedContentClass)
+        flagObject.setObject(user, forKey: ParseFlaggedContentFromUser)
+        flagObject.setObject(post, forKey: ParseFlaggedContentToPost)
+        
+        let ACL = PFACL(user: PFUser.currentUser()!)
+        ACL.setPublicReadAccess(true)
+        flagObject.ACL = ACL
+        
+        //TODO: add error handling
+        flagObject.saveInBackgroundWithBlock(ErrorHandling.errorHandlingCallback)
     }
     
     // MARK: Users

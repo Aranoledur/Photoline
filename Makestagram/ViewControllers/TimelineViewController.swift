@@ -59,6 +59,53 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
         }
     }
     
+    // MARK: UIActionSheets
+    
+    func showActionSheetForPost(post: Post) {
+        if (post.user == PFUser.currentUser()) {
+            showDeleteActionSheetForPost(post)
+        } else {
+            showFlagActionSheetForPost(post)
+        }
+    }
+    
+    func showDeleteActionSheetForPost(post: Post) {
+        let alertController = UIAlertController(title: nil, message: "Do you want to delete this post?", preferredStyle: .ActionSheet)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        let destroyAction = UIAlertAction(title: "Delete", style: .Destructive) { (action) in
+            post.deleteInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
+                if (success) {
+                    self.timelineComponent.removeObject(post)
+                } else {
+                    // restore old state
+                    
+//                    self.timelineComponent.refresh(self)
+                    self.tableView.reloadData()
+                }
+            })
+        }
+        alertController.addAction(destroyAction)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func showFlagActionSheetForPost(post: Post) {
+        let alertController = UIAlertController(title: nil, message: "Do you want to flag this post?", preferredStyle: .ActionSheet)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        let destroyAction = UIAlertAction(title: "Flag", style: .Destructive) { (action) in
+            post.flagPost(PFUser.currentUser()!)
+        }
+        
+        alertController.addAction(destroyAction)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation
@@ -87,18 +134,22 @@ extension TimelineViewController : UITabBarControllerDelegate {
 
 extension TimelineViewController: UITableViewDataSource {
     
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return self.timelineComponent.content.count
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // 1
-        return timelineComponent.content.count
+        return 1
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as! PostTableViewCell
         
-        let post = timelineComponent.content[indexPath.row]
+        let post = timelineComponent.content[indexPath.section]
         post.downloadImage()
         post.fetchLikes()
         cell.post = post
+        cell.moreButtonCallback = showActionSheetForPost
         
         return cell
     }
@@ -109,7 +160,20 @@ extension TimelineViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         
-        timelineComponent.targetWillDisplayEntry(indexPath.row)
+        timelineComponent.targetWillDisplayEntry(indexPath.section)
+    }
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerCell = tableView.dequeueReusableCellWithIdentifier("PostHeader") as! PostSectionHeaderView
+        
+        let post = self.timelineComponent.content[section]
+        headerCell.post = post
+        
+        return headerCell
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
     }
     
 }
