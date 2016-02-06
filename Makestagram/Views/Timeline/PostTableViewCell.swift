@@ -10,7 +10,7 @@ import UIKit
 import Bond
 import Parse
 
-typealias MoreButtonCallback = Post -> Void
+typealias MoreButtonCallback = (Post, PostTableViewCell) -> Void
 
 class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var postImageView: UIImageView!
@@ -83,7 +83,7 @@ class PostTableViewCell: UITableViewCell {
     }
     
     @IBAction func moreButtonTapped(sender: UIButton) {
-        self.moreButtonCallback?(post!)
+        self.moreButtonCallback?(post!, self)
 
     }
 }

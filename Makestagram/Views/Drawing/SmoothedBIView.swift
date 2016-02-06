@@ -14,6 +14,7 @@ class SmoothedBIView: UIView {
     var pts: [CGPoint] = [CGPoint](count: 5, repeatedValue: CGPoint())
     var ctr: Int = 0
     var currentColor: UIColor = UIColor.blackColor()
+    var isDot: Bool = true
     
     func selfInit() {
         path.lineWidth = 2.0
@@ -38,11 +39,13 @@ class SmoothedBIView: UIView {
         if let touch = touches.first {
             ctr = 0
             pts[0] = touch.locationInView(self)
+            isDot = true
         }
     }
 
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if let touch = touches.first {
+            isDot = false
             let p = touch.locationInView(self)
             ctr++
             pts[ctr] = p
@@ -63,7 +66,7 @@ class SmoothedBIView: UIView {
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        self.drawBitmap()
+        self.drawBitmap(isDot)
         self.setNeedsDisplay()
         path.removeAllPoints()
         ctr = 0
@@ -75,7 +78,7 @@ class SmoothedBIView: UIView {
         }
     }
     
-    func drawBitmap() {
+    func drawBitmap(isDot: Bool) {
         UIGraphicsBeginImageContextWithOptions(self.bounds.size, true, 0.0)
         if (incrementalImage == nil) // first time; paint background white
         {
@@ -84,11 +87,19 @@ class SmoothedBIView: UIView {
             rectPath.fill()
         }
         
-//        incrementalImage?.drawAtPoint(CGPointZero)
         self.layer.renderInContext(UIGraphicsGetCurrentContext()!)
 
-        currentColor.setStroke()
-        path.stroke()
+        if !isDot {
+            currentColor.setStroke()
+            path.stroke()
+        } else {
+            let p = pts[0]
+            let kRadius: CGFloat = 2.0
+            let rect = CGRectMake(p.x - kRadius, p.y - kRadius, 2 * kRadius, 2 * kRadius)
+            let dotPath = UIBezierPath(ovalInRect: rect)
+            currentColor.setFill()
+            dotPath.fill()
+        }
         incrementalImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext()
     }

@@ -84,8 +84,10 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-Makestagram/Color_Picker_for_iOS.framework"
   install_framework "Pods-Makestagram/DateTools.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-Makestagram/Color_Picker_for_iOS.framework"
   install_framework "Pods-Makestagram/DateTools.framework"
 fi

@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import Color_Picker_for_iOS
 
 class DrawingViewController: UIViewController {
 
     @IBOutlet weak var drawingView: SmoothedBIView!
     var image: UIImage?
+    var pickerView: HRColorPickerView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,8 @@ class DrawingViewController: UIViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 
+    @IBAction func colorsButtonTapped(sender: UIButton) {
+    } 
     /*
     // MARK: - Navigation
 
