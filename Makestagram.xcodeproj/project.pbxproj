@@ -52,6 +52,8 @@
 		947083231C6106E6006EC322 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 947083201C6106E6006EC322 /* FBSDKLoginKit.framework */; };
 		947083241C6106E6006EC322 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 947083211C6106E6006EC322 /* FBSDKShareKit.framework */; };
 		947083291C611251006EC322 /* PostSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947083281C611251006EC322 /* PostSectionHeaderView.swift */; };
+		947FF07F1C65F98700C8BC34 /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947FF07E1C65F98700C8BC34 /* DrawingViewController.swift */; };
+		947FF0821C65F99F00C8BC34 /* SmoothedBIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947FF0811C65F99F00C8BC34 /* SmoothedBIView.swift */; };
 		E4B652F55100FA97C51CD19C /* Pods_Makestagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DF936EDC3BDB60ACD8B90F4 /* Pods_Makestagram.framework */; };
 /* End PBXBuildFile section */
 
@@ -201,6 +203,8 @@
 		947083201C6106E6006EC322 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		947083211C6106E6006EC322 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		947083281C611251006EC322 /* PostSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostSectionHeaderView.swift; sourceTree = "<group>"; };
+		947FF07E1C65F98700C8BC34 /* DrawingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
+		947FF0811C65F99F00C8BC34 /* SmoothedBIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothedBIView.swift; sourceTree = "<group>"; };
 		975720C663743870BA6E7429 /* Pods-Makestagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Makestagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Makestagram/Pods-Makestagram.release.xcconfig"; sourceTree = "<group>"; };
 		ADFB553C58DAA10FB64B2849 /* Pods-Makestagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Makestagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Makestagram/Pods-Makestagram.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -286,6 +290,7 @@
 				947082CE1C5C0D96006EC322 /* TimelineViewController.swift */,
 				947082D01C5C0DA4006EC322 /* PhotoViewController.swift */,
 				947082D21C5C0DB3006EC322 /* FriendSearchViewController.swift */,
+				947FF07D1C65F98700C8BC34 /* Drawing */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -429,6 +434,7 @@
 			isa = PBXGroup;
 			children = (
 				947082E71C5E91B6006EC322 /* FriendSearch */,
+				947FF0801C65F99F00C8BC34 /* Drawing */,
 				947082E01C5D5AB9006EC322 /* Timeline */,
 			);
 			path = Views;
@@ -450,6 +456,23 @@
 			);
 			path = FriendSearch;
 			sourceTree = "<group>";
+		};
+		947FF07D1C65F98700C8BC34 /* Drawing */ = {
+			isa = PBXGroup;
+			children = (
+				947FF07E1C65F98700C8BC34 /* DrawingViewController.swift */,
+			);
+			path = Drawing;
+			sourceTree = "<group>";
+		};
+		947FF0801C65F99F00C8BC34 /* Drawing */ = {
+			isa = PBXGroup;
+			children = (
+				947FF0811C65F99F00C8BC34 /* SmoothedBIView.swift */,
+			);
+			name = Drawing;
+			path = Makestagram/Views/Drawing;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -690,9 +713,11 @@
 				947082CF1C5C0D96006EC322 /* TimelineViewController.swift in Sources */,
 				947082D81C5C1729006EC322 /* PhotoTakingHelper.swift in Sources */,
 				947082D11C5C0DA4006EC322 /* PhotoViewController.swift in Sources */,
+				947FF0821C65F99F00C8BC34 /* SmoothedBIView.swift in Sources */,
 				62C8C1E61B06BD6500DC3EA7 /* AppDelegate.swift in Sources */,
 				947082E91C5E91C4006EC322 /* FriendSearchTableViewCell.swift in Sources */,
 				947082DC1C5D246F006EC322 /* Post.swift in Sources */,
+				947FF07F1C65F98700C8BC34 /* DrawingViewController.swift in Sources */,
 				947083291C611251006EC322 /* PostSectionHeaderView.swift in Sources */,
 				627718971B0A581700AF5C6E /* FilterViewController.swift in Sources */,
 				947082E61C5D5E1E006EC322 /* ParseHelper.swift in Sources */,
