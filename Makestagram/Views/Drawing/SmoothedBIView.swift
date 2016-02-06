@@ -10,11 +10,6 @@ import UIKit
 
 class SmoothedBIView: UIView {
     let path: UIBezierPath! = UIBezierPath()
-    var baseImage: UIImage? {
-        didSet {
-            currentColor = baseImage!.areaAverage()
-        }
-    }
     var incrementalImage: UIImage?
     var pts: [CGPoint] = [CGPoint](count: 5, repeatedValue: CGPoint())
     var ctr: Int = 0
@@ -31,35 +26,10 @@ class SmoothedBIView: UIView {
         self.setNeedsDisplay()
     }
     
-    func saveToImage() -> UIImage {
-        if incrementalImage != nil {
-            
-            UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, 0.0)
-            self.baseImage?.drawAtPoint(CGPointZero)
-            self.incrementalImage?.drawAtPoint(CGPointZero)
-            let resultImage = UIGraphicsGetImageFromCurrentImageContext()
-            UIGraphicsEndImageContext()
-            return resultImage
-        } else {
-            return self.baseImage!
-        }
-    }
-    
     private func selfInit() {
         path.lineWidth = lineWidth
         self.multipleTouchEnabled = false
         self.userInteractionEnabled = true
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.backgroundColor = UIColor.clearColor()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        self.backgroundColor = UIColor.clearColor()
-
     }
     
     override func awakeFromNib() {
@@ -71,12 +41,11 @@ class SmoothedBIView: UIView {
     // An empty implementation adversely affects performance during animation.
     override func drawRect(rect: CGRect) {
         // Drawing code
-        baseImage?.drawInRect(rect)
         incrementalImage?.drawInRect(rect)
         currentColor.setStroke()
-//        if currentColor == UIColor.clearColor() {
-//            CGContextSetBlendMode(UIGraphicsGetCurrentContext(), .Clear)
-//        }
+        if currentColor == UIColor.clearColor() {
+            CGContextSetBlendMode(UIGraphicsGetCurrentContext(), .Clear)
+        }
         path.stroke()
     }
     
@@ -99,9 +68,7 @@ class SmoothedBIView: UIView {
                 path.moveToPoint(pts[0])
                 
                 path.addCurveToPoint(pts[3], controlPoint1: pts[1], controlPoint2: pts[2]) // add a cubic Bezier from pt[0] to pt[3], with control points pt[1] and pt[2]
-                if currentColor == UIColor.clearColor() {
-                    drawBitmap(path, color: currentColor, isDot: false)
-                }
+
                 self.setNeedsDisplay()
                 // replace points and get ready to handle the next segment
                 pts[0] = pts[3];
@@ -133,7 +100,7 @@ class SmoothedBIView: UIView {
     }
     
     func drawBitmap(actualPath: UIBezierPath, color: UIColor, isDot: Bool) {
-        UIGraphicsBeginImageContextWithOptions(self.bounds.size, true, 0.0)
+        UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, 0.0)
         if (incrementalImage == nil) // first time; paint background white
         {
             let rectPath = UIBezierPath(rect: self.bounds)

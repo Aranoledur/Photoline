@@ -9,19 +9,26 @@
 import UIKit
 import Color_Picker_for_iOS
 
+protocol ColorPickerDelegate: NSObjectProtocol {
+    func colorViewController(controller: UIViewController, didSelectColor: UIColor)
+    func colorViewControllerDidCancel(controller: UIViewController)
+}
+
 class ColorPickerViewController: UIViewController {
 
     @IBOutlet weak var colorPickerView: HRColorPickerView!
     var startColor: UIColor?
+    weak var delegate: ColorPickerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        colorPickerView.color = self.startColor
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        colorPickerView.color = self.startColor
 
     }
 
@@ -30,7 +37,15 @@ class ColorPickerViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func backButtonTapped(sender: AnyObject) {
+        delegate?.colorViewControllerDidCancel(self)
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 
+    @IBAction func chooseColorTapped(sender: AnyObject) {
+        delegate?.colorViewController(self, didSelectColor: colorPickerView.color)
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 

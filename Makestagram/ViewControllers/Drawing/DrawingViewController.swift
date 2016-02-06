@@ -16,12 +16,14 @@ class DrawingViewController: UIViewController {
     var pickerView: HRColorPickerView?
     @IBOutlet weak var colorButton: UIButton!
     @IBOutlet var customColorButtons: [UIButton]!
+    @IBOutlet weak var baseImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        drawingView.baseImage = self.image
+        baseImageView.image = self.image
+        drawingView.currentColor = self.image!.areaAverage()
         let newImage = colorButton.imageView?.image?.imageWithRenderingMode(.AlwaysTemplate)
         colorButton.setImage(newImage, forState: .Normal)
         colorButton.tintColor = drawingView.currentColor
@@ -42,6 +44,15 @@ class DrawingViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func saveImage() -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(drawingView.bounds.size, false, 0.0)
+        baseImageView.image?.drawAtPoint(CGPointZero)
+        drawingView.incrementalImage?.drawAtPoint(CGPointZero)
+        let resultImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return resultImage
     }
     
     @IBAction func backButtonTapped(sender: UIButton) {
@@ -74,16 +85,22 @@ class DrawingViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(sender: AnyObject) {
+        
     }
-    /*
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if let colorPickerController = segue.destinationViewController as? ColorPickerViewController where segue.identifier == "PickColor" {
+            colorPickerController.startColor = drawingView.currentColor
+            colorPickerController.delegate = self
+        }
     }
-    */
+    
 
 }
 
@@ -98,5 +115,15 @@ extension DrawingViewController: NEOColorPickerViewControllerDelegate {
     func colorPickerViewControllerDidCancel(controller: NEOColorPickerBaseViewController!) {
         controller.dismissViewControllerAnimated(true, completion: nil)
 
+    }
+}
+
+extension DrawingViewController: ColorPickerDelegate {
+    func colorViewController(controller: UIViewController, didSelectColor: UIColor) {
+        self.drawingView.currentColor = didSelectColor
+    }
+    
+    func colorViewControllerDidCancel(controller: UIViewController) {
+        //do nothing
     }
 }
