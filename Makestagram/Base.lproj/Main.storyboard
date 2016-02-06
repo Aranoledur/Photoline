@@ -307,23 +307,64 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SfB-zS-jUB">
-                                <rect key="frame" x="534" y="20" width="46" height="30"/>
+                                <rect key="frame" x="546" y="20" width="34" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="46" id="EwH-cM-Sgt"/>
                                 </constraints>
-                                <state key="normal" title="Colors"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="EwH-cM-Sgt"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="saveButtonTapped:" destination="fFH-u0-T1V" eventType="touchUpInside" id="rA2-hy-WVA"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Jp-07-9nG">
                                 <rect key="frame" x="20" y="20" width="34" height="30"/>
-                                <state key="normal" title="Back"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="backButtonTapped:" destination="fFH-u0-T1V" eventType="touchUpInside" id="XmN-6L-wjS"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i6M-5f-OqY">
+                                <rect key="frame" x="20" y="520" width="60" height="60"/>
+                                <state key="normal" image="ColorSwatch"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nrp-CQ-Bw0">
+                                <rect key="frame" x="88" y="520" width="60" height="60"/>
+                                <state key="normal" image="ColorSwatch"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SWx-Qj-L8R">
+                                <rect key="frame" x="156" y="520" width="60" height="60"/>
+                                <state key="normal" image="ColorSwatch"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qIL-m4-KqU">
+                                <rect key="frame" x="224" y="520" width="60" height="60"/>
+                                <state key="normal" image="ColorSwatch"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qXA-yV-dgX">
+                                <rect key="frame" x="292" y="520" width="60" height="60"/>
+                                <state key="normal" image="ColorSwatch"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Epp-5K-zoA">
+                                <rect key="frame" x="360" y="520" width="60" height="60"/>
+                                <state key="normal" image="ColorSwatch"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5jL-fd-WWX">
+                                <rect key="frame" x="529" y="554" width="79" height="22"/>
+                                <state key="normal" image="more"/>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="0lF-Ej-o0a" firstAttribute="leading" secondItem="Hlc-Io-XAp" secondAttribute="leading" id="2QK-mD-smf"/>
+                            <constraint firstItem="0lF-Ej-o0a" firstAttribute="top" secondItem="SfB-zS-jUB" secondAttribute="bottom" id="ENf-X5-PBf"/>
                             <constraint firstItem="0lF-Ej-o0a" firstAttribute="bottom" secondItem="Mcn-41-md6" secondAttribute="top" id="EzU-Zu-XX1"/>
                             <constraint firstItem="SfB-zS-jUB" firstAttribute="top" secondItem="HSj-e0-bnY" secondAttribute="bottom" id="F0h-ZL-0pq"/>
                             <constraint firstItem="8Jp-07-9nG" firstAttribute="baseline" secondItem="SfB-zS-jUB" secondAttribute="baseline" id="LeI-Dq-5VO"/>
@@ -334,17 +375,52 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="LeI-Dq-5VO"/>
                                 <exclude reference="EzU-Zu-XX1"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="colorButton" destination="Nrp-CQ-Bw0" id="3B3-ji-h8F"/>
                         <outlet property="drawingView" destination="0lF-Ej-o0a" id="ysw-Bh-2S3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yo7-jo-r3L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="489" y="-235"/>
+        </scene>
+        <!--Color Picker View Controller-->
+        <scene sceneID="tRZ-1G-ita">
+            <objects>
+                <viewController id="VLV-cw-3dv" customClass="ColorPickerViewController" customModule="Makestagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kzy-AG-sGI"/>
+                        <viewControllerLayoutGuide type="bottom" id="dgV-0q-F6l"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OFw-G9-1Ro">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LzY-7t-YRv" customClass="HRColorPickerView">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LzY-7t-YRv" firstAttribute="leading" secondItem="OFw-G9-1Ro" secondAttribute="leading" id="IiH-Xc-b0E"/>
+                            <constraint firstItem="dgV-0q-F6l" firstAttribute="top" secondItem="LzY-7t-YRv" secondAttribute="bottom" id="Q6q-0F-kVQ"/>
+                            <constraint firstAttribute="trailing" secondItem="LzY-7t-YRv" secondAttribute="trailing" id="Qn6-i6-2UL"/>
+                            <constraint firstItem="LzY-7t-YRv" firstAttribute="top" secondItem="kzy-AG-sGI" secondAttribute="bottom" id="kky-5W-r8V"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="colorPickerView" destination="LzY-7t-YRv" id="AGM-XX-RU0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lvy-lt-4fG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1228" y="-235"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="GRY-nW-XWW">
@@ -368,6 +444,7 @@
     </scenes>
     <resources>
         <image name="Camera" width="40" height="30"/>
+        <image name="ColorSwatch" width="60" height="60"/>
         <image name="Home" width="38" height="36"/>
         <image name="People" width="42" height="42"/>
         <image name="add" width="42" height="42"/>
@@ -377,4 +454,5 @@
         <image name="heart_selected" width="72" height="68"/>
         <image name="more" width="26" height="17"/>
     </resources>
+    <color key="tintColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
 </document>

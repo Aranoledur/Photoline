@@ -122,6 +122,8 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if segue.identifier == "DrawingSegue" {
+//            let navigationC = segue.destinationViewController as! UINavigationController
+//            let destViewC = navigationC.topViewController as! DrawingViewController
             let destViewC = segue.destinationViewController as! DrawingViewController
             let pickedCell = sender as! PostTableViewCell
             destViewC.image = pickedCell.postImageView.image

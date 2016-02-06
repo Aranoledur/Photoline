@@ -10,6 +10,11 @@ import UIKit
 
 class SmoothedBIView: UIView {
     let path: UIBezierPath! = UIBezierPath()
+    var baseImage: UIImage? {
+        didSet {
+            currentColor = baseImage!.areaAverage()
+        }
+    }
     var incrementalImage: UIImage?
     var pts: [CGPoint] = [CGPoint](count: 5, repeatedValue: CGPoint())
     var ctr: Int = 0
@@ -31,7 +36,9 @@ class SmoothedBIView: UIView {
     // An empty implementation adversely affects performance during animation.
     override func drawRect(rect: CGRect) {
         // Drawing code
+        baseImage?.drawInRect(rect)
         incrementalImage?.drawInRect(rect)
+        currentColor.setStroke()
         path.stroke()
     }
     
@@ -66,8 +73,16 @@ class SmoothedBIView: UIView {
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        self.drawBitmap(isDot)
-        self.setNeedsDisplay()
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+        let pathCopy = path.copy() as! UIBezierPath
+        let colorCopy = currentColor.copy() as! UIColor
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            self.drawBitmap(pathCopy, color: colorCopy, isDot: self.isDot)
+            self.setNeedsDisplay()
+
+            dispatch_async(dispatch_get_main_queue()) {
+            }
+        }
         path.removeAllPoints()
         ctr = 0
     }
@@ -78,26 +93,26 @@ class SmoothedBIView: UIView {
         }
     }
     
-    func drawBitmap(isDot: Bool) {
+    func drawBitmap(actualPath: UIBezierPath, color: UIColor, isDot: Bool) {
         UIGraphicsBeginImageContextWithOptions(self.bounds.size, true, 0.0)
         if (incrementalImage == nil) // first time; paint background white
         {
             let rectPath = UIBezierPath(rect: self.bounds)
-            UIColor.whiteColor().setFill()
+            UIColor.clearColor().setFill()
             rectPath.fill()
         }
         
         self.layer.renderInContext(UIGraphicsGetCurrentContext()!)
 
         if !isDot {
-            currentColor.setStroke()
-            path.stroke()
+            color.setStroke()
+            actualPath.stroke()
         } else {
             let p = pts[0]
-            let kRadius: CGFloat = 2.0
+            let kRadius: CGFloat = actualPath.lineWidth
             let rect = CGRectMake(p.x - kRadius, p.y - kRadius, 2 * kRadius, 2 * kRadius)
             let dotPath = UIBezierPath(ovalInRect: rect)
-            currentColor.setFill()
+            color.setFill()
             dotPath.fill()
         }
         incrementalImage = UIGraphicsGetImageFromCurrentImageContext();
