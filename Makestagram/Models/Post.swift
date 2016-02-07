@@ -15,13 +15,16 @@ import ConvenienceKit
 class Post : PFObject, PFSubclassing {
     
     var image: Observable<UIImage?> = Observable(nil)
+    var drawingImage: Observable<UIImage?> = Observable(nil)
     var photoUploadTask: UIBackgroundTaskIdentifier?
+    var drawingUploadTask: UIBackgroundTaskIdentifier?
     var likes: Observable<[PFUser]?> = Observable(nil)
     static var imageCache: NSCacheSwift<String, UIImage>!
     
     // 2
     @NSManaged var imageFile: PFFile?
     @NSManaged var user: PFUser?
+    @NSManaged var drawingFile: PFFile?
     
     func uploadPost() {
         
@@ -45,23 +48,51 @@ class Post : PFObject, PFSubclassing {
         }
     }
     
-    func downloadImage() {
-        image.value = Post.imageCache[self.imageFile!.name]
-        
-        // if image is not downloaded yet, get it
-        if (image.value == nil) {
+    func uploadDrawing() {
+        if let drawingImage = drawingImage.value {
+            drawingUploadTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler({ () -> Void in
+                UIApplication.sharedApplication().endBackgroundTask(self.drawingUploadTask!)
+            })
             
-            imageFile?.getDataInBackgroundWithBlock { (data: NSData?, error: NSError?) -> Void in
+            let drawingData = UIImagePNGRepresentation(drawingImage)
+            let drawingFile = PFFile(data: drawingData!)
+            drawingFile.saveInBackgroundWithBlock(nil)
+            
+            self.drawingFile = drawingFile
+            saveInBackgroundWithBlock({ (success, error) -> Void in
+                UIApplication.sharedApplication().endBackgroundTask(self.drawingUploadTask!)
+            })
+        } else {
+            self.drawingFile = nil
+            saveInBackground()
+        }
+        
+    }
+    
+    private func downloadImage(imageFile:PFFile, inout imageObs: Observable<UIImage?>) {
+        imageObs.value = Post.imageCache[imageFile.name]
+        
+        if imageObs.value == nil {
+            imageFile.getDataInBackgroundWithBlock({ (data, error) -> Void in
                 if let error = error {
                     ErrorHandling.defaultErrorHandler(error)
                 }
                 
                 if let data = data {
-                    let image = UIImage(data: data, scale:1.0)!
-                    self.image.value = image
-                    Post.imageCache[self.imageFile!.name] = image
+                    let image = UIImage(data: data)
+                    imageObs.value = image
+                    Post.imageCache[imageFile.name] = image
                 }
-            }
+            })
+        }
+    }
+    
+    func downloadImage() {
+        if let imageFile = imageFile {
+            downloadImage(imageFile, imageObs: &image)
+        }
+        if let drawingFile = drawingFile {
+            downloadImage(drawingFile, imageObs: &drawingImage)
         }
     }
     

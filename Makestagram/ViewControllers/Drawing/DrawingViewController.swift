@@ -9,7 +9,7 @@
 import UIKit
 import Color_Picker_for_iOS
 
-typealias SaveCallback = UIImage -> Void
+typealias SaveCallback = UIImage? -> Void
 
 class DrawingViewController: UIViewController {
     
@@ -20,13 +20,14 @@ class DrawingViewController: UIViewController {
 
     @IBOutlet weak var drawingView: SmoothedBIView!
     var image: UIImage?
+    var drawing: UIImage?
     var pickerView: HRColorPickerView?
     @IBOutlet weak var colorButton: UIButton!
     @IBOutlet var customColorButtons: [UIButton]!
     @IBOutlet weak var baseImageView: UIImageView!
     @IBOutlet weak var moreColorsButton: UIButton!
     
-    var saveCallback: SaveCallback?
+    var saveDrawingCallback: SaveCallback?
     var ringImageView: UIImageView!
     var ringImagePair: RingAndButton = RingAndButton()
     
@@ -36,6 +37,7 @@ class DrawingViewController: UIViewController {
 
         baseImageView.image = self.image
         drawingView.currentColor = self.image!.areaAverage()
+        drawingView.incrementalImage = self.drawing
         let newImage = colorButton.imageView?.image?.imageWithRenderingMode(.AlwaysTemplate)
         colorButton.setImage(newImage, forState: .Normal)
         colorButton.tintColor = drawingView.currentColor
@@ -81,13 +83,15 @@ class DrawingViewController: UIViewController {
     
     //MARK: Saving
     
-    func saveImage() -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(drawingView.bounds.size, false, 0.0)
-        baseImageView.image?.drawInRect(drawingView.bounds)
-        drawingView.incrementalImage?.drawAtPoint(CGPointZero)
-        let resultImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return resultImage
+    func saveImage() -> UIImage? {
+        if let resultDrawing = drawingView.incrementalImage {
+            UIGraphicsBeginImageContextWithOptions(drawingView.bounds.size, false, 0.0)
+            resultDrawing.drawAtPoint(CGPointZero)
+            let resultImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            return resultImage
+        }
+        return nil
     }
     
     //MARK: Actions
@@ -117,7 +121,7 @@ class DrawingViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(sender: AnyObject) {
-        saveCallback?(self.saveImage())
+        saveDrawingCallback?(self.saveImage())
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     

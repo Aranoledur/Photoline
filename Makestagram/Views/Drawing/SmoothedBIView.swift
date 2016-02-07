@@ -108,7 +108,7 @@ class SmoothedBIView: UIView {
             rectPath.fill()
         }
         
-        self.incrementalImage?.drawAtPoint(CGPointZero)
+        self.incrementalImage?.drawInRect(self.bounds)
         if currentColor == UIColor.clearColor() {
             CGContextSetBlendMode(UIGraphicsGetCurrentContext(), .Clear)
         }

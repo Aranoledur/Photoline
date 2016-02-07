@@ -154,6 +154,12 @@
                                                         <constraint firstAttribute="height" constant="344" id="JPd-2k-CVy"/>
                                                     </constraints>
                                                 </imageView>
+                                                <imageView hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T6c-1K-csy">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="344"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="344" id="ULQ-Kv-AB6"/>
+                                                    </constraints>
+                                                </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0H0-Gn-iLn">
                                                     <rect key="frame" x="552" y="402" width="44" height="44"/>
                                                     <constraints>
@@ -198,12 +204,15 @@
                                             <constraints>
                                                 <constraint firstItem="zOg-sA-PfQ" firstAttribute="leading" secondItem="B3N-aH-rM7" secondAttribute="trailing" constant="20" id="6ox-zV-v8b"/>
                                                 <constraint firstItem="53d-jB-ScN" firstAttribute="top" secondItem="lVE-tX-6OL" secondAttribute="top" id="CSb-nC-VXY"/>
+                                                <constraint firstItem="T6c-1K-csy" firstAttribute="leading" secondItem="lVE-tX-6OL" secondAttribute="leading" id="JuB-yx-tlp"/>
                                                 <constraint firstItem="FmA-dn-qAs" firstAttribute="top" secondItem="B3N-aH-rM7" secondAttribute="bottom" constant="20" id="L65-A9-4Ma"/>
                                                 <constraint firstItem="53d-jB-ScN" firstAttribute="leading" secondItem="lVE-tX-6OL" secondAttribute="leading" id="Oyj-KC-VRB"/>
                                                 <constraint firstItem="FmA-dn-qAs" firstAttribute="leading" secondItem="lVE-tX-6OL" secondAttribute="leadingMargin" id="WKS-rO-fOn"/>
                                                 <constraint firstAttribute="trailing" secondItem="53d-jB-ScN" secondAttribute="trailing" id="X6p-BE-mwX"/>
                                                 <constraint firstItem="0H0-Gn-iLn" firstAttribute="trailing" secondItem="lVE-tX-6OL" secondAttribute="trailingMargin" constant="4" id="XJA-Ki-nKs"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="FmA-dn-qAs" secondAttribute="bottom" constant="10" id="cWK-qx-IIA"/>
+                                                <constraint firstItem="T6c-1K-csy" firstAttribute="top" secondItem="lVE-tX-6OL" secondAttribute="top" id="cdz-3T-Qb8"/>
+                                                <constraint firstAttribute="trailing" secondItem="T6c-1K-csy" secondAttribute="trailing" id="fHO-iF-dY8"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="0H0-Gn-iLn" secondAttribute="bottom" constant="16" id="lpi-SD-INv"/>
                                                 <constraint firstItem="FmA-dn-qAs" firstAttribute="top" secondItem="zOg-sA-PfQ" secondAttribute="bottom" constant="20" id="tgj-gg-kwD"/>
                                                 <constraint firstItem="B3N-aH-rM7" firstAttribute="leading" secondItem="lVE-tX-6OL" secondAttribute="leadingMargin" constant="12" id="uCN-cY-Ntl"/>
@@ -211,6 +220,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="drawingImageView" destination="T6c-1K-csy" id="GbS-Ku-GR0"/>
                                             <outlet property="likeButton" destination="0H0-Gn-iLn" id="rTd-fG-0Gf"/>
                                             <outlet property="likesIconImageView" destination="B3N-aH-rM7" id="cJl-aq-Pnf"/>
                                             <outlet property="likesLabel" destination="zOg-sA-PfQ" id="LBx-0e-gvp"/>

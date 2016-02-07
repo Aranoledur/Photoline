@@ -14,11 +14,13 @@ typealias MoreButtonCallback = (Post, PostTableViewCell) -> Void
 
 class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var postImageView: UIImageView!
+    @IBOutlet weak var drawingImageView: UIImageView!    
     @IBOutlet weak var likesIconImageView: UIImageView!
     @IBOutlet weak var likesLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var moreButton: UIButton!
     var postDisposable: DisposableType?
+    var drawingDisposable: DisposableType?
     var likeDisposable: DisposableType?
     
     var moreButtonCallback: MoreButtonCallback?
@@ -28,11 +30,13 @@ class PostTableViewCell: UITableViewCell {
         didSet {
             
             postDisposable?.dispose()
+            drawingDisposable?.dispose()
             likeDisposable?.dispose()
             // free memory of image stored with post that is no longer displayed
             // 1
             if let oldValue = oldValue where oldValue != post {
                 oldValue.image.value = nil
+                oldValue.drawingImage.value = nil
             }
             
             if let post = post {
@@ -40,7 +44,14 @@ class PostTableViewCell: UITableViewCell {
                     postImageView.image = post.image.value
                 }
                 
-                postDisposable = post.image.bindTo(postImageView.bnd_image)                
+                drawingImageView.image = post.drawingImage.value                
+                drawingImageView.hidden = post.drawingFile == nil
+                
+                postDisposable = post.image.bindTo(postImageView.bnd_image)
+                drawingDisposable = post.drawingImage.observeNew({ (newImage) -> () in
+                    self.drawingImageView.image = newImage
+                    self.drawingImageView.hidden = post.drawingFile == nil
+                })
                 
                 likeDisposable = post.likes.observe { (value: [PFUser]?) -> () in
                     if let value = value {

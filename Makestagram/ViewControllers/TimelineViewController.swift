@@ -65,95 +65,61 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
     func showActionSheetForPost(post: Post, cell: PostTableViewCell) {
         let message = NSLocalizedString("What you want to do with this post?", comment: "Message of alert controller in timeline")
         let editTitle = NSLocalizedString("Edit", comment: "Edit photo in timeline")
-        if #available(iOS 8.0, *) {
-            let alertController = UIAlertController(title: nil, message: message, preferredStyle: .ActionSheet)
-            
-            let editAction = UIAlertAction(title: editTitle, style: .Default) { (action) -> Void in
+        
+        let alertController = PSTAlertController(title: nil, message: message, preferredStyle: .ActionSheet)
+        let editAction = PSTAlertAction(title: editTitle, style: .Default) { (action) -> Void in
+            if cell.postImageView.image != nil {
                 self.performSegueWithIdentifier("DrawingSegue", sender: cell)
-            }
-            alertController.addAction(editAction)
-            
-            if (post.user == PFUser.currentUser()) {
-                alertController.addAction(deleteActionSheetForPost(post))
             } else {
-                alertController.addAction(flagActionSheetForPost(post))
+                ErrorHandling.defaultErrorHandler(NSLocalizedString("Sorry. There is no image for this post", comment: "No image in post error"))
             }
-            
-            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-            alertController.addAction(cancelAction)
-            self.presentViewController(alertController, animated: true, completion: nil)
+        }
+        alertController.addAction(editAction)
+        
+        if post.user == PFUser.currentUser() {
+            let destroyAction = PSTAlertAction(title: NSLocalizedString("Delete", comment: "Delete title"), style: .Destructive, handler: { (action) -> Void in
+                post.deleteInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
+                    if (success) {
+                        self.timelineComponent.removeObject(post)
+                    } else {
+                        // restore old state
+                        
+                        self.tableView.reloadData()
+                    }
+                })
+            })
+            alertController.addAction(destroyAction)
         } else {
-            // Fallback on earlier versions
-            
-            let alertController = PSTAlertController(title: nil, message: message, preferredStyle: .ActionSheet)
-            let editAction = PSTAlertAction(title: editTitle, style: .Default, handler: { (action) -> Void in
-                self.performSegueWithIdentifier("DrawingSegue", sender: cell)
+            let destroyAction = PSTAlertAction(title: NSLocalizedString("Flag", comment: "Flag title"), style: .Destructive, handler: { (action) -> Void in
+                post.flagPost(PFUser.currentUser()!)
             })
-            alertController.addAction(editAction)
-            
-            if post.user == PFUser.currentUser() {
-                let destroyAction = PSTAlertAction(title: NSLocalizedString("Delete", comment: "Delete title"), style: .Destructive, handler: { (action) -> Void in
-                    post.deleteInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
-                        if (success) {
-                            self.timelineComponent.removeObject(post)
-                        } else {
-                            // restore old state
-                            
-                            self.tableView.reloadData()
-                        }
-                    })
-                })
-                alertController.addAction(destroyAction)
-            } else {
-                let destroyAction = PSTAlertAction(title: NSLocalizedString("Flag", comment: "Flag title"), style: .Destructive, handler: { (action) -> Void in
-                    post.flagPost(PFUser.currentUser()!)
-                })
-                alertController.addAction(destroyAction)
-            }
-            
-            let cancelAction = PSTAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel title"), style: .Cancel, handler: nil)
-            alertController.addAction(cancelAction)
-            alertController.showWithSender(nil, arrowDirection: .Any, controller: self, animated: true, completion: nil)
-        }
-    }
-    
-    @available(iOS 8.0, *)
-    func deleteActionSheetForPost(post: Post) -> UIAlertAction {
-        
-        let destroyAction = UIAlertAction(title: "Delete", style: .Destructive) { (action) in
-            post.deleteInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
-                if (success) {
-                    self.timelineComponent.removeObject(post)
-                } else {
-                    // restore old state
-                    
-                    self.tableView.reloadData()
-                }
-            })
-        }
-        return destroyAction
-    }
-    
-    @available(iOS 8.0, *)
-    func flagActionSheetForPost(post: Post) -> UIAlertAction {
-        
-        let destroyAction = UIAlertAction(title: "Flag", style: .Destructive) { (action) in
-            post.flagPost(PFUser.currentUser()!)
+            alertController.addAction(destroyAction)
         }
         
-        return destroyAction
+        let cancelAction = PSTAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel title"), style: .Cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        alertController.showWithSender(nil, arrowDirection: .Any, controller: self, animated: true, completion: nil)
     }
     
-    func updatePost(image: UIImage) {
+    //MARK: Saving drawings
+    func updateDrawing(image: UIImage?) {
         if pickedCell != nil {
-            pickedCell!.post!.image.value = image
-            pickedCell!.post!.uploadPost()
-            pickedCell!.postImageView?.setNeedsDisplay()
+            pickedCell!.post!.drawingImage.value = image
+            pickedCell!.post!.uploadDrawing()
         }
     }
 
     
     // MARK: - Navigation
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+        if identifier == "DrawingSegue" {
+            if let pickedCell = sender as? PostTableViewCell {
+                return pickedCell.postImageView.image != nil
+            }
+        }
+        return true
+    }
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -163,7 +129,8 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
             let destViewC = segue.destinationViewController as! DrawingViewController
             pickedCell = sender as? PostTableViewCell
             destViewC.image = pickedCell?.postImageView.image
-            destViewC.saveCallback = self.updatePost
+            destViewC.drawing = pickedCell?.drawingImageView.image
+            destViewC.saveDrawingCallback = self.updateDrawing
         }
     }
     
