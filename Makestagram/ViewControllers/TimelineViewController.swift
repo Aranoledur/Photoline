@@ -17,6 +17,7 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
     let defaultRange = 0...4
     let additionalRangeSize = 5
     var timelineComponent: TimelineComponent<Post, TimelineViewController>!
+    var pickedCell: PostTableViewCell?
 
 
     override func viewDidLoad() {
@@ -142,6 +143,14 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
         
         return destroyAction
     }
+    
+    func updatePost(image: UIImage) {
+        if pickedCell != nil {
+            pickedCell!.post!.image.value = image
+            pickedCell!.post!.uploadPost()
+            pickedCell!.postImageView?.setNeedsDisplay()
+        }
+    }
 
     
     // MARK: - Navigation
@@ -151,11 +160,10 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if segue.identifier == "DrawingSegue" {
-//            let navigationC = segue.destinationViewController as! UINavigationController
-//            let destViewC = navigationC.topViewController as! DrawingViewController
             let destViewC = segue.destinationViewController as! DrawingViewController
-            let pickedCell = sender as! PostTableViewCell
-            destViewC.image = pickedCell.postImageView.image
+            pickedCell = sender as? PostTableViewCell
+            destViewC.image = pickedCell?.postImageView.image
+            destViewC.saveCallback = self.updatePost
         }
     }
     

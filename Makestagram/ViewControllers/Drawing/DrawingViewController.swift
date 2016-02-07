@@ -9,6 +9,8 @@
 import UIKit
 import Color_Picker_for_iOS
 
+typealias SaveCallback = UIImage -> Void
+
 class DrawingViewController: UIViewController {
 
     @IBOutlet weak var drawingView: SmoothedBIView!
@@ -17,9 +19,11 @@ class DrawingViewController: UIViewController {
     @IBOutlet weak var colorButton: UIButton!
     @IBOutlet var customColorButtons: [UIButton]!
     @IBOutlet weak var baseImageView: UIImageView!
+    var saveCallback: SaveCallback?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let currentTime = NSDate().timeIntervalSince1970
 
         // Do any additional setup after loading the view.
         baseImageView.image = self.image
@@ -39,6 +43,9 @@ class DrawingViewController: UIViewController {
             button.setImage(newImage, forState: .Normal)
             button.tintColor = colorsArray[index]
         }
+        
+        let duration = NSDate().timeIntervalSince1970 - currentTime
+        print("it takes \(duration)")
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,7 +55,7 @@ class DrawingViewController: UIViewController {
     
     func saveImage() -> UIImage {
         UIGraphicsBeginImageContextWithOptions(drawingView.bounds.size, false, 0.0)
-        baseImageView.image?.drawAtPoint(CGPointZero)
+        baseImageView.image?.drawInRect(drawingView.bounds)
         drawingView.incrementalImage?.drawAtPoint(CGPointZero)
         let resultImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -85,7 +92,8 @@ class DrawingViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(sender: AnyObject) {
-        
+        saveCallback?(self.saveImage())
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     

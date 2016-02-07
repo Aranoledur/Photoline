@@ -25,11 +25,11 @@ class PhotoTakingHelper: NSObject {
     }
     
     func pushModalViewController(newViewController: UIViewController) {
-        viewController.presentedViewController!.presentViewController(newViewController, animated: true, completion: nil)
+        imagePickerController!.presentViewController(newViewController, animated: true, completion: nil)
     }
     
     func popModalViewController() {
-        viewController.dismissViewControllerAnimated(false, completion: nil)
+        imagePickerController!.dismissViewControllerAnimated(false, completion: nil)
     }
     
     func showPhotoSourceSelection() {
@@ -68,11 +68,11 @@ extension PhotoTakingHelper: UIImagePickerControllerDelegate, UINavigationContro
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         let filterViewController = FilterViewController(image: image)
         filterViewController.delegate = self
-        pushModalViewController(filterViewController)
+        imagePickerController?.presentViewController(filterViewController, animated: true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        popModalViewController()
+        viewController.dismissViewControllerAnimated(true, completion: nil)
     }
     
 }
@@ -86,7 +86,7 @@ extension PhotoTakingHelper: FilterViewControllerDelegate {
     }
     
     func filterViewControllerCancelled(controller: FilterViewController) {
-        popModalViewController()
+        imagePickerController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
 }
