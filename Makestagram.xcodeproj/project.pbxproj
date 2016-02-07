@@ -69,6 +69,7 @@
 		947FF1351C666BFF00C8BC34 /* UIColor+NEOColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 947FF1291C666BFF00C8BC34 /* UIColor+NEOColor.m */; };
 		947FF13C1C666CCD00C8BC34 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947FF13B1C666CCD00C8BC34 /* ColorPickerViewController.swift */; };
 		947FF13E1C666F7900C8BC34 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947FF13D1C666F7900C8BC34 /* RoundedButton.swift */; };
+		94F5C4221C679057005C34A7 /* PSTAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F5C4211C679057005C34A7 /* PSTAlertController.m */; };
 		E4B652F55100FA97C51CD19C /* Pods_Makestagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DF936EDC3BDB60ACD8B90F4 /* Pods_Makestagram.framework */; };
 /* End PBXBuildFile section */
 
@@ -242,6 +243,8 @@
 		947FF1291C666BFF00C8BC34 /* UIColor+NEOColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+NEOColor.m"; sourceTree = "<group>"; };
 		947FF13B1C666CCD00C8BC34 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		947FF13D1C666F7900C8BC34 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		94F5C4201C679057005C34A7 /* PSTAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTAlertController.h; sourceTree = "<group>"; };
+		94F5C4211C679057005C34A7 /* PSTAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTAlertController.m; sourceTree = "<group>"; };
 		975720C663743870BA6E7429 /* Pods-Makestagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Makestagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Makestagram/Pods-Makestagram.release.xcconfig"; sourceTree = "<group>"; };
 		ADFB553C58DAA10FB64B2849 /* Pods-Makestagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Makestagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Makestagram/Pods-Makestagram.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -403,6 +406,7 @@
 		62C8C1E21B06BD6500DC3EA7 /* Makestagram */ = {
 			isa = PBXGroup;
 			children = (
+				94F5C41F1C679057005C34A7 /* PSTAlertController */,
 				947FF1161C666BFF00C8BC34 /* NEOPickerSources */,
 				947082DA1C5D2463006EC322 /* Models */,
 				947082D61C5C1704006EC322 /* PhotoTaking */,
@@ -539,6 +543,15 @@
 				947FF1291C666BFF00C8BC34 /* UIColor+NEOColor.m */,
 			);
 			path = NEOPickerSources;
+			sourceTree = "<group>";
+		};
+		94F5C41F1C679057005C34A7 /* PSTAlertController */ = {
+			isa = PBXGroup;
+			children = (
+				94F5C4201C679057005C34A7 /* PSTAlertController.h */,
+				94F5C4211C679057005C34A7 /* PSTAlertController.m */,
+			);
+			path = PSTAlertController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -792,6 +805,7 @@
 				947082D81C5C1729006EC322 /* PhotoTakingHelper.swift in Sources */,
 				947082D11C5C0DA4006EC322 /* PhotoViewController.swift in Sources */,
 				947FF13E1C666F7900C8BC34 /* RoundedButton.swift in Sources */,
+				94F5C4221C679057005C34A7 /* PSTAlertController.m in Sources */,
 				947FF0821C65F99F00C8BC34 /* SmoothedBIView.swift in Sources */,
 				62C8C1E61B06BD6500DC3EA7 /* AppDelegate.swift in Sources */,
 				947082E91C5E91C4006EC322 /* FriendSearchTableViewCell.swift in Sources */,
@@ -954,7 +968,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Makestagram/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.easyverzilla.drawgram;
@@ -980,7 +994,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Makestagram/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.easyverzilla.drawgram;

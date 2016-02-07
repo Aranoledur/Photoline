@@ -62,24 +62,61 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
     // MARK: UIActionSheets
     
     func showActionSheetForPost(post: Post, cell: PostTableViewCell) {
-        let alertController = UIAlertController(title: nil, message: "What you want to do with this post?", preferredStyle: .ActionSheet)
-        
-        let editAction = UIAlertAction(title: NSLocalizedString("Edit", comment: "Edit photo in timeline"), style: .Default) { (action) -> Void in
-            self.performSegueWithIdentifier("DrawingSegue", sender: cell)
-        }
-        alertController.addAction(editAction)
-        
-        if (post.user == PFUser.currentUser()) {
-            alertController.addAction(deleteActionSheetForPost(post))
+        let message = NSLocalizedString("What you want to do with this post?", comment: "Message of alert controller in timeline")
+        let editTitle = NSLocalizedString("Edit", comment: "Edit photo in timeline")
+        if #available(iOS 8.0, *) {
+            let alertController = UIAlertController(title: nil, message: message, preferredStyle: .ActionSheet)
+            
+            let editAction = UIAlertAction(title: editTitle, style: .Default) { (action) -> Void in
+                self.performSegueWithIdentifier("DrawingSegue", sender: cell)
+            }
+            alertController.addAction(editAction)
+            
+            if (post.user == PFUser.currentUser()) {
+                alertController.addAction(deleteActionSheetForPost(post))
+            } else {
+                alertController.addAction(flagActionSheetForPost(post))
+            }
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+            alertController.addAction(cancelAction)
+            self.presentViewController(alertController, animated: true, completion: nil)
         } else {
-            alertController.addAction(flagActionSheetForPost(post))
+            // Fallback on earlier versions
+            
+            let alertController = PSTAlertController(title: nil, message: message, preferredStyle: .ActionSheet)
+            let editAction = PSTAlertAction(title: editTitle, style: .Default, handler: { (action) -> Void in
+                self.performSegueWithIdentifier("DrawingSegue", sender: cell)
+            })
+            alertController.addAction(editAction)
+            
+            if post.user == PFUser.currentUser() {
+                let destroyAction = PSTAlertAction(title: NSLocalizedString("Delete", comment: "Delete title"), style: .Destructive, handler: { (action) -> Void in
+                    post.deleteInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
+                        if (success) {
+                            self.timelineComponent.removeObject(post)
+                        } else {
+                            // restore old state
+                            
+                            self.tableView.reloadData()
+                        }
+                    })
+                })
+                alertController.addAction(destroyAction)
+            } else {
+                let destroyAction = PSTAlertAction(title: NSLocalizedString("Flag", comment: "Flag title"), style: .Destructive, handler: { (action) -> Void in
+                    post.flagPost(PFUser.currentUser()!)
+                })
+                alertController.addAction(destroyAction)
+            }
+            
+            let cancelAction = PSTAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel title"), style: .Cancel, handler: nil)
+            alertController.addAction(cancelAction)
+            alertController.showWithSender(nil, arrowDirection: .Any, controller: self, animated: true, completion: nil)
         }
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-        alertController.addAction(cancelAction)
-        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
+    @available(iOS 8.0, *)
     func deleteActionSheetForPost(post: Post) -> UIAlertAction {
         
         let destroyAction = UIAlertAction(title: "Delete", style: .Destructive) { (action) in
@@ -96,6 +133,7 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
         return destroyAction
     }
     
+    @available(iOS 8.0, *)
     func flagActionSheetForPost(post: Post) -> UIAlertAction {
         
         let destroyAction = UIAlertAction(title: "Flag", style: .Destructive) { (action) in

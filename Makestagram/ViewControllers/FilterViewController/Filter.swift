@@ -9,9 +9,9 @@
 import UIKit
 
 struct Filter {
-  let filterName: String
-  let filterFunction: UIImage -> UIImage
-  let filterPreviewImageFile: String
+    let filterName: String
+    let filterFunction: UIImage -> UIImage
+    let filterPreviewImageFile: String
 }
 
 let context = CIContext(options:nil)
@@ -19,53 +19,52 @@ let context = CIContext(options:nil)
 // MARK: Filters
 
 func applyFilter(filter: CIFilter, toImage image: UIImage) -> UIImage {
-  let originalOrientation = image.imageOrientation;
-  let originalScale = image.scale
-  
-  let cgimg = context.createCGImage(filter.outputImage!, fromRect: filter.outputImage!.extent)
-  
-  return UIImage(CGImage: cgimg, scale: originalScale, orientation: originalOrientation)
+    let originalOrientation = image.imageOrientation;
+    let originalScale = image.scale
+    
+    let cgimg = context.createCGImage(filter.outputImage!, fromRect: filter.outputImage!.extent)
+    
+    return UIImage(CGImage: cgimg, scale: originalScale, orientation: originalOrientation)
 }
 
 func sepiaFilter(image: UIImage) -> UIImage {
-  let beginImage = CIImage(image: image)
-  let filter = CIFilter(name: "CISepiaTone")
-  filter!.setValue(beginImage, forKey: kCIInputImageKey)
-  filter!.setValue(0.5, forKey: kCIInputIntensityKey)
-  
-  return applyFilter(filter!, toImage:image)
+    let beginImage = CIImage(image: image)
+    let filter = CIFilter(name: "CISepiaTone")
+    filter!.setValue(beginImage, forKey: kCIInputImageKey)
+    filter!.setValue(0.5, forKey: kCIInputIntensityKey)
+    
+    return applyFilter(filter!, toImage:image)
 }
 
 func vignetteFilter(image: UIImage) -> UIImage {
-  let beginImage = CIImage(image: image)
-
-  var parameters = [String : AnyObject]()
-  parameters[kCIInputRadiusKey] = 0.7
-  parameters[kCIInputIntensityKey] = 20
-  parameters[kCIInputImageKey] = beginImage
-  let filter = CIFilter(name: "CIVignette", withInputParameters: parameters)
-  
-  return applyFilter(filter!, toImage:image)
+    let beginImage = CIImage(image: image)
+    
+    let filter = CIFilter(name: "CIVignette")
+    
+    filter!.setValue(0.7, forKey: kCIInputRadiusKey)
+    filter!.setValue(20, forKey: kCIInputIntensityKey)
+    filter!.setValue(beginImage, forKey: kCIInputImageKey)
+    
+    return applyFilter(filter!, toImage:image)
 }
 
 func vibranceFilter(image: UIImage) -> UIImage {
-  let beginImage = CIImage(image: image)
-  
-  var parameters = [String : AnyObject]()
-  parameters[kCIInputImageKey] = beginImage
-  parameters["inputAmount"] = 3
-  let filter = CIFilter(name: "CIVibrance", withInputParameters: parameters)
+    let beginImage = CIImage(image: image)
     
-  return applyFilter(filter!, toImage:image)
+    let filter = CIFilter(name: "CIVibrance")
+    filter!.setValue(beginImage, forKey: kCIInputImageKey)
+    filter!.setValue(3, forKey: "inputAmount")
+    
+    return applyFilter(filter!, toImage:image)
 }
 
 func noFilter(image: UIImage) -> UIImage {
-  return image
+    return image
 }
 
 struct Filters {
-  static let NoFilter = Filter(filterName: "None", filterFunction: noFilter, filterPreviewImageFile: "filter_normal.png")
-  static let SepiaFilter = Filter(filterName: "Sepia", filterFunction: sepiaFilter, filterPreviewImageFile: "filter_sepia.png")
-  static let VignetteFilter = Filter(filterName: "Vignette",  filterFunction: vignetteFilter, filterPreviewImageFile: "filter_vignette.png")
-  static let VibranceFilter = Filter(filterName: "Vibrance",  filterFunction: vibranceFilter, filterPreviewImageFile: "filter_vibrant.png")
+    static let NoFilter = Filter(filterName: "None", filterFunction: noFilter, filterPreviewImageFile: "filter_normal.png")
+    static let SepiaFilter = Filter(filterName: "Sepia", filterFunction: sepiaFilter, filterPreviewImageFile: "filter_sepia.png")
+    static let VignetteFilter = Filter(filterName: "Vignette",  filterFunction: vignetteFilter, filterPreviewImageFile: "filter_vignette.png")
+    static let VibranceFilter = Filter(filterName: "Vibrance",  filterFunction: vibranceFilter, filterPreviewImageFile: "filter_vibrant.png")
 }
