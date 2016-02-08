@@ -138,15 +138,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="470" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZKS-XK-wpo">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="460" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZKS-XK-wpo">
                                 <rect key="frame" x="0.0" y="20" width="600" height="531"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="470" id="585-Vg-WJU" customClass="PostTableViewCell" customModule="Makestagram" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="470"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="440" id="585-Vg-WJU" customClass="PostTableViewCell" customModule="Makestagram" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="440"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="585-Vg-WJU" id="lVE-tX-6OL">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="470"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="440"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="53d-jB-ScN">
@@ -162,7 +162,7 @@
                                                     </variation>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0H0-Gn-iLn">
-                                                    <rect key="frame" x="552" y="402" width="44" height="44"/>
+                                                    <rect key="frame" x="552" y="660" width="44" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="44" id="1hy-iz-1Ik"/>
                                                         <constraint firstAttribute="height" constant="44" id="Dt1-C0-yMg"/>
@@ -175,7 +175,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FmA-dn-qAs">
-                                                    <rect key="frame" x="8" y="408" width="44" height="44"/>
+                                                    <rect key="frame" x="8" y="660" width="44" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="Otb-br-MeK"/>
                                                         <constraint firstAttribute="width" constant="44" id="RTn-LM-uLd"/>
@@ -186,14 +186,14 @@
                                                     </connections>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="B3N-aH-rM7">
-                                                    <rect key="frame" x="20" y="368" width="20" height="20"/>
+                                                    <rect key="frame" x="20" y="620" width="20" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="fiB-Ah-0Jg"/>
                                                         <constraint firstAttribute="width" constant="20" id="qJf-eS-wN3"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOg-sA-PfQ">
-                                                    <rect key="frame" x="60" y="367" width="482" height="21"/>
+                                                    <rect key="frame" x="60" y="619" width="482" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="OdL-2I-hxk"/>
                                                     </constraints>
@@ -217,21 +217,39 @@
                                                 <constraint firstItem="zOg-sA-PfQ" firstAttribute="leading" secondItem="B3N-aH-rM7" secondAttribute="trailing" constant="20" id="6ox-zV-v8b"/>
                                                 <constraint firstItem="T6c-1K-csy" firstAttribute="height" secondItem="53d-jB-ScN" secondAttribute="height" id="BLh-yv-pBZ"/>
                                                 <constraint firstItem="53d-jB-ScN" firstAttribute="top" secondItem="lVE-tX-6OL" secondAttribute="top" id="CSb-nC-VXY"/>
+                                                <constraint firstItem="0H0-Gn-iLn" firstAttribute="centerY" secondItem="FmA-dn-qAs" secondAttribute="centerY" id="J3A-JG-ob0"/>
                                                 <constraint firstItem="T6c-1K-csy" firstAttribute="leading" secondItem="lVE-tX-6OL" secondAttribute="leading" id="JuB-yx-tlp"/>
                                                 <constraint firstItem="FmA-dn-qAs" firstAttribute="top" secondItem="B3N-aH-rM7" secondAttribute="bottom" constant="20" id="L65-A9-4Ma"/>
+                                                <constraint firstItem="FmA-dn-qAs" firstAttribute="top" secondItem="B3N-aH-rM7" secondAttribute="bottom" constant="20" id="Lut-lq-rgL"/>
                                                 <constraint firstItem="53d-jB-ScN" firstAttribute="leading" secondItem="lVE-tX-6OL" secondAttribute="leading" id="Oyj-KC-VRB"/>
                                                 <constraint firstItem="FmA-dn-qAs" firstAttribute="leading" secondItem="lVE-tX-6OL" secondAttribute="leadingMargin" id="WKS-rO-fOn"/>
                                                 <constraint firstAttribute="trailing" secondItem="53d-jB-ScN" secondAttribute="trailing" id="X6p-BE-mwX"/>
                                                 <constraint firstItem="0H0-Gn-iLn" firstAttribute="trailing" secondItem="lVE-tX-6OL" secondAttribute="trailingMargin" constant="4" id="XJA-Ki-nKs"/>
+                                                <constraint firstItem="B3N-aH-rM7" firstAttribute="top" secondItem="53d-jB-ScN" secondAttribute="bottom" constant="20" id="aX6-R7-6Lt"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="FmA-dn-qAs" secondAttribute="bottom" constant="10" id="cWK-qx-IIA"/>
                                                 <constraint firstItem="T6c-1K-csy" firstAttribute="top" secondItem="lVE-tX-6OL" secondAttribute="top" id="cdz-3T-Qb8"/>
                                                 <constraint firstAttribute="trailing" secondItem="T6c-1K-csy" secondAttribute="trailing" id="fHO-iF-dY8"/>
+                                                <constraint firstItem="B3N-aH-rM7" firstAttribute="top" relation="lessThanOrEqual" secondItem="53d-jB-ScN" secondAttribute="bottom" constant="30" id="jZe-BV-Db0"/>
+                                                <constraint firstItem="zOg-sA-PfQ" firstAttribute="centerY" secondItem="B3N-aH-rM7" secondAttribute="centerY" id="lpf-0N-3Ea"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="0H0-Gn-iLn" secondAttribute="bottom" constant="16" id="lpi-SD-INv"/>
+                                                <constraint firstItem="B3N-aH-rM7" firstAttribute="top" secondItem="53d-jB-ScN" secondAttribute="bottom" constant="10" id="nHJ-xb-OWc"/>
                                                 <constraint firstItem="FmA-dn-qAs" firstAttribute="top" secondItem="zOg-sA-PfQ" secondAttribute="bottom" constant="20" id="tgj-gg-kwD"/>
                                                 <constraint firstItem="B3N-aH-rM7" firstAttribute="leading" secondItem="lVE-tX-6OL" secondAttribute="leadingMargin" constant="12" id="uCN-cY-Ntl"/>
                                                 <constraint firstItem="T6c-1K-csy" firstAttribute="width" secondItem="53d-jB-ScN" secondAttribute="width" id="x53-wB-JfI"/>
+                                                <constraint firstItem="B3N-aH-rM7" firstAttribute="top" relation="greaterThanOrEqual" secondItem="53d-jB-ScN" secondAttribute="bottom" constant="10" id="yKz-lo-FDI"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="zOg-sA-PfQ" secondAttribute="trailing" constant="50" id="zdZ-zc-fpY"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="jZe-BV-Db0"/>
+                                                    <exclude reference="nHJ-xb-OWc"/>
+                                                    <exclude reference="yKz-lo-FDI"/>
+                                                    <exclude reference="L65-A9-4Ma"/>
+                                                    <exclude reference="cWK-qx-IIA"/>
+                                                    <exclude reference="tgj-gg-kwD"/>
+                                                    <exclude reference="lpi-SD-INv"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="drawingImageView" destination="T6c-1K-csy" id="GbS-Ku-GR0"/>
@@ -243,7 +261,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PostHeader" rowHeight="40" id="GIi-dZ-QBC" customClass="PostSectionHeaderView" customModule="Makestagram" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="498" width="600" height="40"/>
+                                        <rect key="frame" x="0.0" y="468" width="600" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GIi-dZ-QBC" id="UaC-HW-csm">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="40"/>
@@ -323,10 +341,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZJp-OP-bCL">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZJp-OP-bCL">
                                 <rect key="frame" x="0.0" y="50" width="600" height="600"/>
                             </imageView>
-                            <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0lF-Ej-o0a" customClass="SmoothedBIView" customModule="Makestagram" customModuleProvider="target">
+                            <view opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="0lF-Ej-o0a" customClass="SmoothedBIView" customModule="Makestagram" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="600" height="600"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="344" id="4Zf-FC-RnX"/>
@@ -509,7 +527,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yo7-jo-r3L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="535" y="-264"/>
+            <point key="canvasLocation" x="540" y="-235"/>
         </scene>
         <!--Color Picker View Controller-->
         <scene sceneID="tRZ-1G-ita">

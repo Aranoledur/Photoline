@@ -33,8 +33,7 @@ class DrawingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let currentTime = NSDate().timeIntervalSince1970
-
+        
         baseImageView.image = self.image
         drawingView.currentColor = self.image!.areaAverage()
         drawingView.incrementalImage = self.drawing
@@ -54,9 +53,6 @@ class DrawingViewController: UIViewController {
             button.setImage(newImage, forState: .Normal)
             button.tintColor = colorsArray[index]
         }
-        
-        let duration = NSDate().timeIntervalSince1970 - currentTime
-        print("it takes \(duration)")
         
         self.ringImageView = UIImageView(frame: colorButton.frame)
         self.ringImageView.image = UIImage(named: "ring")

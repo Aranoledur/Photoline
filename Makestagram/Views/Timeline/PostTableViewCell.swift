@@ -48,9 +48,9 @@ class PostTableViewCell: UITableViewCell {
                 drawingImageView.hidden = post.drawingFile == nil
                 
                 postDisposable = post.image.bindTo(postImageView.bnd_image)
-                drawingDisposable = post.drawingImage.observeNew({ (newImage) -> () in
+                drawingDisposable = post.drawingImage.observe({ (newImage) -> () in
                     self.drawingImageView.image = newImage
-                    self.drawingImageView.hidden = post.drawingFile == nil
+                    self.drawingImageView.hidden = newImage == nil
                 })
                 
                 likeDisposable = post.likes.observe { (value: [PFUser]?) -> () in

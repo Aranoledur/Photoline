@@ -27,7 +27,9 @@ class Post : PFObject, PFSubclassing {
     @NSManaged var drawingFile: PFFile?
     
     func uploadPost() {
-        
+        //TODO: table for drawings
+        self.ACL?.publicWriteAccess = true
+
         if let image = image.value {
             
             photoUploadTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler {
@@ -49,6 +51,7 @@ class Post : PFObject, PFSubclassing {
     }
     
     func uploadDrawing() {
+        
         if let drawingImage = drawingImage.value {
             drawingUploadTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler({ () -> Void in
                 UIApplication.sharedApplication().endBackgroundTask(self.drawingUploadTask!)
