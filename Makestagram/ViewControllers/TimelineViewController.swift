@@ -52,7 +52,7 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
     func loadInRange(range: Range<Int>, completionBlock: ([Post]?) -> Void) {
         // 1
         ParseHelper.timelineRequestForCurrentUser(range) {
-            (result: [AnyObject]?, error: NSError?) -> Void in
+            (result: [PFObject]?, error: NSError?) -> Void in
             // 2
             let posts = result as? [Post] ?? []
             // 3

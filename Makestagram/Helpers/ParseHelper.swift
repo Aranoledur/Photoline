@@ -34,7 +34,7 @@ class ParseHelper {
     static let ParseUserUsername      = "username"
     
     // 2
-    static func timelineRequestForCurrentUser(range: Range<Int>, completionBlock: PFArrayResultBlock) {
+    static func timelineRequestForCurrentUser(range: Range<Int>, completionBlock: PFQueryArrayResultBlock) {
         let followingQuery = PFQuery(className: ParseFollowClass)
         followingQuery.whereKey(ParseLikeFromUser, equalTo:PFUser.currentUser()!)
         
@@ -56,7 +56,7 @@ class ParseHelper {
         query.findObjectsInBackgroundWithBlock(completionBlock)
     }
     
-    static func likesForPost(post: Post, completionBlock: PFArrayResultBlock) {
+    static func likesForPost(post: Post, completionBlock: PFQueryArrayResultBlock) {
         let likesQuery = PFQuery(className: ParseLikeClass)
         likesQuery.whereKey(ParseLikeToPost, equalTo: post)
         
@@ -78,11 +78,11 @@ class ParseHelper {
         likeQuery.whereKey(ParseLikeFromUser, equalTo:user)
         likeQuery.whereKey(ParseLikeToPost, equalTo: post)
         
-        likeQuery.findObjectsInBackgroundWithBlock { (results: [AnyObject]?, error: NSError?) -> Void in
+        likeQuery.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
             if let error = error {
                 ErrorHandling.defaultErrorHandler(error)
             }
-            if let results = results as? [PFObject] {
+            if let results = results {
                 for likes in results {
                     likes.deleteInBackgroundWithBlock(ErrorHandling.errorHandlingCallback)
                 }
@@ -98,7 +98,7 @@ class ParseHelper {
     :param: user The user whose followees you want to retrieve
     :param: completionBlock The completion block that is called when the query completes
     */
-    static func getFollowingUsersForUser(user: PFUser, completionBlock: PFArrayResultBlock) {
+    static func getFollowingUsersForUser(user: PFUser, completionBlock: PFQueryArrayResultBlock) {
         let query = PFQuery(className: ParseFollowClass)
         
         query.whereKey(ParseFollowFromUser, equalTo:user)
@@ -131,9 +131,9 @@ class ParseHelper {
         query.whereKey(ParseFollowToUser, equalTo: toUser)
         
         query.findObjectsInBackgroundWithBlock {
-            (results: [AnyObject]?, error: NSError?) -> Void in
+            (results: [PFObject]?, error: NSError?) -> Void in
             
-            let results = results as? [PFObject] ?? []
+            let results = results ?? []
             
             for follow in results {
                 follow.deleteInBackgroundWithBlock(nil)
@@ -149,7 +149,7 @@ class ParseHelper {
         flagObject.setObject(post, forKey: ParseFlaggedContentToPost)
         
         let ACL = PFACL(user: PFUser.currentUser()!)
-        ACL.setPublicReadAccess(true)
+        ACL.publicReadAccess = true
         flagObject.ACL = ACL
         
         //TODO: add error handling
@@ -166,7 +166,7 @@ class ParseHelper {
     
     :returns: The generated PFQuery
     */
-    static func allUsers(completionBlock: PFArrayResultBlock) -> PFQuery {
+    static func allUsers(completionBlock: PFQueryArrayResultBlock) -> PFQuery {
         let query = PFUser.query()!
         // exclude the current user
         query.whereKey(ParseHelper.ParseUserUsername,
@@ -187,7 +187,7 @@ class ParseHelper {
      
      :returns: The generated PFQuery
      */
-    static func searchUsers(searchText: String, completionBlock: PFArrayResultBlock)
+    static func searchUsers(searchText: String, completionBlock: PFQueryArrayResultBlock)
         -> PFQuery {
             /*
             NOTE: We are using a Regex to allow for a case insensitive compare of usernames.

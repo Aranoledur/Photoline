@@ -10,6 +10,7 @@ import UIKit
 import Parse
 import FBSDKCoreKit
 import ParseUI
+import ParseFacebookUtilsV4
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -45,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId("8tBaS1E9tebX8kAduktWhNn5JrqGqRRHR5fsBI5s", clientKey: "43JZlYwbL9lVrd2vg1pDW9RZImDT9ad3FboVCYsH")
         
         let acl = PFACL()
-        acl.setPublicReadAccess(true)
+        acl.publicReadAccess = true
         PFACL.setDefaultACL(acl, withAccessForCurrentUser: true)
         
         // Initialize Facebook

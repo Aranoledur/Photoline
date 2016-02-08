@@ -37,7 +37,7 @@ class Post : PFObject, PFSubclassing {
             
             let imageData = UIImageJPEGRepresentation(image, 0.8)
             let imageFile = PFFile(data: imageData!)
-            imageFile.saveInBackgroundWithBlock(nil)
+            imageFile!.saveInBackgroundWithBlock(nil)
             
             user = PFUser.currentUser()
             self.imageFile = imageFile
@@ -56,7 +56,7 @@ class Post : PFObject, PFSubclassing {
             
             let drawingData = UIImagePNGRepresentation(drawingImage)
             let drawingFile = PFFile(data: drawingData!)
-            drawingFile.saveInBackgroundWithBlock(nil)
+            drawingFile!.saveInBackgroundWithBlock(nil)
             
             self.drawingFile = drawingFile
             saveInBackgroundWithBlock({ (success, error) -> Void in
@@ -103,13 +103,12 @@ class Post : PFObject, PFSubclassing {
         }
         
         // 2
-        ParseHelper.likesForPost(self, completionBlock: { (var likes: [AnyObject]?, error: NSError?) -> Void in
+        ParseHelper.likesForPost(self, completionBlock: { (var likes: [PFObject]?, error: NSError?) -> Void in
             // 3
             likes = likes?.filter { like in like[ParseHelper.ParseLikeFromUser] != nil }
             
             // 4
             self.likes.value = likes?.map { like in
-                let like = like as! PFObject
                 let fromUser = like[ParseHelper.ParseLikeFromUser] as! PFUser
                 
                 return fromUser

@@ -67,7 +67,7 @@ class FriendSearchViewController: UIViewController {
     Is called as the completion block of all queries.
     As soon as a query completes, this method updates the Table View.
     */
-    func updateList(results: [AnyObject]?, error: NSError?) {
+    func updateList(results: [PFObject]?, error: NSError?) {
         self.users = results as? [PFUser] ?? []
         self.tableView.reloadData()
         
@@ -82,8 +82,8 @@ class FriendSearchViewController: UIViewController {
         
         // fill the cache of a user's followees
         ParseHelper.getFollowingUsersForUser(PFUser.currentUser()!) {
-            (results: [AnyObject]?, error: NSError?) -> Void in
-            let relations = results as? [PFObject] ?? []
+            (results: [PFObject]?, error: NSError?) -> Void in
+            let relations = results ?? []
             // use map to extract the User from a Follow object
             self.followingUsers = relations.map {
                 $0.objectForKey(ParseHelper.ParseFollowToUser) as! PFUser
