@@ -19,9 +19,8 @@ class DrawingViewController: UIViewController {
     }
 
     @IBOutlet weak var drawingView: SmoothedBIView!
-    var image: UIImage?
-    var drawing: UIImage?
-    var pickerView: HRColorPickerView?
+    weak var image: UIImage?
+    weak var drawing: UIImage?
     @IBOutlet weak var colorButton: UIButton!
     @IBOutlet var customColorButtons: [UIButton]!
     @IBOutlet weak var baseImageView: UIImageView!

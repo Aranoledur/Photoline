@@ -17,7 +17,7 @@ protocol ColorPickerDelegate: NSObjectProtocol {
 class ColorPickerViewController: UIViewController {
 
     @IBOutlet weak var colorPickerView: HRColorPickerView!
-    var startColor: UIColor?
+    weak var startColor: UIColor?
     weak var delegate: ColorPickerDelegate?
     
     override func viewDidLoad() {

@@ -41,7 +41,7 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
     func takePhoto() {
         // instantiate photo taking class, provide callback for when photo is selected
         photoTakingHelper =
-            PhotoTakingHelper(viewController: self.tabBarController!) { (image: UIImage?) in
+            PhotoTakingHelper(senderView: self.tabBarController!.tabBar, viewController: self.tabBarController!) { (image: UIImage?) in
                 let post = Post()
                 // 1
                 post.image.value = image!
@@ -98,7 +98,7 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
         
         let cancelAction = PSTAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel title"), style: .Cancel, handler: nil)
         alertController.addAction(cancelAction)
-        alertController.showWithSender(nil, arrowDirection: .Any, controller: self, animated: true, completion: nil)
+        alertController.showWithSender(cell.moreButton, arrowDirection: .Any, controller: self, animated: true, completion: nil)
     }
     
     //MARK: Saving drawings

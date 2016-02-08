@@ -14,8 +14,10 @@ class PhotoTakingHelper: NSObject {
     weak var viewController: UIViewController!
     var callback: PhotoTakingHelperCallback
     var imagePickerController: UIImagePickerController?
+    weak var senderView: UIView!
     
-    init(viewController: UIViewController, callback: PhotoTakingHelperCallback) {
+    init(senderView:UIView, viewController: UIViewController, callback: PhotoTakingHelperCallback) {
+        self.senderView = senderView
         self.viewController = viewController
         self.callback = callback
         
@@ -51,7 +53,7 @@ class PhotoTakingHelper: NSObject {
             alertController.addAction(cameraAction)
         }
         
-        alertController.showWithSender(nil, controller: viewController, animated: true, completion: nil)
+        alertController.showWithSender(self.senderView, controller: viewController, animated: true, completion: nil)
     }
     
     func showImagePickerController(sourceType: UIImagePickerControllerSourceType) {
