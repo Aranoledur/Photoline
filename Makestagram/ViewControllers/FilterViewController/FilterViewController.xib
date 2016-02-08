@@ -73,7 +73,7 @@
                     </variation>
                 </navigationBar>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RvB-1L-Nv3">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="320" id="2Ly-M3-fhE"/>
                         <constraint firstAttribute="width" constant="600" id="L3N-h7-kOw"/>
@@ -91,21 +91,28 @@
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="RvB-1L-Nv3" secondAttribute="trailing" id="1YL-82-iEU"/>
                 <constraint firstAttribute="trailing" secondItem="AZ5-sZ-d1m" secondAttribute="trailing" id="56g-mk-aH7"/>
+                <constraint firstItem="RvB-1L-Nv3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="7iv-4v-fvB"/>
                 <constraint firstItem="Czl-YE-buE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="C9d-3G-9oD"/>
                 <constraint firstAttribute="trailing" secondItem="RvB-1L-Nv3" secondAttribute="trailing" id="Dck-J6-aZ0"/>
                 <constraint firstItem="AZ5-sZ-d1m" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Sdk-9A-hf4"/>
                 <constraint firstAttribute="trailing" secondItem="Czl-YE-buE" secondAttribute="trailing" id="Yvx-Fe-aae"/>
+                <constraint firstItem="RvB-1L-Nv3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="aoQ-hv-ckl"/>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="AZ5-sZ-d1m" secondAttribute="bottom" id="eoZ-Ku-hJd"/>
                 <constraint firstItem="Czl-YE-buE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ijS-5x-iWM"/>
                 <constraint firstAttribute="centerY" secondItem="RvB-1L-Nv3" secondAttribute="centerY" id="mZl-Ry-8bW"/>
-                <constraint firstItem="RvB-1L-Nv3" firstAttribute="bottom" secondItem="AZ5-sZ-d1m" secondAttribute="top" priority="999" id="rkL-3M-TBf"/>
+                <constraint firstItem="RvB-1L-Nv3" firstAttribute="top" secondItem="Czl-YE-buE" secondAttribute="bottom" id="ozO-VU-Idu"/>
+                <constraint firstItem="AZ5-sZ-d1m" firstAttribute="top" relation="greaterThanOrEqual" secondItem="RvB-1L-Nv3" secondAttribute="bottom" priority="999" constant="40" id="rkL-3M-TBf"/>
                 <constraint firstItem="RvB-1L-Nv3" firstAttribute="top" secondItem="Czl-YE-buE" secondAttribute="bottom" constant="-64" id="s1e-03-WSy"/>
                 <constraint firstAttribute="centerX" secondItem="RvB-1L-Nv3" secondAttribute="centerX" id="xKl-q8-3OD"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">
+                    <exclude reference="aoQ-hv-ckl"/>
+                    <exclude reference="mZl-Ry-8bW"/>
                     <exclude reference="s1e-03-WSy"/>
+                    <exclude reference="xKl-q8-3OD"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="143" y="333"/>
