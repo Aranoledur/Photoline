@@ -104,6 +104,12 @@ class DrawingViewController: UIViewController {
     }
 
     @IBAction func moreColorsButtonTapped(sender: UIButton) {
+        let pickerController = NEOColorPickerHSLViewController()
+        pickerController.selectedColor = drawingView.currentColor
+        pickerController.delegate = self
+        let navController = UINavigationController(rootViewController: pickerController)
+        navController.navigationBar.tintColor = pickerController.view?.backgroundColor
+        self.presentViewController(navController, animated: true, completion: nil)
     }
     
     @IBAction func eraserButtonTapped(sender: AnyObject) {
@@ -112,12 +118,35 @@ class DrawingViewController: UIViewController {
     }
     
     @IBAction func clearButtonTapped(sender: AnyObject) {
-        self.drawingView.clearDrawing()
+        let alertController = PSTAlertController(title: nil, message: NSLocalizedString("Are you sure you want to clear drawing?", comment: "Clear confirmation"), preferredStyle: .ActionSheet)
+        
+        let clearAction = PSTAlertAction(title: NSLocalizedString("Clear", comment: "Clear title"), style: .Destructive) { (action) -> Void in
+            self.drawingView.clearDrawing()
+
+        }
+        alertController.addAction(clearAction)
+        
+        let cancelAction = PSTAlertAction(title: ConstantStrings.cancelString, style: .Cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        alertController.showWithSender(sender, controller: self, animated: true, completion: nil)
     }
     
     @IBAction func saveButtonTapped(sender: AnyObject) {
         saveDrawingCallback?(self.saveImage())
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    //MARK: custom color picking
+    
+    func colorPicked(color: UIColor) {
+        self.drawingView.currentColor = color
+        self.drawingView.lineWidth = 2.0
+        moreColorsButton.selected = true
+        moreColorsButton.tintColor = color
+        
+        self.ringImagePair.button = moreColorsButton
+        self.ringImageView.center = moreColorsButton.center
     }
     
     
@@ -136,16 +165,26 @@ class DrawingViewController: UIViewController {
 
 }
 
+//MARK: extension NEOColorPickerViewControllerDelegate
+
+extension DrawingViewController: NEOColorPickerViewControllerDelegate {
+    func colorPickerViewController(controller: NEOColorPickerBaseViewController!, didSelectColor color: UIColor!) {
+        colorPicked(color)
+        
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func colorPickerViewControllerDidCancel(controller: NEOColorPickerBaseViewController!) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+        
+    }
+}
+
 //MARK: extension ColorPickerDelegate
 
 extension DrawingViewController: ColorPickerDelegate {
     func colorViewController(controller: UIViewController, didSelectColor: UIColor) {
-        self.drawingView.currentColor = didSelectColor
-        moreColorsButton.selected = true
-        moreColorsButton.tintColor = didSelectColor
-        
-        self.ringImagePair.button = moreColorsButton
-        self.ringImageView.center = moreColorsButton.center
+        colorPicked(didSelectColor)
     }
     
     func colorViewControllerDidCancel(controller: UIViewController) {

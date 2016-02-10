@@ -409,7 +409,7 @@
                                 <state key="normal" image="more"/>
                                 <state key="selected" image="more" backgroundImage="ColorSwatch"/>
                                 <connections>
-                                    <segue destination="VLV-cw-3dv" kind="presentation" identifier="PickColor" id="fMJ-t4-370"/>
+                                    <action selector="moreColorsButtonTapped:" destination="fFH-u0-T1V" eventType="touchUpInside" id="pLN-NS-f8X"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9HY-u5-J5A">
@@ -523,11 +523,12 @@
                         <outletCollection property="customColorButtons" destination="qIL-m4-KqU" collectionClass="NSMutableArray" id="dss-zD-bha"/>
                         <outletCollection property="customColorButtons" destination="SWx-Qj-L8R" collectionClass="NSMutableArray" id="uZ1-Io-K1t"/>
                         <outletCollection property="customColorButtons" destination="i6M-5f-OqY" collectionClass="NSMutableArray" id="n2h-gb-KC4"/>
+                        <segue destination="VLV-cw-3dv" kind="show" identifier="PickColor" id="fGM-Bg-9bz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yo7-jo-r3L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="540" y="-235"/>
+            <point key="canvasLocation" x="556" y="-241"/>
         </scene>
         <!--Color Picker View Controller-->
         <scene sceneID="tRZ-1G-ita">

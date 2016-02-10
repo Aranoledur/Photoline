@@ -7,4 +7,6 @@
 #import <DateTools/DateTools.h>
 #import <Color_Picker_for_iOS/HRColorPickerView.h>
 #import "NEOColorPickerViewController.h"
+#import "NEOColorPickerHSLViewController.h"
+#import "NEOColorPickerHueGridViewController.h"
 #import "PSTAlertController.h"
