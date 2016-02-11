@@ -43,6 +43,7 @@ class Post : PFObject, PFSubclassing {
             
             user = PFUser.currentUser()
             self.imageFile = imageFile
+            self.likes.value = []
             saveInBackgroundWithBlock {
                 (success: Bool, error: NSError?) -> Void in
                 UIApplication.sharedApplication().endBackgroundTask(self.photoUploadTask!)
@@ -91,10 +92,10 @@ class Post : PFObject, PFSubclassing {
     }
     
     func downloadImage() {
-        if let imageFile = imageFile {
+        if let imageFile = imageFile where image.value == nil {
             downloadImage(imageFile, imageObs: &image)
         }
-        if let drawingFile = drawingFile {
+        if let drawingFile = drawingFile where drawingImage.value == nil {
             downloadImage(drawingFile, imageObs: &drawingImage)
         }
     }

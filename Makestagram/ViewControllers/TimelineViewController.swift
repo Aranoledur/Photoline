@@ -25,12 +25,13 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
         
         timelineComponent = TimelineComponent(target: self)
         self.tabBarController?.delegate = self
+        timelineComponent.loadInitialIfRequired()
+        self.tableView.registerNib(UINib(nibName: "PostSectionHeaderFooterView", bundle: nil), forHeaderFooterViewReuseIdentifier: "PostSectionHeaderFooterView")
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-         timelineComponent.loadInitialIfRequired()
     }
     
     override func didReceiveMemoryWarning() {
@@ -40,12 +41,17 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
     
     func takePhoto() {
         // instantiate photo taking class, provide callback for when photo is selected
+        weak var weakSelf = self
         photoTakingHelper =
             PhotoTakingHelper(senderView: self.tabBarController!.tabBar, viewController: self.tabBarController!) { (image: UIImage?) in
                 let post = Post()
                 // 1
                 post.image.value = image!
                 post.uploadPost()
+                weakSelf?.timelineComponent.insertObject(post)
+                weakSelf?.tableView?.beginUpdates()
+                weakSelf?.tableView?.insertSections(NSIndexSet(index: 0), withRowAnimation: .Top)
+                weakSelf?.tableView?.endUpdates()
         }
     }
     
@@ -63,7 +69,7 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
     // MARK: UIActionSheets
     
     func showActionSheetForPost(post: Post, cell: PostTableViewCell) {
-        let message = NSLocalizedString("What you want to do with this post?", comment: "Message of alert controller in timeline")
+        let message = NSLocalizedString("What do you want to do with this post?", comment: "Message of alert controller in timeline")
         let editTitle = NSLocalizedString("Edit", comment: "Edit photo in timeline")
         
         let alertController = PSTAlertController(title: nil, message: message, preferredStyle: .ActionSheet)
@@ -81,10 +87,18 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
                 post.deleteInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
                     if (success) {
                         self.timelineComponent.removeObject(post)
+                        //                        self.tableView?.reloadData()
+                        if let indexPath = self.tableView?.indexPathForCell(cell) {
+                            
+                            self.tableView?.beginUpdates()
+                            self.tableView?.deleteSections(NSIndexSet(index: indexPath.section), withRowAnimation: .Right)
+                            self.tableView?.endUpdates()
+                        }
+                        
                     } else {
                         // restore old state
                         
-                        self.tableView.reloadData()
+                        self.tableView?.reloadData()
                     }
                 })
             })
@@ -150,6 +164,8 @@ extension TimelineViewController : UITabBarControllerDelegate {
     }
 }
 
+//MARK: - Data source
+
 extension TimelineViewController: UITableViewDataSource {
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -174,6 +190,7 @@ extension TimelineViewController: UITableViewDataSource {
     
 }
 
+//MARK: - UITableViewDelegate
 extension TimelineViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -187,7 +204,7 @@ extension TimelineViewController: UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerCell = tableView.dequeueReusableCellWithIdentifier("PostHeader") as! PostSectionHeaderView
+        let headerCell = tableView.dequeueReusableHeaderFooterViewWithIdentifier("PostSectionHeaderFooterView") as! PostSectionHeaderFooterView
         
         let post = self.timelineComponent.content[section]
         headerCell.post = post

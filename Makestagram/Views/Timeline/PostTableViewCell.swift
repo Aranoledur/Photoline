@@ -40,7 +40,7 @@ class PostTableViewCell: UITableViewCell {
             }
             
             if let post = post {
-                if let _ = post.image.value { //if already has an image then update
+                if post.image.value != nil { //if already has an image then update
                     postImageView.image = post.image.value
                 }
                 

@@ -53,6 +53,8 @@
 		9478B56B1C68904B0083024E /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9478B5621C68904B0083024E /* ParseUI.framework */; };
 		9478B56F1C6896EF0083024E /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9478B56E1C6896EF0083024E /* ParseFacebookUtilsV4.framework */; };
 		9478B5711C6A5E230083024E /* ConstantStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9478B5701C6A5E230083024E /* ConstantStrings.swift */; };
+		9478B5741C6CCE130083024E /* PostSectionHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9478B5731C6CCE130083024E /* PostSectionHeaderFooterView.swift */; };
+		9478B5761C6CCE3B0083024E /* PostSectionHeaderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9478B5751C6CCE3B0083024E /* PostSectionHeaderFooterView.xib */; };
 		947FF07F1C65F98700C8BC34 /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947FF07E1C65F98700C8BC34 /* DrawingViewController.swift */; };
 		947FF0821C65F99F00C8BC34 /* SmoothedBIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947FF0811C65F99F00C8BC34 /* SmoothedBIView.swift */; };
 		947FF0881C665DFA00C8BC34 /* UIImage+AvarageColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947FF0871C665DFA00C8BC34 /* UIImage+AvarageColor.swift */; };
@@ -220,6 +222,8 @@
 		9478B5621C68904B0083024E /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseUI.framework; path = Frameworks/ParseUI.framework; sourceTree = "<group>"; };
 		9478B56E1C6896EF0083024E /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtilsV4.framework; path = Frameworks/ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		9478B5701C6A5E230083024E /* ConstantStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstantStrings.swift; sourceTree = "<group>"; };
+		9478B5731C6CCE130083024E /* PostSectionHeaderFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostSectionHeaderFooterView.swift; sourceTree = "<group>"; };
+		9478B5751C6CCE3B0083024E /* PostSectionHeaderFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostSectionHeaderFooterView.xib; sourceTree = "<group>"; };
 		947FF07E1C65F98700C8BC34 /* DrawingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
 		947FF0811C65F99F00C8BC34 /* SmoothedBIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothedBIView.swift; sourceTree = "<group>"; };
 		947FF0871C665DFA00C8BC34 /* UIImage+AvarageColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+AvarageColor.swift"; sourceTree = "<group>"; };
@@ -490,6 +494,8 @@
 			children = (
 				947082E31C5D5B80006EC322 /* PostTableViewCell.swift */,
 				947083281C611251006EC322 /* PostSectionHeaderView.swift */,
+				9478B5731C6CCE130083024E /* PostSectionHeaderFooterView.swift */,
+				9478B5751C6CCE3B0083024E /* PostSectionHeaderFooterView.xib */,
 			);
 			path = Timeline;
 			sourceTree = "<group>";
@@ -727,6 +733,7 @@
 				947FF1301C666BFF00C8BC34 /* NEOColorPickerHSLViewController.xib in Resources */,
 				627718981B0A581700AF5C6E /* FilterViewController.xib in Resources */,
 				62C8C1ED1B06BD6500DC3EA7 /* Images.xcassets in Resources */,
+				9478B5761C6CCE3B0083024E /* PostSectionHeaderFooterView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -796,6 +803,7 @@
 				627718901B0A581600AF5C6E /* Filter.swift in Sources */,
 				947FF12B1C666BFF00C8BC34 /* NEOColorPickerBaseViewController.m in Sources */,
 				947082D31C5C0DB3006EC322 /* FriendSearchViewController.swift in Sources */,
+				9478B5741C6CCE130083024E /* PostSectionHeaderFooterView.swift in Sources */,
 				947FF12C1C666BFF00C8BC34 /* NEOColorPickerFavoritesViewController.m in Sources */,
 				627718A01B0A58E800AF5C6E /* ParseLoginHelper.swift in Sources */,
 				947FF0881C665DFA00C8BC34 /* UIImage+AvarageColor.swift in Sources */,

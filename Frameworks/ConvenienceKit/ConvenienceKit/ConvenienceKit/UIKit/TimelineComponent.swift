@@ -80,6 +80,11 @@ public class TimelineComponent <T: Equatable, S: TimelineComponentTarget where S
     
     refreshControl.addTarget(targetTrampoline, action: "refresh:", forControlEvents: .ValueChanged)
   }
+    
+    public func insertObject(object: T) {
+        self.content.insert(object, atIndex: 0)
+        currentRange.endIndex++
+    }
   
   /**
     Removes an object from the `content` of the Timeline Component
@@ -89,7 +94,6 @@ public class TimelineComponent <T: Equatable, S: TimelineComponentTarget where S
   public func removeObject(object: T) {
     ConvenienceKit.removeObject(object, fromArray: &self.content)
     currentRange.endIndex = self.currentRange.endIndex - 1
-    target?.tableView.reloadData()
   }
   
   /**
