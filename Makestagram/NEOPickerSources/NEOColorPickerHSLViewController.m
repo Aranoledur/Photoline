@@ -59,11 +59,6 @@
     self.labelPreview.layer.zPosition = 11;
     
     _colorLayer = [CALayer layer];
-    CGRect frame = self.hueImageView.frame;
-    frame.origin.x += (self.hueImageView.frame.size.width - 100) / 2;
-    frame.origin.y += (self.hueImageView.frame.size.height - 100) / 2;
-    frame.size = CGSizeMake(100, 100);
-    _colorLayer.frame = frame;
     _colorLayer.backgroundColor = self.selectedColor.CGColor;
     [self.view.layer addSublayer:_colorLayer];
     [_colorLayer setNeedsDisplay];
@@ -129,15 +124,35 @@
     [self.buttonAlphaMin setImage:[UIImage imageNamed:CP_RESOURCE_VALUE_MIN] forState:UIControlStateNormal];
 }
 
+-(void)setSelectedColor:(UIColor *)selectedColor {
+    [super setSelectedColor:selectedColor];
+    [self positionHue];
+}
+
+
+-(void)viewDidLayoutSubviews {
+    
+    [super viewWillLayoutSubviews];
+    CGRect frame = self.hueImageView.frame;
+    frame.origin.x += (self.hueImageView.frame.size.width - 100) / 2;
+    frame.origin.y += (self.hueImageView.frame.size.height - 100) / 2;
+    frame.size = CGSizeMake(100, 100);
+    _colorLayer.frame = frame;
+    
+    [self positionHue];
+}
+
 
 - (void) positionHue {
     CGFloat angle = M_PI * 2 * _hue - M_PI;
-    CGFloat cx = 76 * cos(angle) + 160 - 16.5;
-    CGFloat cy = 76 * sin(angle) + 90 + self.hueImageView.frame.origin.y - 16.5;
-    CGRect frame = self.hueCrosshair.frame;
-    frame.origin.x = cx;
-    frame.origin.y = cy;
-    self.hueCrosshair.frame = frame;
+    CGRect frameBase = self.hueImageView.frame;
+    CGRect crosshairFrame = self.hueCrosshair.frame;
+    CGFloat cx = cos(angle) * frameBase.size.width / 2 * 0.8 + frameBase.origin.x + frameBase.size.width / 2 - crosshairFrame.size.width /2;
+    CGFloat cy = sin(angle) * frameBase.size.height / 2 * 0.8 + frameBase.origin.y + frameBase.size.height / 2 - crosshairFrame.size.height / 2;
+    
+    crosshairFrame.origin.x = cx;
+    crosshairFrame.origin.y = cy;
+    self.hueCrosshair.frame = crosshairFrame;
 }
 
 

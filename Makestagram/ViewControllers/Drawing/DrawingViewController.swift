@@ -107,9 +107,15 @@ class DrawingViewController: UIViewController {
         let pickerController = NEOColorPickerHSLViewController()
         pickerController.selectedColor = drawingView.currentColor
         pickerController.delegate = self
-        let navController = UINavigationController(rootViewController: pickerController)
-        navController.navigationBar.tintColor = pickerController.view?.backgroundColor
-        self.presentViewController(navController, animated: true, completion: nil)
+        
+        if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+            let popOverController = UIPopoverController(contentViewController: pickerController)
+            popOverController.presentPopoverFromRect(sender.bounds, inView: sender, permittedArrowDirections: .Any, animated: true)
+        } else {
+            let navController = UINavigationController(rootViewController: pickerController)
+            navController.navigationBar.tintColor = pickerController.view?.backgroundColor
+            self.presentViewController(navController, animated: true, completion: nil)
+        }
     }
     
     @IBAction func eraserButtonTapped(sender: AnyObject) {
@@ -172,6 +178,12 @@ extension DrawingViewController: NEOColorPickerViewControllerDelegate {
         colorPicked(color)
         
         controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func colorPickerViewController(controller: NEOColorPickerBaseViewController!, didChangeColor color: UIColor!) {
+        if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+            colorPicked(color)
+        }
     }
     
     func colorPickerViewControllerDidCancel(controller: NEOColorPickerBaseViewController!) {

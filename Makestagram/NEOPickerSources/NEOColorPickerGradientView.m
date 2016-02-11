@@ -74,13 +74,14 @@
 	CGContextDrawLinearGradient(context, _gradient, CGPointZero, CGPointMake(rect.size.width, 0), 0);
 }
 
-
 - (void)setValue:(CGFloat)value {
     _value = value;
     if (!self.hidden) {
         if (!self.selectorView) {
             UIImageView *view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:CP_RESOURCE_GRADIENT_TRACKER]];
-            view.frame = CGRectMake(0, self.frame.origin.y, 14, 40);
+            CGRect frame = view.frame;
+            frame.origin = CGPointMake(0, self.frame.origin.y);
+            view.frame = frame;
             [self.superview addSubview:view];
             self.selectorView = view;
         }
@@ -117,5 +118,13 @@
     }
 }
 
-
+-(void) layoutSubviews {
+    [super layoutSubviews];
+    if(self.selectorView) {
+        CGRect frame = self.selectorView.frame;
+        frame.origin.y = self.frame.origin.y;
+        self.selectorView.frame = frame;
+        
+    }
+}
 @end
