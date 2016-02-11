@@ -11,6 +11,8 @@ import Parse
 import FBSDKCoreKit
 import ParseUI
 import ParseFacebookUtilsV4
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -34,6 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let tabBarController = storyboard.instantiateViewControllerWithIdentifier("TabBarController")
                 // 3
                 self.window?.rootViewController!.presentViewController(tabBarController, animated:true, completion:nil)
+                self.crashlitycsLogUser()
             }
         }
     }
@@ -44,7 +47,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Set up the Parse SDK
         Parse.setApplicationId("8tBaS1E9tebX8kAduktWhNn5JrqGqRRHR5fsBI5s", clientKey: "43JZlYwbL9lVrd2vg1pDW9RZImDT9ad3FboVCYsH")
-        
+        Fabric.with([Crashlytics.self])
+
         let acl = PFACL()
         acl.publicReadAccess = true
         PFACL.setDefaultACL(acl, withAccessForCurrentUser: true)
@@ -73,6 +77,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             loginViewController.signUpController?.delegate = parseLoginHelper
             
             startViewController = loginViewController
+            
+            self.crashlitycsLogUser()
+
         }
         
         // 5
@@ -81,6 +88,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+    }
+    
+    func crashlitycsLogUser() {
+        let user = PFUser.currentUser()!
+        Crashlytics.sharedInstance().setUserName(user.username)
+        Crashlytics.sharedInstance().setUserIdentifier(user.objectId)
+        Crashlytics.sharedInstance().setUserEmail(user.email)
     }
     
     func applicationWillResignActive(application: UIApplication) {

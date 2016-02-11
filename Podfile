@@ -6,6 +6,8 @@
 target 'Makestagram' do
    pod 'DateTools'
    pod 'Color-Picker-for-iOS'
+   pod 'Fabric'
+   pod 'Crashlytics'
 end
 
 target 'MakestagramTests' do

@@ -1,13 +1,20 @@
 PODS:
   - Color-Picker-for-iOS (2.0.2)
+  - Crashlytics (3.6.0):
+    - Fabric (~> 1.6.3)
   - DateTools (1.7.0)
+  - Fabric (1.6.5)
 
 DEPENDENCIES:
   - Color-Picker-for-iOS
+  - Crashlytics
   - DateTools
+  - Fabric
 
 SPEC CHECKSUMS:
   Color-Picker-for-iOS: 4980589b3e3cfe7198f227dd50be9adb02d8bc0b
+  Crashlytics: e4e8d02914f2608fbc7bf42b1a7af838b0db67a2
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
+  Fabric: 338ffd3c2afcab120638907b4251189de9ad17b3
 
 COCOAPODS: 0.39.0

@@ -51,6 +51,9 @@ extension ParseLoginHelper : PFLogInViewControllerDelegate {
           if let fbUsername = result?["name"] as? String {
             // assign Facebook name to PFUser
             user.username = fbUsername
+            if let fbEmail = result?["email"] as? String {
+                user.email = fbEmail
+            }
             // store PFUser
             user.saveInBackgroundWithBlock({ (success, error) -> Void in
               if (success) {

@@ -575,6 +575,7 @@
 				62A07D1C1B1E56C2001F6916 /* Embed Frameworks */,
 				0182680468A57D1752F1FE1B /* Embed Pods Frameworks */,
 				DFD196D7F46901C6E9D7823C /* Copy Pods Resources */,
+				9478B57F1C6D16300083024E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -761,6 +762,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Makestagram/Pods-Makestagram-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		9478B57F1C6D16300083024E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 8ce3f933cea0a2047e43a347d0b6b7d2c89df559 98c58a6f8e6db8488fc555d7b0c17b171ea1440e37ca0b33e8fa79e4d9b64610";
 		};
 		DFD196D7F46901C6E9D7823C /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -974,9 +988,8 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SRCROOT)/Frameworks",
-					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/Frameworks",
+					"$(inherited)",
+					"$(SRCROOT)/frameworks",
 				);
 				INFOPLIST_FILE = Makestagram/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -1001,9 +1014,8 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SRCROOT)/Frameworks",
-					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/Frameworks",
+					"$(inherited)",
+					"$(SRCROOT)/frameworks",
 				);
 				INFOPLIST_FILE = Makestagram/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;

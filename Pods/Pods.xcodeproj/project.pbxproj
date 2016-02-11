@@ -7,47 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		049234E79644050BD82B3C42DA42ADCD /* UIImage+CoreGraphics.h in Headers */ = {isa = PBXBuildFile; fileRef = C34AB31951C0AAE476BE9555388647A2 /* UIImage+CoreGraphics.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		06F9D5B0A08F646898261BB65A217B1F /* HRColorInfoView.h in Headers */ = {isa = PBXBuildFile; fileRef = DC500FDE35B9945FE8BDB8E3A926C778 /* HRColorInfoView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		13D5F2F5EE87B9173C53DAC4AF5CFCF7 /* HRColorCursor.h in Headers */ = {isa = PBXBuildFile; fileRef = AEBF36E812E8E80CE2A61B49D71A36D1 /* HRColorCursor.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		19D228ED87FF16C882731F1ED7992B4E /* DateTools-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C7B4AE9C0A6C955CD5FE847E2B0054EC /* DateTools-dummy.m */; };
-		21C6C243493DDC45B6EBB5205AE74643 /* HRBrightnessSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 9465C31DE3EC7FAE4E5287ED47FF7190 /* HRBrightnessSlider.m */; };
-		253365ED746B376833EE612310217FB8 /* HRColorPickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 15FEF7E9EDCE4367079F34BB056938AE /* HRColorPickerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		29AB211B9BBC794A201AF32834D14EB3 /* HRColorMapView.h in Headers */ = {isa = PBXBuildFile; fileRef = 58F7B3835432D91497404391D4A84247 /* HRColorMapView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2DAF4E8CD18ED10B30CCFB8FF1984A46 /* DateTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F80AC4A0C10952A22BCB6FEC71BA2BD /* DateTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4159C0A759E6090F2C58FCB2492DFB05 /* DTTimePeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0A8451A25493ECC8F4CF33B0A98D08 /* DTTimePeriod.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		4CE641433C1E1EC5AEF783E38FA16F42 /* Color-Picker-for-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF6A3920E7F016447707F77497B575A /* Color-Picker-for-iOS-dummy.m */; };
-		4D8CDD78D5F0266C4E6DECAD324878E9 /* HRBrightnessCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF2CA3F44540263436DCA014FE10F47 /* HRBrightnessCursor.m */; };
-		563AE4C208F246E5CF42D2F83037BC2B /* HRColorInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE7CF76DD672B88E6EBF376677F2BC8 /* HRColorInfoView.m */; };
-		5E8BE0D6CDAC94F1F96D19102887CD10 /* Color-Picker-for-iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 20986479097FB1A52C38FBC7332BE0EE /* Color-Picker-for-iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		049234E79644050BD82B3C42DA42ADCD /* UIImage+CoreGraphics.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A90305BED8CD0F13D33D3E0F904CD4B /* UIImage+CoreGraphics.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		06F9D5B0A08F646898261BB65A217B1F /* HRColorInfoView.h in Headers */ = {isa = PBXBuildFile; fileRef = AEFA1B208726E21DEE8BD05BFFD3FDD7 /* HRColorInfoView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		13D5F2F5EE87B9173C53DAC4AF5CFCF7 /* HRColorCursor.h in Headers */ = {isa = PBXBuildFile; fileRef = C8A6F7F2592A54A360BD69A9991DAB96 /* HRColorCursor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		19D228ED87FF16C882731F1ED7992B4E /* DateTools-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EBA925341B25B343C8CDC33E8BC3579 /* DateTools-dummy.m */; };
+		21C6C243493DDC45B6EBB5205AE74643 /* HRBrightnessSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = A093D3DB00FB80EC439DB9B1A20FD25C /* HRBrightnessSlider.m */; };
+		253365ED746B376833EE612310217FB8 /* HRColorPickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = DCB18CA0A52119A1E4BF825E4139A115 /* HRColorPickerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		29AB211B9BBC794A201AF32834D14EB3 /* HRColorMapView.h in Headers */ = {isa = PBXBuildFile; fileRef = F3E45C993293DDCD41D6850D0420C435 /* HRColorMapView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2DAF4E8CD18ED10B30CCFB8FF1984A46 /* DateTools.h in Headers */ = {isa = PBXBuildFile; fileRef = C8683E1E1DEB8AA03064B2DA94F2CBC2 /* DateTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4159C0A759E6090F2C58FCB2492DFB05 /* DTTimePeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = F732C0F48B3F24A9D21E30389893CFE8 /* DTTimePeriod.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		4CE641433C1E1EC5AEF783E38FA16F42 /* Color-Picker-for-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDC01B2F91A3D1E259A47B3124BD8A8 /* Color-Picker-for-iOS-dummy.m */; };
+		4D8CDD78D5F0266C4E6DECAD324878E9 /* HRBrightnessCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFF86EA63B2658E10F677FC48846FB2 /* HRBrightnessCursor.m */; };
+		563AE4C208F246E5CF42D2F83037BC2B /* HRColorInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB889C0295AAB29E8AA1D7CA16538E1 /* HRColorInfoView.m */; };
+		5E8BE0D6CDAC94F1F96D19102887CD10 /* Color-Picker-for-iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E794A35948F612AC350619B2F35ECE58 /* Color-Picker-for-iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6243C1A85B34FB65BE030159586F1BF1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
-		66D6CA16EF2371E39FAB73473A89D8C1 /* NSDate+DateTools.h in Headers */ = {isa = PBXBuildFile; fileRef = AF07D4B04D5641AB7B33118709CA1763 /* NSDate+DateTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6F00A3D837A718CBC5D7C7157CCF71A2 /* DTTimePeriodGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = 68DCA6E569CC5DE4C639D6C66B3D0DFE /* DTTimePeriodGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		729719BE516B8080199215BB6A52117A /* DateTools-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 108B2FA0C7BF411B0E05F1ED94551122 /* DateTools-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		786D660F8ADBE96EA2C9298FB2B228BD /* HRHSVColorUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F75340EC295275F16739B6C2F75B76A /* HRHSVColorUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7902018FD0635F9A5E4C13BFD67E3750 /* DateTools.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 126A802C3478E750954818D1E2C4B294 /* DateTools.bundle */; };
+		66D6CA16EF2371E39FAB73473A89D8C1 /* NSDate+DateTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A4B5D4BFC3CF505402CA3B5173127C7 /* NSDate+DateTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6F00A3D837A718CBC5D7C7157CCF71A2 /* DTTimePeriodGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CA31FCA2AFD711BFEF7ACEDBBE231B7 /* DTTimePeriodGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		729719BE516B8080199215BB6A52117A /* DateTools-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 452FB5DA778CE3C6663F62CD8CEB5F62 /* DateTools-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		786D660F8ADBE96EA2C9298FB2B228BD /* HRHSVColorUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C34C0E703D59C0138E25828A678535F /* HRHSVColorUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7902018FD0635F9A5E4C13BFD67E3750 /* DateTools.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1B882A82172884D9BFD061DA409F0F0E /* DateTools.bundle */; };
 		7A2443603A6234236847E83E4D4D84DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
-		7A3C7A5DAEB1C695F060F0248053A1A6 /* NSDate+DateTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB4EA0B7B6906E3C6BCF57C8A921105 /* NSDate+DateTools.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		801E845E678344633F3972FA4FC16B7C /* DTTimePeriodChain.m in Sources */ = {isa = PBXBuildFile; fileRef = E688D90B3AADB8DC3E10F7EFE6ADE6EB /* DTTimePeriodChain.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		979979057E77525A3108142C327633BB /* UIImage+CoreGraphics.m in Sources */ = {isa = PBXBuildFile; fileRef = 4475A8ED3CCA33094F6F636D3024504C /* UIImage+CoreGraphics.m */; };
-		9BC7910A61F45206D435065CD0F23BA0 /* DTTimePeriod.h in Headers */ = {isa = PBXBuildFile; fileRef = 590F2E3B825EF1D619C04AFA9EED2F9E /* DTTimePeriod.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7A3C7A5DAEB1C695F060F0248053A1A6 /* NSDate+DateTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FB83B16123A44AABC948C51BCF447AA /* NSDate+DateTools.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		801E845E678344633F3972FA4FC16B7C /* DTTimePeriodChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC389A71C5EA1E559D748A55A2340C8 /* DTTimePeriodChain.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		979979057E77525A3108142C327633BB /* UIImage+CoreGraphics.m in Sources */ = {isa = PBXBuildFile; fileRef = 976E8F39BF2AE751C247F32E79EA25C4 /* UIImage+CoreGraphics.m */; };
+		9BC7910A61F45206D435065CD0F23BA0 /* DTTimePeriod.h in Headers */ = {isa = PBXBuildFile; fileRef = 14B323FA308AE190269696C9750FC89C /* DTTimePeriod.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9F99E2C3F5AC41A6F65FCEEDD82222DA /* Pods-Makestagram-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C9141DF6EAB5BA9A40FEB61A48A01C2C /* Pods-Makestagram-dummy.m */; };
-		A18632479F59E1C4B3241E9368AE1BA6 /* HRBrightnessCursor.h in Headers */ = {isa = PBXBuildFile; fileRef = 49D052BC5B46CE79B3050F99C79671CD /* HRBrightnessCursor.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A4A5DE1784D58F0D9AC336BE0A4936C4 /* DTConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = BA23E4CAE8E1F80BEA61090F9CEDA38F /* DTConstants.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		AFF4480B4B63FA58209AEC8052207A92 /* DTTimePeriodCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 913C6D5E5EE255DEC701AA59E116AC32 /* DTTimePeriodCollection.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		B1F209F1B36DFD46F1CA5361E56A60CE /* HRBrightnessSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = ED51F47298DFA39BC0B3C9D8E857B278 /* HRBrightnessSlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B4137B6F5B1EF819B8DF88A194F598ED /* DTError.h in Headers */ = {isa = PBXBuildFile; fileRef = 2396FB0DD8038562D42F7D6DF5A05BE7 /* DTError.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C0271C33FE3B15172E01119CA620703D /* HRColorPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92EDACF83B810121DC6483F5998D5595 /* HRColorPickerView.m */; };
-		C16E0F1A698E02F1D49D4593A71BE38F /* DTConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D89767EB30BF234172EC9BF8059A81E /* DTConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C9ED838DBDF07B56482212342D844739 /* HRColorCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D4B6AC5AD44FF6802E2EB3B50449EA /* HRColorCursor.m */; };
-		CC1CD7BAF05F362DECAA5698D1100896 /* DTError.m in Sources */ = {isa = PBXBuildFile; fileRef = BB83799C5CA436377636EE5163E7D0CA /* DTError.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		A18632479F59E1C4B3241E9368AE1BA6 /* HRBrightnessCursor.h in Headers */ = {isa = PBXBuildFile; fileRef = C881F6A4ACA58FEDE047CEF7871E19CE /* HRBrightnessCursor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A4A5DE1784D58F0D9AC336BE0A4936C4 /* DTConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FCFF37CCB855F3F875F0543D612D311 /* DTConstants.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		AFF4480B4B63FA58209AEC8052207A92 /* DTTimePeriodCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = C966A747286C4F1890DDC60724F63E54 /* DTTimePeriodCollection.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		B1F209F1B36DFD46F1CA5361E56A60CE /* HRBrightnessSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = FFCD0C6112A707BBC02E5278721DBA78 /* HRBrightnessSlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B4137B6F5B1EF819B8DF88A194F598ED /* DTError.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F438E7E562C9B41252AA460DF8F6E2F /* DTError.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C0271C33FE3B15172E01119CA620703D /* HRColorPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A09B421B409B1BD8677666E8ADC6F5 /* HRColorPickerView.m */; };
+		C16E0F1A698E02F1D49D4593A71BE38F /* DTConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = ECD5A55C4C15F9FB52D6CDC8E6598555 /* DTConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C9ED838DBDF07B56482212342D844739 /* HRColorCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 928EF68B3C0CB99F7B58A5709320917C /* HRColorCursor.m */; };
+		CC1CD7BAF05F362DECAA5698D1100896 /* DTError.m in Sources */ = {isa = PBXBuildFile; fileRef = 210A05EDC1B1B66468D6189F87AE3FFF /* DTError.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		D93DD1CDE37D45C38EBAAA5746849DF8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
-		DD710EA2C8E2D3E0917519775D1F571C /* DTTimePeriodGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 9114287DF163183B9DF9A39524C627E3 /* DTTimePeriodGroup.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		E007D509CE8470E8D043A503B736C6FE /* HRColorMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = DCC974B2567A44F55F3697F1720924B1 /* HRColorMapView.m */; };
+		DD710EA2C8E2D3E0917519775D1F571C /* DTTimePeriodGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 48F249C71C7247427C8A80169F96E401 /* DTTimePeriodGroup.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		E007D509CE8470E8D043A503B736C6FE /* HRColorMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2CA34049B7594547D377B91E923955 /* HRColorMapView.m */; };
 		E10709455832D1F04DBC71D18B6B887C /* Pods-Makestagram-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 062A3A82A67BF8CDAFF5CB50D79E4C82 /* Pods-Makestagram-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EE13D588E52431089F7406353C90A144 /* DTTimePeriodChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DABF7E91DAB720787CAFF8F911B59AB /* DTTimePeriodChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F423AB12C14DA731C42897A3D929D2B8 /* DTTimePeriodCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 027DE3C705A89E7D2299B55D209BB3E8 /* DTTimePeriodCollection.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F8863E62C9179AD71C5695B45002A7ED /* HRHSVColorUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = B47659B1724B416D2F66DCBBC8BD443D /* HRHSVColorUtil.m */; };
+		EE13D588E52431089F7406353C90A144 /* DTTimePeriodChain.h in Headers */ = {isa = PBXBuildFile; fileRef = ACF322BCA364BF3D7AF3FC86BC69AA9C /* DTTimePeriodChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F423AB12C14DA731C42897A3D929D2B8 /* DTTimePeriodCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = C0145D822557DEB78CFA63E4AB7BEC88 /* DTTimePeriodCollection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F8863E62C9179AD71C5695B45002A7ED /* HRHSVColorUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 56349BC999A5F0497EBDD4C4A7684055 /* HRHSVColorUtil.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,64 +69,66 @@
 
 /* Begin PBXFileReference section */
 		012E3CD4ED54F9D6DF1D14FF082363CE /* Pods_Makestagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Makestagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		027DE3C705A89E7D2299B55D209BB3E8 /* DTTimePeriodCollection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTTimePeriodCollection.h; path = DateTools/DTTimePeriodCollection.h; sourceTree = "<group>"; };
 		062A3A82A67BF8CDAFF5CB50D79E4C82 /* Pods-Makestagram-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Makestagram-umbrella.h"; sourceTree = "<group>"; };
 		08816A19DB7FEF1F856B955A8938CB02 /* Pods-Makestagram.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Makestagram.modulemap"; sourceTree = "<group>"; };
 		0A06018C6C5E86BA02105FC5FDDADB2D /* Pods-Makestagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Makestagram.debug.xcconfig"; sourceTree = "<group>"; };
-		108B2FA0C7BF411B0E05F1ED94551122 /* DateTools-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DateTools-umbrella.h"; sourceTree = "<group>"; };
-		126A802C3478E750954818D1E2C4B294 /* DateTools.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = DateTools.bundle; path = DateTools/DateTools.bundle; sourceTree = "<group>"; };
-		15FEF7E9EDCE4367079F34BB056938AE /* HRColorPickerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HRColorPickerView.h; path = ColorPicker/HRColorPickerView.h; sourceTree = "<group>"; };
-		1D89767EB30BF234172EC9BF8059A81E /* DTConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTConstants.h; path = DateTools/DTConstants.h; sourceTree = "<group>"; };
+		0A4B5D4BFC3CF505402CA3B5173127C7 /* NSDate+DateTools.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDate+DateTools.h"; path = "DateTools/NSDate+DateTools.h"; sourceTree = "<group>"; };
+		0C34C0E703D59C0138E25828A678535F /* HRHSVColorUtil.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HRHSVColorUtil.h; path = ColorPicker/HRHSVColorUtil.h; sourceTree = "<group>"; };
+		0F438E7E562C9B41252AA460DF8F6E2F /* DTError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTError.h; path = DateTools/DTError.h; sourceTree = "<group>"; };
+		1222862C49ED93AF00FBFA03790A7E8A /* Color-Picker-for-iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Color-Picker-for-iOS-prefix.pch"; sourceTree = "<group>"; };
+		14B323FA308AE190269696C9750FC89C /* DTTimePeriod.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTTimePeriod.h; path = DateTools/DTTimePeriod.h; sourceTree = "<group>"; };
+		163A74B4982E156A823DBBD7620B6509 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = iOS/Crashlytics.framework; sourceTree = "<group>"; };
+		193A5C0B45AD9B75ED39CE9D0887D175 /* Color-Picker-for-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Color-Picker-for-iOS.modulemap"; sourceTree = "<group>"; };
+		1B882A82172884D9BFD061DA409F0F0E /* DateTools.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = DateTools.bundle; path = DateTools/DateTools.bundle; sourceTree = "<group>"; };
+		1D2FC766672343D29CFB97F9D3C1CFDE /* DateTools.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = DateTools.modulemap; sourceTree = "<group>"; };
 		1E3D8B8829FE2E21AB3125459A97E631 /* Color_Picker_for_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Color_Picker_for_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1FB4EA0B7B6906E3C6BCF57C8A921105 /* NSDate+DateTools.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDate+DateTools.m"; path = "DateTools/NSDate+DateTools.m"; sourceTree = "<group>"; };
-		20986479097FB1A52C38FBC7332BE0EE /* Color-Picker-for-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Color-Picker-for-iOS-umbrella.h"; sourceTree = "<group>"; };
-		2396FB0DD8038562D42F7D6DF5A05BE7 /* DTError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTError.h; path = DateTools/DTError.h; sourceTree = "<group>"; };
-		2F75340EC295275F16739B6C2F75B76A /* HRHSVColorUtil.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HRHSVColorUtil.h; path = ColorPicker/HRHSVColorUtil.h; sourceTree = "<group>"; };
+		210A05EDC1B1B66468D6189F87AE3FFF /* DTError.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTError.m; path = DateTools/DTError.m; sourceTree = "<group>"; };
+		27A09B421B409B1BD8677666E8ADC6F5 /* HRColorPickerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HRColorPickerView.m; path = ColorPicker/HRColorPickerView.m; sourceTree = "<group>"; };
+		2AFF86EA63B2658E10F677FC48846FB2 /* HRBrightnessCursor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HRBrightnessCursor.m; path = ColorPicker/HRBrightnessCursor.m; sourceTree = "<group>"; };
+		2FB83B16123A44AABC948C51BCF447AA /* NSDate+DateTools.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDate+DateTools.m"; path = "DateTools/NSDate+DateTools.m"; sourceTree = "<group>"; };
+		3A90305BED8CD0F13D33D3E0F904CD4B /* UIImage+CoreGraphics.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+CoreGraphics.h"; path = "ColorPicker/UIImage+CoreGraphics.h"; sourceTree = "<group>"; };
+		3CA31FCA2AFD711BFEF7ACEDBBE231B7 /* DTTimePeriodGroup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTTimePeriodGroup.h; path = DateTools/DTTimePeriodGroup.h; sourceTree = "<group>"; };
 		3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		4475A8ED3CCA33094F6F636D3024504C /* UIImage+CoreGraphics.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+CoreGraphics.m"; path = "ColorPicker/UIImage+CoreGraphics.m"; sourceTree = "<group>"; };
-		49D052BC5B46CE79B3050F99C79671CD /* HRBrightnessCursor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HRBrightnessCursor.h; path = ColorPicker/HRBrightnessCursor.h; sourceTree = "<group>"; };
-		4DA7828551E9C6CF3216D9E44B41B8D7 /* Color-Picker-for-iOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Color-Picker-for-iOS.xcconfig"; sourceTree = "<group>"; };
-		58F7B3835432D91497404391D4A84247 /* HRColorMapView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HRColorMapView.h; path = ColorPicker/HRColorMapView.h; sourceTree = "<group>"; };
-		590F2E3B825EF1D619C04AFA9EED2F9E /* DTTimePeriod.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTTimePeriod.h; path = DateTools/DTTimePeriod.h; sourceTree = "<group>"; };
-		594371CF0D2DFFD7EA0D161D2C646C6D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5AF2CA3F44540263436DCA014FE10F47 /* HRBrightnessCursor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HRBrightnessCursor.m; path = ColorPicker/HRBrightnessCursor.m; sourceTree = "<group>"; };
+		452FB5DA778CE3C6663F62CD8CEB5F62 /* DateTools-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DateTools-umbrella.h"; sourceTree = "<group>"; };
+		48F249C71C7247427C8A80169F96E401 /* DTTimePeriodGroup.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTTimePeriodGroup.m; path = DateTools/DTTimePeriodGroup.m; sourceTree = "<group>"; };
+		56349BC999A5F0497EBDD4C4A7684055 /* HRHSVColorUtil.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HRHSVColorUtil.m; path = ColorPicker/HRHSVColorUtil.m; sourceTree = "<group>"; };
+		5DDC01B2F91A3D1E259A47B3124BD8A8 /* Color-Picker-for-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Color-Picker-for-iOS-dummy.m"; sourceTree = "<group>"; };
+		60F5BF80BF38D52D68607053D5659C3F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61FA1A02F4E34492E77E01E8AA2431BE /* Pods-Makestagram-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Makestagram-acknowledgements.markdown"; sourceTree = "<group>"; };
 		639BCC5FFF72556E218C5ACD4CCE47F0 /* Pods-Makestagram-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Makestagram-acknowledgements.plist"; sourceTree = "<group>"; };
-		68DCA6E569CC5DE4C639D6C66B3D0DFE /* DTTimePeriodGroup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTTimePeriodGroup.h; path = DateTools/DTTimePeriodGroup.h; sourceTree = "<group>"; };
-		6DABF7E91DAB720787CAFF8F911B59AB /* DTTimePeriodChain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTTimePeriodChain.h; path = DateTools/DTTimePeriodChain.h; sourceTree = "<group>"; };
-		7AF6A3920E7F016447707F77497B575A /* Color-Picker-for-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Color-Picker-for-iOS-dummy.m"; sourceTree = "<group>"; };
+		6CB889C0295AAB29E8AA1D7CA16538E1 /* HRColorInfoView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HRColorInfoView.m; path = ColorPicker/HRColorInfoView.m; sourceTree = "<group>"; };
+		6F4A60FAD7EB95E1E23745BCCA786988 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B5BB9F3208601E9194D25FCFC70EA30 /* DateTools.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DateTools.xcconfig; sourceTree = "<group>"; };
 		7B6FE1F71D2CB44F5EDACFC4E8ABFACB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7BE7CF76DD672B88E6EBF376677F2BC8 /* HRColorInfoView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HRColorInfoView.m; path = ColorPicker/HRColorInfoView.m; sourceTree = "<group>"; };
-		7F80AC4A0C10952A22BCB6FEC71BA2BD /* DateTools.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DateTools.h; path = DateTools/DateTools.h; sourceTree = "<group>"; };
 		83EF5E51F89CBA4D9E92AD7619028C8E /* Pods-Makestagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Makestagram.release.xcconfig"; sourceTree = "<group>"; };
-		8F0A8451A25493ECC8F4CF33B0A98D08 /* DTTimePeriod.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTTimePeriod.m; path = DateTools/DTTimePeriod.m; sourceTree = "<group>"; };
-		9114287DF163183B9DF9A39524C627E3 /* DTTimePeriodGroup.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTTimePeriodGroup.m; path = DateTools/DTTimePeriodGroup.m; sourceTree = "<group>"; };
-		913C6D5E5EE255DEC701AA59E116AC32 /* DTTimePeriodCollection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTTimePeriodCollection.m; path = DateTools/DTTimePeriodCollection.m; sourceTree = "<group>"; };
-		92EDACF83B810121DC6483F5998D5595 /* HRColorPickerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HRColorPickerView.m; path = ColorPicker/HRColorPickerView.m; sourceTree = "<group>"; };
-		9465C31DE3EC7FAE4E5287ED47FF7190 /* HRBrightnessSlider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HRBrightnessSlider.m; path = ColorPicker/HRBrightnessSlider.m; sourceTree = "<group>"; };
+		8620CE45267E7FBB2E989E0FA832BDAF /* Color-Picker-for-iOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Color-Picker-for-iOS.xcconfig"; sourceTree = "<group>"; };
+		8EBA925341B25B343C8CDC33E8BC3579 /* DateTools-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DateTools-dummy.m"; sourceTree = "<group>"; };
+		8F2CA34049B7594547D377B91E923955 /* HRColorMapView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HRColorMapView.m; path = ColorPicker/HRColorMapView.m; sourceTree = "<group>"; };
+		8FC389A71C5EA1E559D748A55A2340C8 /* DTTimePeriodChain.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTTimePeriodChain.m; path = DateTools/DTTimePeriodChain.m; sourceTree = "<group>"; };
+		928EF68B3C0CB99F7B58A5709320917C /* HRColorCursor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HRColorCursor.m; path = ColorPicker/HRColorCursor.m; sourceTree = "<group>"; };
+		976E8F39BF2AE751C247F32E79EA25C4 /* UIImage+CoreGraphics.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+CoreGraphics.m"; path = "ColorPicker/UIImage+CoreGraphics.m"; sourceTree = "<group>"; };
 		9D6533DF0A1C40D519399B7BC6EA88A3 /* DateTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DateTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9FEF93BB830AD50E0BC936DBB5E37821 /* DateTools.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = DateTools.modulemap; sourceTree = "<group>"; };
-		A477375F0C09E5CDBF672B8F7EBA2925 /* DateTools-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DateTools-prefix.pch"; sourceTree = "<group>"; };
-		AEBF36E812E8E80CE2A61B49D71A36D1 /* HRColorCursor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HRColorCursor.h; path = ColorPicker/HRColorCursor.h; sourceTree = "<group>"; };
-		AF07D4B04D5641AB7B33118709CA1763 /* NSDate+DateTools.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDate+DateTools.h"; path = "DateTools/NSDate+DateTools.h"; sourceTree = "<group>"; };
-		B47659B1724B416D2F66DCBBC8BD443D /* HRHSVColorUtil.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HRHSVColorUtil.m; path = ColorPicker/HRHSVColorUtil.m; sourceTree = "<group>"; };
-		BA23E4CAE8E1F80BEA61090F9CEDA38F /* DTConstants.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTConstants.m; path = DateTools/DTConstants.m; sourceTree = "<group>"; };
+		9FCFF37CCB855F3F875F0543D612D311 /* DTConstants.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTConstants.m; path = DateTools/DTConstants.m; sourceTree = "<group>"; };
+		A093D3DB00FB80EC439DB9B1A20FD25C /* HRBrightnessSlider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HRBrightnessSlider.m; path = ColorPicker/HRBrightnessSlider.m; sourceTree = "<group>"; };
+		ACF322BCA364BF3D7AF3FC86BC69AA9C /* DTTimePeriodChain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTTimePeriodChain.h; path = DateTools/DTTimePeriodChain.h; sourceTree = "<group>"; };
+		AEFA1B208726E21DEE8BD05BFFD3FDD7 /* HRColorInfoView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HRColorInfoView.h; path = ColorPicker/HRColorInfoView.h; sourceTree = "<group>"; };
+		B4A95AD8B8793BAFD8AACFEBE5958EB9 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = iOS/Fabric.framework; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		BB83799C5CA436377636EE5163E7D0CA /* DTError.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTError.m; path = DateTools/DTError.m; sourceTree = "<group>"; };
-		C34AB31951C0AAE476BE9555388647A2 /* UIImage+CoreGraphics.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+CoreGraphics.h"; path = "ColorPicker/UIImage+CoreGraphics.h"; sourceTree = "<group>"; };
-		C7B4AE9C0A6C955CD5FE847E2B0054EC /* DateTools-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DateTools-dummy.m"; sourceTree = "<group>"; };
+		C0145D822557DEB78CFA63E4AB7BEC88 /* DTTimePeriodCollection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTTimePeriodCollection.h; path = DateTools/DTTimePeriodCollection.h; sourceTree = "<group>"; };
+		C8683E1E1DEB8AA03064B2DA94F2CBC2 /* DateTools.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DateTools.h; path = DateTools/DateTools.h; sourceTree = "<group>"; };
+		C881F6A4ACA58FEDE047CEF7871E19CE /* HRBrightnessCursor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HRBrightnessCursor.h; path = ColorPicker/HRBrightnessCursor.h; sourceTree = "<group>"; };
+		C8A6F7F2592A54A360BD69A9991DAB96 /* HRColorCursor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HRColorCursor.h; path = ColorPicker/HRColorCursor.h; sourceTree = "<group>"; };
 		C9141DF6EAB5BA9A40FEB61A48A01C2C /* Pods-Makestagram-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Makestagram-dummy.m"; sourceTree = "<group>"; };
-		CA6DC94BBCF4CBC2574356E1633CD3CA /* DateTools.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DateTools.xcconfig; sourceTree = "<group>"; };
-		D1430560DDF5D20BF438E14BBC9C20B0 /* Color-Picker-for-iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Color-Picker-for-iOS-prefix.pch"; sourceTree = "<group>"; };
-		D9D4B6AC5AD44FF6802E2EB3B50449EA /* HRColorCursor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HRColorCursor.m; path = ColorPicker/HRColorCursor.m; sourceTree = "<group>"; };
-		DC500FDE35B9945FE8BDB8E3A926C778 /* HRColorInfoView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HRColorInfoView.h; path = ColorPicker/HRColorInfoView.h; sourceTree = "<group>"; };
-		DCC974B2567A44F55F3697F1720924B1 /* HRColorMapView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HRColorMapView.m; path = ColorPicker/HRColorMapView.m; sourceTree = "<group>"; };
-		E688D90B3AADB8DC3E10F7EFE6ADE6EB /* DTTimePeriodChain.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTTimePeriodChain.m; path = DateTools/DTTimePeriodChain.m; sourceTree = "<group>"; };
+		C966A747286C4F1890DDC60724F63E54 /* DTTimePeriodCollection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTTimePeriodCollection.m; path = DateTools/DTTimePeriodCollection.m; sourceTree = "<group>"; };
+		DCB18CA0A52119A1E4BF825E4139A115 /* HRColorPickerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HRColorPickerView.h; path = ColorPicker/HRColorPickerView.h; sourceTree = "<group>"; };
+		E794A35948F612AC350619B2F35ECE58 /* Color-Picker-for-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Color-Picker-for-iOS-umbrella.h"; sourceTree = "<group>"; };
 		E7AEA48222A929A74E391E0C15FE000E /* Pods-Makestagram-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Makestagram-resources.sh"; sourceTree = "<group>"; };
-		ED3B3851F4C782DC2CFD5DC779418EA7 /* Color-Picker-for-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Color-Picker-for-iOS.modulemap"; sourceTree = "<group>"; };
-		ED51F47298DFA39BC0B3C9D8E857B278 /* HRBrightnessSlider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HRBrightnessSlider.h; path = ColorPicker/HRBrightnessSlider.h; sourceTree = "<group>"; };
-		F2FC7299C44F3A8F8B9EC03E8473EEC3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECD5A55C4C15F9FB52D6CDC8E6598555 /* DTConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTConstants.h; path = DateTools/DTConstants.h; sourceTree = "<group>"; };
+		F3E45C993293DDCD41D6850D0420C435 /* HRColorMapView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HRColorMapView.h; path = ColorPicker/HRColorMapView.h; sourceTree = "<group>"; };
+		F732C0F48B3F24A9D21E30389893CFE8 /* DTTimePeriod.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTTimePeriod.m; path = DateTools/DTTimePeriod.m; sourceTree = "<group>"; };
+		F9A4E047FB2D76B5E4D6B6BDC348654A /* DateTools-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DateTools-prefix.pch"; sourceTree = "<group>"; };
 		FF74B0EA7698C91A5C98C939EA4022E6 /* Pods-Makestagram-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Makestagram-frameworks.sh"; sourceTree = "<group>"; };
+		FFCD0C6112A707BBC02E5278721DBA78 /* HRBrightnessSlider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HRBrightnessSlider.h; path = ColorPicker/HRBrightnessSlider.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,18 +159,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1DA32E993435DE6CABE932360A1C8A3D /* Support Files */ = {
+		2982C86BACE1636B82361BFF60843DF1 /* Fabric */ = {
 			isa = PBXGroup;
 			children = (
-				9FEF93BB830AD50E0BC936DBB5E37821 /* DateTools.modulemap */,
-				CA6DC94BBCF4CBC2574356E1633CD3CA /* DateTools.xcconfig */,
-				C7B4AE9C0A6C955CD5FE847E2B0054EC /* DateTools-dummy.m */,
-				A477375F0C09E5CDBF672B8F7EBA2925 /* DateTools-prefix.pch */,
-				108B2FA0C7BF411B0E05F1ED94551122 /* DateTools-umbrella.h */,
-				594371CF0D2DFFD7EA0D161D2C646C6D /* Info.plist */,
+				337DA00E78E38BC9A60476194AF3E61C /* Frameworks */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/DateTools";
+			path = Fabric;
+			sourceTree = "<group>";
+		};
+		337DA00E78E38BC9A60476194AF3E61C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B4A95AD8B8793BAFD8AACFEBE5958EB9 /* Fabric.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3A87BB879921712D2A61F00B32161287 /* DateTools */ = {
+			isa = PBXGroup;
+			children = (
+				C8683E1E1DEB8AA03064B2DA94F2CBC2 /* DateTools.h */,
+				ECD5A55C4C15F9FB52D6CDC8E6598555 /* DTConstants.h */,
+				9FCFF37CCB855F3F875F0543D612D311 /* DTConstants.m */,
+				0F438E7E562C9B41252AA460DF8F6E2F /* DTError.h */,
+				210A05EDC1B1B66468D6189F87AE3FFF /* DTError.m */,
+				14B323FA308AE190269696C9750FC89C /* DTTimePeriod.h */,
+				F732C0F48B3F24A9D21E30389893CFE8 /* DTTimePeriod.m */,
+				ACF322BCA364BF3D7AF3FC86BC69AA9C /* DTTimePeriodChain.h */,
+				8FC389A71C5EA1E559D748A55A2340C8 /* DTTimePeriodChain.m */,
+				C0145D822557DEB78CFA63E4AB7BEC88 /* DTTimePeriodCollection.h */,
+				C966A747286C4F1890DDC60724F63E54 /* DTTimePeriodCollection.m */,
+				3CA31FCA2AFD711BFEF7ACEDBBE231B7 /* DTTimePeriodGroup.h */,
+				48F249C71C7247427C8A80169F96E401 /* DTTimePeriodGroup.m */,
+				0A4B5D4BFC3CF505402CA3B5173127C7 /* NSDate+DateTools.h */,
+				2FB83B16123A44AABC948C51BCF447AA /* NSDate+DateTools.m */,
+				6C6578FB0DAD5E5A7C5D1CAF66E60340 /* Resources */,
+				C844A8410419117FA7CEEA301BD2BEFC /* Support Files */,
+			);
+			path = DateTools;
 			sourceTree = "<group>";
 		};
 		558030BE539DE3D2A1DFFFE8199E822F /* Targets Support Files */ = {
@@ -179,42 +207,34 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		70C60279B8E47DA149408DB529808886 /* Support Files */ = {
+		6C6578FB0DAD5E5A7C5D1CAF66E60340 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				ED3B3851F4C782DC2CFD5DC779418EA7 /* Color-Picker-for-iOS.modulemap */,
-				4DA7828551E9C6CF3216D9E44B41B8D7 /* Color-Picker-for-iOS.xcconfig */,
-				7AF6A3920E7F016447707F77497B575A /* Color-Picker-for-iOS-dummy.m */,
-				D1430560DDF5D20BF438E14BBC9C20B0 /* Color-Picker-for-iOS-prefix.pch */,
-				20986479097FB1A52C38FBC7332BE0EE /* Color-Picker-for-iOS-umbrella.h */,
-				F2FC7299C44F3A8F8B9EC03E8473EEC3 /* Info.plist */,
+				1B882A82172884D9BFD061DA409F0F0E /* DateTools.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		6D852EBEAB41E2CF81060BDFE0E54291 /* Crashlytics */ = {
+			isa = PBXGroup;
+			children = (
+				C356473846FC356E6ECBF50123DCC52E /* Frameworks */,
+			);
+			path = Crashlytics;
+			sourceTree = "<group>";
+		};
+		7089F51926C5D07B8B6FF0DB990D5479 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				193A5C0B45AD9B75ED39CE9D0887D175 /* Color-Picker-for-iOS.modulemap */,
+				8620CE45267E7FBB2E989E0FA832BDAF /* Color-Picker-for-iOS.xcconfig */,
+				5DDC01B2F91A3D1E259A47B3124BD8A8 /* Color-Picker-for-iOS-dummy.m */,
+				1222862C49ED93AF00FBFA03790A7E8A /* Color-Picker-for-iOS-prefix.pch */,
+				E794A35948F612AC350619B2F35ECE58 /* Color-Picker-for-iOS-umbrella.h */,
+				60F5BF80BF38D52D68607053D5659C3F /* Info.plist */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Color-Picker-for-iOS";
-			sourceTree = "<group>";
-		};
-		72F33AA9130D250FF83B519AA1D2FB5B /* Color-Picker-for-iOS */ = {
-			isa = PBXGroup;
-			children = (
-				49D052BC5B46CE79B3050F99C79671CD /* HRBrightnessCursor.h */,
-				5AF2CA3F44540263436DCA014FE10F47 /* HRBrightnessCursor.m */,
-				ED51F47298DFA39BC0B3C9D8E857B278 /* HRBrightnessSlider.h */,
-				9465C31DE3EC7FAE4E5287ED47FF7190 /* HRBrightnessSlider.m */,
-				AEBF36E812E8E80CE2A61B49D71A36D1 /* HRColorCursor.h */,
-				D9D4B6AC5AD44FF6802E2EB3B50449EA /* HRColorCursor.m */,
-				DC500FDE35B9945FE8BDB8E3A926C778 /* HRColorInfoView.h */,
-				7BE7CF76DD672B88E6EBF376677F2BC8 /* HRColorInfoView.m */,
-				58F7B3835432D91497404391D4A84247 /* HRColorMapView.h */,
-				DCC974B2567A44F55F3697F1720924B1 /* HRColorMapView.m */,
-				15FEF7E9EDCE4367079F34BB056938AE /* HRColorPickerView.h */,
-				92EDACF83B810121DC6483F5998D5595 /* HRColorPickerView.m */,
-				2F75340EC295275F16739B6C2F75B76A /* HRHSVColorUtil.h */,
-				B47659B1724B416D2F66DCBBC8BD443D /* HRHSVColorUtil.m */,
-				C34AB31951C0AAE476BE9555388647A2 /* UIImage+CoreGraphics.h */,
-				4475A8ED3CCA33094F6F636D3024504C /* UIImage+CoreGraphics.m */,
-				70C60279B8E47DA149408DB529808886 /* Support Files */,
-			);
-			path = "Color-Picker-for-iOS";
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -222,17 +242,19 @@
 			children = (
 				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				8D60082D86C5B53D8B3AEFFFA639E184 /* Pods */,
+				B4D2F9C89EF8619676F527EB2FDCE372 /* Pods */,
 				F1AE16633E1E1E21530FC02BE98C86CC /* Products */,
 				558030BE539DE3D2A1DFFFE8199E822F /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		8D60082D86C5B53D8B3AEFFFA639E184 /* Pods */ = {
+		B4D2F9C89EF8619676F527EB2FDCE372 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				72F33AA9130D250FF83B519AA1D2FB5B /* Color-Picker-for-iOS */,
-				BE43A84998444FCC97F6198D8A2EA31A /* DateTools */,
+				DDB80388EA2A9B5CBA30C60104EBF082 /* Color-Picker-for-iOS */,
+				6D852EBEAB41E2CF81060BDFE0E54291 /* Crashlytics */,
+				3A87BB879921712D2A61F00B32161287 /* DateTools */,
+				2982C86BACE1636B82361BFF60843DF1 /* Fabric */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -243,30 +265,6 @@
 				BF6342C8B29F4CEEA088EFF7AB4DE362 /* iOS */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		BE43A84998444FCC97F6198D8A2EA31A /* DateTools */ = {
-			isa = PBXGroup;
-			children = (
-				7F80AC4A0C10952A22BCB6FEC71BA2BD /* DateTools.h */,
-				1D89767EB30BF234172EC9BF8059A81E /* DTConstants.h */,
-				BA23E4CAE8E1F80BEA61090F9CEDA38F /* DTConstants.m */,
-				2396FB0DD8038562D42F7D6DF5A05BE7 /* DTError.h */,
-				BB83799C5CA436377636EE5163E7D0CA /* DTError.m */,
-				590F2E3B825EF1D619C04AFA9EED2F9E /* DTTimePeriod.h */,
-				8F0A8451A25493ECC8F4CF33B0A98D08 /* DTTimePeriod.m */,
-				6DABF7E91DAB720787CAFF8F911B59AB /* DTTimePeriodChain.h */,
-				E688D90B3AADB8DC3E10F7EFE6ADE6EB /* DTTimePeriodChain.m */,
-				027DE3C705A89E7D2299B55D209BB3E8 /* DTTimePeriodCollection.h */,
-				913C6D5E5EE255DEC701AA59E116AC32 /* DTTimePeriodCollection.m */,
-				68DCA6E569CC5DE4C639D6C66B3D0DFE /* DTTimePeriodGroup.h */,
-				9114287DF163183B9DF9A39524C627E3 /* DTTimePeriodGroup.m */,
-				AF07D4B04D5641AB7B33118709CA1763 /* NSDate+DateTools.h */,
-				1FB4EA0B7B6906E3C6BCF57C8A921105 /* NSDate+DateTools.m */,
-				C7C0E54A4074D905354ED2556DB2AED8 /* Resources */,
-				1DA32E993435DE6CABE932360A1C8A3D /* Support Files */,
-			);
-			path = DateTools;
 			sourceTree = "<group>";
 		};
 		BF1202445719598494949C9FE26F9741 /* Pods-Makestagram */ = {
@@ -295,12 +293,50 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		C7C0E54A4074D905354ED2556DB2AED8 /* Resources */ = {
+		C356473846FC356E6ECBF50123DCC52E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				126A802C3478E750954818D1E2C4B294 /* DateTools.bundle */,
+				163A74B4982E156A823DBBD7620B6509 /* Crashlytics.framework */,
 			);
-			name = Resources;
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C844A8410419117FA7CEEA301BD2BEFC /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				1D2FC766672343D29CFB97F9D3C1CFDE /* DateTools.modulemap */,
+				7B5BB9F3208601E9194D25FCFC70EA30 /* DateTools.xcconfig */,
+				8EBA925341B25B343C8CDC33E8BC3579 /* DateTools-dummy.m */,
+				F9A4E047FB2D76B5E4D6B6BDC348654A /* DateTools-prefix.pch */,
+				452FB5DA778CE3C6663F62CD8CEB5F62 /* DateTools-umbrella.h */,
+				6F4A60FAD7EB95E1E23745BCCA786988 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/DateTools";
+			sourceTree = "<group>";
+		};
+		DDB80388EA2A9B5CBA30C60104EBF082 /* Color-Picker-for-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				C881F6A4ACA58FEDE047CEF7871E19CE /* HRBrightnessCursor.h */,
+				2AFF86EA63B2658E10F677FC48846FB2 /* HRBrightnessCursor.m */,
+				FFCD0C6112A707BBC02E5278721DBA78 /* HRBrightnessSlider.h */,
+				A093D3DB00FB80EC439DB9B1A20FD25C /* HRBrightnessSlider.m */,
+				C8A6F7F2592A54A360BD69A9991DAB96 /* HRColorCursor.h */,
+				928EF68B3C0CB99F7B58A5709320917C /* HRColorCursor.m */,
+				AEFA1B208726E21DEE8BD05BFFD3FDD7 /* HRColorInfoView.h */,
+				6CB889C0295AAB29E8AA1D7CA16538E1 /* HRColorInfoView.m */,
+				F3E45C993293DDCD41D6850D0420C435 /* HRColorMapView.h */,
+				8F2CA34049B7594547D377B91E923955 /* HRColorMapView.m */,
+				DCB18CA0A52119A1E4BF825E4139A115 /* HRColorPickerView.h */,
+				27A09B421B409B1BD8677666E8ADC6F5 /* HRColorPickerView.m */,
+				0C34C0E703D59C0138E25828A678535F /* HRHSVColorUtil.h */,
+				56349BC999A5F0497EBDD4C4A7684055 /* HRHSVColorUtil.m */,
+				3A90305BED8CD0F13D33D3E0F904CD4B /* UIImage+CoreGraphics.h */,
+				976E8F39BF2AE751C247F32E79EA25C4 /* UIImage+CoreGraphics.m */,
+				7089F51926C5D07B8B6FF0DB990D5479 /* Support Files */,
+			);
+			path = "Color-Picker-for-iOS";
 			sourceTree = "<group>";
 		};
 		F1AE16633E1E1E21530FC02BE98C86CC /* Products */ = {
@@ -546,7 +582,7 @@
 		};
 		0B4A8C0A0FB5B5289C2289FF38A52C5B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CA6DC94BBCF4CBC2574356E1633CD3CA /* DateTools.xcconfig */;
+			baseConfigurationReference = 7B5BB9F3208601E9194D25FCFC70EA30 /* DateTools.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -573,7 +609,7 @@
 		};
 		0FB0CC454994FEBA4AA89D7D7FE8DDFA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4DA7828551E9C6CF3216D9E44B41B8D7 /* Color-Picker-for-iOS.xcconfig */;
+			baseConfigurationReference = 8620CE45267E7FBB2E989E0FA832BDAF /* Color-Picker-for-iOS.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -660,7 +696,7 @@
 		};
 		9E66709E438C6BD427278EFF4527347E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CA6DC94BBCF4CBC2574356E1633CD3CA /* DateTools.xcconfig */;
+			baseConfigurationReference = 7B5BB9F3208601E9194D25FCFC70EA30 /* DateTools.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -726,7 +762,7 @@
 		};
 		DBBF74377E87E72FB893E4F1FD2A182C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4DA7828551E9C6CF3216D9E44B41B8D7 /* Color-Picker-for-iOS.xcconfig */;
+			baseConfigurationReference = 8620CE45267E7FBB2E989E0FA832BDAF /* Color-Picker-for-iOS.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
