@@ -25,10 +25,12 @@ class DrawingViewController: UIViewController {
     @IBOutlet var customColorButtons: [UIButton]!
     @IBOutlet weak var baseImageView: UIImageView!
     @IBOutlet weak var moreColorsButton: UIButton!
+    @IBOutlet weak var eraserButton: UIButton!
     
     var saveDrawingCallback: SaveCallback?
     var ringImageView: UIImageView!
     var ringImagePair: RingAndButton = RingAndButton()
+    var colorPicked: UIColor?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,10 +38,13 @@ class DrawingViewController: UIViewController {
         baseImageView.image = self.image
         drawingView.currentColor = self.image!.areaAverage()
         drawingView.incrementalImage = self.drawing
-        let newImage = colorButton.imageView?.image?.imageWithRenderingMode(.AlwaysTemplate)
+        var newImage = colorButton.imageView?.image?.imageWithRenderingMode(.AlwaysTemplate)
         colorButton.setImage(newImage, forState: .Normal)
         colorButton.tintColor = drawingView.currentColor
         
+        newImage = eraserButton.imageView?.image?.imageWithRenderingMode(.AlwaysTemplate)
+        eraserButton.setImage(newImage, forState: .Selected)
+        eraserButton.tintColor = UIColor(red: 245/255.0, green: 244/255.0, blue: 240/255.0, alpha: 1.0)
 
         var colorsArray = [UIColor]()
         colorsArray.append(UIColor(colorLiteralRed: 134/255.0, green: 103/255.0, blue: 172/255.0, alpha: 1.0))
@@ -61,6 +66,7 @@ class DrawingViewController: UIViewController {
         self.ringImagePair.ringImageView = self.ringImageView
         let newBackImage = moreColorsButton.backgroundImageForState(.Selected)?.imageWithRenderingMode(.AlwaysTemplate)
         moreColorsButton.setBackgroundImage(newBackImage, forState: .Selected)
+        colorPicked(drawingView.currentColor, button: colorButton)
     }
     
     override func viewWillLayoutSubviews() {
@@ -96,16 +102,13 @@ class DrawingViewController: UIViewController {
     }
     
     @IBAction func simpleColorButtonTapped(sender: UIButton) {
-        self.drawingView.currentColor = sender.tintColor
-        self.drawingView.lineWidth = 2.0
-        self.ringImagePair.button = sender
-        self.ringImageView.center = sender.center
+        colorPicked(sender.tintColor, button: sender)
         moreColorsButton.selected = false
     }
 
     @IBAction func moreColorsButtonTapped(sender: UIButton) {
         let pickerController = NEOColorPickerHSLViewController()
-        pickerController.selectedColor = drawingView.currentColor
+        pickerController.selectedColor = colorPicked
         pickerController.delegate = self
         
         if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
@@ -121,6 +124,9 @@ class DrawingViewController: UIViewController {
     @IBAction func eraserButtonTapped(sender: AnyObject) {
         self.drawingView.currentColor = UIColor.clearColor()
         self.drawingView.lineWidth = 10.0
+        eraserButton.selected = true
+        self.ringImageView.hidden = true
+        moreColorsButton.selected = false
     }
     
     @IBAction func clearButtonTapped(sender: AnyObject) {
@@ -145,14 +151,21 @@ class DrawingViewController: UIViewController {
     
     //MARK: custom color picking
     
-    func colorPicked(color: UIColor) {
+    func colorPicked(color: UIColor, button: UIButton) {
         self.drawingView.currentColor = color
         self.drawingView.lineWidth = 2.0
+        eraserButton.selected = false
+        
+        self.ringImagePair.button = button
+        self.ringImageView.center = button.center
+        self.ringImageView.hidden = false
+        colorPicked = color
+    }
+    
+    func customColorPicked(color: UIColor) {
+        colorPicked(color, button: moreColorsButton)
         moreColorsButton.selected = true
         moreColorsButton.tintColor = color
-        
-        self.ringImagePair.button = moreColorsButton
-        self.ringImageView.center = moreColorsButton.center
     }
     
     
@@ -175,14 +188,14 @@ class DrawingViewController: UIViewController {
 
 extension DrawingViewController: NEOColorPickerViewControllerDelegate {
     func colorPickerViewController(controller: NEOColorPickerBaseViewController!, didSelectColor color: UIColor!) {
-        colorPicked(color)
+        customColorPicked(color)
         
         controller.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func colorPickerViewController(controller: NEOColorPickerBaseViewController!, didChangeColor color: UIColor!) {
         if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
-            colorPicked(color)
+            customColorPicked(color)
         }
     }
     
@@ -196,7 +209,7 @@ extension DrawingViewController: NEOColorPickerViewControllerDelegate {
 
 extension DrawingViewController: ColorPickerDelegate {
     func colorViewController(controller: UIViewController, didSelectColor: UIColor) {
-        colorPicked(didSelectColor)
+        customColorPicked(didSelectColor)
     }
     
     func colorViewControllerDidCancel(controller: UIViewController) {

@@ -518,6 +518,7 @@
                         <outlet property="baseImageView" destination="ZJp-OP-bCL" id="Qkf-Sy-UUN"/>
                         <outlet property="colorButton" destination="Nrp-CQ-Bw0" id="3B3-ji-h8F"/>
                         <outlet property="drawingView" destination="0lF-Ej-o0a" id="ysw-Bh-2S3"/>
+                        <outlet property="eraserButton" destination="9HY-u5-J5A" id="Mli-eh-uDx"/>
                         <outlet property="moreColorsButton" destination="5jL-fd-WWX" id="EjC-QM-HWv"/>
                         <outletCollection property="customColorButtons" destination="y2N-q8-47f" collectionClass="NSMutableArray" id="b4i-Yk-4Cj"/>
                         <outletCollection property="customColorButtons" destination="qIL-m4-KqU" collectionClass="NSMutableArray" id="dss-zD-bha"/>
