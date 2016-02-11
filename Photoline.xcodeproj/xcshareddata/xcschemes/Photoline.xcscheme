@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "62C8C1DF1B06BD6500DC3EA7"
-               BuildableName = "Makestagram.app"
-               BlueprintName = "Makestagram"
-               ReferencedContainer = "container:Makestagram.xcodeproj">
+               BuildableName = "Photoline.app"
+               BlueprintName = "Photoline"
+               ReferencedContainer = "container:Photoline.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "62C8C1F41B06BD6500DC3EA7"
-               BuildableName = "MakestagramTests.xctest"
-               BlueprintName = "MakestagramTests"
-               ReferencedContainer = "container:Makestagram.xcodeproj">
+               BuildableName = "Photoline.xctest"
+               BlueprintName = "PhotolineTests"
+               ReferencedContainer = "container:Photoline.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "62C8C1F41B06BD6500DC3EA7"
-               BuildableName = "MakestagramTests.xctest"
-               BlueprintName = "MakestagramTests"
-               ReferencedContainer = "container:Makestagram.xcodeproj">
+               BuildableName = "Photoline.xctest"
+               BlueprintName = "PhotolineTests"
+               ReferencedContainer = "container:Photoline.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "62C8C1DF1B06BD6500DC3EA7"
-            BuildableName = "Makestagram.app"
-            BlueprintName = "Makestagram"
-            ReferencedContainer = "container:Makestagram.xcodeproj">
+            BuildableName = "Photoline.app"
+            BlueprintName = "Photoline"
+            ReferencedContainer = "container:Photoline.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "62C8C1DF1B06BD6500DC3EA7"
-            BuildableName = "Makestagram.app"
-            BlueprintName = "Makestagram"
-            ReferencedContainer = "container:Makestagram.xcodeproj">
+            BuildableName = "Photoline.app"
+            BlueprintName = "Photoline"
+            ReferencedContainer = "container:Photoline.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -99,9 +99,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "62C8C1DF1B06BD6500DC3EA7"
-            BuildableName = "Makestagram.app"
-            BlueprintName = "Makestagram"
-            ReferencedContainer = "container:Makestagram.xcodeproj">
+            BuildableName = "Photoline.app"
+            BlueprintName = "Photoline"
+            ReferencedContainer = "container:Photoline.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

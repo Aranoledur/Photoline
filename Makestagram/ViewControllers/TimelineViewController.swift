@@ -9,7 +9,6 @@
 import UIKit
 import Parse
 import ConvenienceKit
-import Crashlytics
 
 class TimelineViewController: UIViewController, TimelineComponentTarget {
 

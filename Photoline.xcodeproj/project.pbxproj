@@ -195,13 +195,13 @@
 		62A07D651B1F79F2001F6916 /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
 		62A07D671B1F7A0E001F6916 /* Makestagram-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Makestagram-Bridging-Header.h"; sourceTree = "<group>"; };
 		62A0B0F71BABD96900B295A2 /* Bond.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Bond.xcodeproj; path = Frameworks/Bond/Bond.xcodeproj; sourceTree = "<group>"; };
-		62C8C1E01B06BD6500DC3EA7 /* Makestagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Makestagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		62C8C1E01B06BD6500DC3EA7 /* Photoline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photoline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62C8C1E41B06BD6500DC3EA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62C8C1E51B06BD6500DC3EA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62C8C1EA1B06BD6500DC3EA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		62C8C1EC1B06BD6500DC3EA7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		62C8C1EF1B06BD6500DC3EA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		62C8C1F51B06BD6500DC3EA7 /* MakestagramTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MakestagramTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		62C8C1F51B06BD6500DC3EA7 /* Photoline.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Photoline.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		62C8C1FA1B06BD6500DC3EA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62C8C1FB1B06BD6500DC3EA7 /* MakestagramTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakestagramTests.swift; sourceTree = "<group>"; };
 		947082CE1C5C0D96006EC322 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
@@ -392,7 +392,7 @@
 			isa = PBXGroup;
 			children = (
 				62551B621B06BF33000913E4 /* Frameworks */,
-				62C8C1E21B06BD6500DC3EA7 /* Makestagram */,
+				62C8C1E21B06BD6500DC3EA7 /* Photoline */,
 				62C8C1F81B06BD6500DC3EA7 /* MakestagramTests */,
 				62C8C1E11B06BD6500DC3EA7 /* Products */,
 				91F5F6F9A2CE3670E3193F6A /* Pods */,
@@ -402,13 +402,13 @@
 		62C8C1E11B06BD6500DC3EA7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				62C8C1E01B06BD6500DC3EA7 /* Makestagram.app */,
-				62C8C1F51B06BD6500DC3EA7 /* MakestagramTests.xctest */,
+				62C8C1E01B06BD6500DC3EA7 /* Photoline.app */,
+				62C8C1F51B06BD6500DC3EA7 /* Photoline.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		62C8C1E21B06BD6500DC3EA7 /* Makestagram */ = {
+		62C8C1E21B06BD6500DC3EA7 /* Photoline */ = {
 			isa = PBXGroup;
 			children = (
 				94F5C41F1C679057005C34A7 /* PSTAlertController */,
@@ -425,6 +425,7 @@
 				62C8C1E31B06BD6500DC3EA7 /* Supporting Files */,
 				62A07D671B1F7A0E001F6916 /* Makestagram-Bridging-Header.h */,
 			);
+			name = Photoline;
 			path = Makestagram;
 			sourceTree = "<group>";
 		};
@@ -564,9 +565,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		62C8C1DF1B06BD6500DC3EA7 /* Makestagram */ = {
+		62C8C1DF1B06BD6500DC3EA7 /* Photoline */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 62C8C1FF1B06BD6500DC3EA7 /* Build configuration list for PBXNativeTarget "Makestagram" */;
+			buildConfigurationList = 62C8C1FF1B06BD6500DC3EA7 /* Build configuration list for PBXNativeTarget "Photoline" */;
 			buildPhases = (
 				E087817B1048C9BC7B21C731 /* Check Pods Manifest.lock */,
 				62C8C1DC1B06BD6500DC3EA7 /* Sources */,
@@ -583,14 +584,14 @@
 				62A07D201B1E56C8001F6916 /* PBXTargetDependency */,
 				62A0B10C1BABD9A000B295A2 /* PBXTargetDependency */,
 			);
-			name = Makestagram;
+			name = Photoline;
 			productName = Makestagram;
-			productReference = 62C8C1E01B06BD6500DC3EA7 /* Makestagram.app */;
+			productReference = 62C8C1E01B06BD6500DC3EA7 /* Photoline.app */;
 			productType = "com.apple.product-type.application";
 		};
-		62C8C1F41B06BD6500DC3EA7 /* MakestagramTests */ = {
+		62C8C1F41B06BD6500DC3EA7 /* PhotolineTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 62C8C2021B06BD6500DC3EA7 /* Build configuration list for PBXNativeTarget "MakestagramTests" */;
+			buildConfigurationList = 62C8C2021B06BD6500DC3EA7 /* Build configuration list for PBXNativeTarget "PhotolineTests" */;
 			buildPhases = (
 				62C8C1F11B06BD6500DC3EA7 /* Sources */,
 				62C8C1F21B06BD6500DC3EA7 /* Frameworks */,
@@ -601,9 +602,9 @@
 			dependencies = (
 				62C8C1F71B06BD6500DC3EA7 /* PBXTargetDependency */,
 			);
-			name = MakestagramTests;
+			name = PhotolineTests;
 			productName = MakestagramTests;
-			productReference = 62C8C1F51B06BD6500DC3EA7 /* MakestagramTests.xctest */;
+			productReference = 62C8C1F51B06BD6500DC3EA7 /* Photoline.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -627,7 +628,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 62C8C1DB1B06BD6500DC3EA7 /* Build configuration list for PBXProject "Makestagram" */;
+			buildConfigurationList = 62C8C1DB1B06BD6500DC3EA7 /* Build configuration list for PBXProject "Photoline" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -650,8 +651,8 @@
 			);
 			projectRoot = "";
 			targets = (
-				62C8C1DF1B06BD6500DC3EA7 /* Makestagram */,
-				62C8C1F41B06BD6500DC3EA7 /* MakestagramTests */,
+				62C8C1DF1B06BD6500DC3EA7 /* Photoline */,
+				62C8C1F41B06BD6500DC3EA7 /* PhotolineTests */,
 			);
 		};
 /* End PBXProject section */
@@ -869,7 +870,7 @@
 		};
 		62C8C1F71B06BD6500DC3EA7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 62C8C1DF1B06BD6500DC3EA7 /* Makestagram */;
+			target = 62C8C1DF1B06BD6500DC3EA7 /* Photoline */;
 			targetProxy = 62C8C1F61B06BD6500DC3EA7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -996,7 +997,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.easyverzilla.drawgram;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Photoline;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Makestagram/Makestagram-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1022,7 +1023,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.easyverzilla.drawgram;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Photoline;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Makestagram/Makestagram-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1044,8 +1045,8 @@
 				INFOPLIST_FILE = MakestagramTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Make-School.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Makestagram.app/Makestagram";
+				PRODUCT_NAME = Photoline;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Photoline.app/Photoline";
 			};
 			name = Debug;
 		};
@@ -1060,15 +1061,15 @@
 				INFOPLIST_FILE = MakestagramTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Make-School.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Makestagram.app/Makestagram";
+				PRODUCT_NAME = Photoline;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Photoline.app/Photoline";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		62C8C1DB1B06BD6500DC3EA7 /* Build configuration list for PBXProject "Makestagram" */ = {
+		62C8C1DB1B06BD6500DC3EA7 /* Build configuration list for PBXProject "Photoline" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				62C8C1FD1B06BD6500DC3EA7 /* Debug */,
@@ -1077,7 +1078,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		62C8C1FF1B06BD6500DC3EA7 /* Build configuration list for PBXNativeTarget "Makestagram" */ = {
+		62C8C1FF1B06BD6500DC3EA7 /* Build configuration list for PBXNativeTarget "Photoline" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				62C8C2001B06BD6500DC3EA7 /* Debug */,
@@ -1086,7 +1087,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		62C8C2021B06BD6500DC3EA7 /* Build configuration list for PBXNativeTarget "MakestagramTests" */ = {
+		62C8C2021B06BD6500DC3EA7 /* Build configuration list for PBXNativeTarget "PhotolineTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				62C8C2031B06BD6500DC3EA7 /* Debug */,

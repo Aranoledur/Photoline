@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Makestagram.xcodeproj">
+      location = "group:/Users/ischuk/Development/Makestagram-my/Photoline.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
