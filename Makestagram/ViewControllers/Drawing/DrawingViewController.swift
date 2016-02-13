@@ -150,6 +150,10 @@ class DrawingViewController: UIViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    @IBAction func undoButtonTapped(sender: UIButton) {
+        self.drawingView.undo()
+    }
+    
     //MARK: custom color picking
     
     func colorPicked(color: UIColor, button: UIButton) {

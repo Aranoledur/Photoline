@@ -412,6 +412,14 @@
                                     <action selector="moreColorsButtonTapped:" destination="fFH-u0-T1V" eventType="touchUpInside" id="pLN-NS-f8X"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lYH-ch-z2I">
+                                <rect key="frame" x="492" y="548" width="44" height="44"/>
+                                <inset key="imageEdgeInsets" minX="8" minY="6" maxX="8" maxY="6"/>
+                                <state key="normal" image="undo_2"/>
+                                <connections>
+                                    <action selector="undoButtonTapped:" destination="fFH-u0-T1V" eventType="touchUpInside" id="HHk-aG-08i"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9HY-u5-J5A">
                                 <rect key="frame" x="536" y="548" width="44" height="44"/>
                                 <state key="normal" image="eraser"/>
@@ -455,9 +463,12 @@
                         <constraints>
                             <constraint firstItem="3l9-IC-DQs" firstAttribute="centerX" secondItem="Nrp-CQ-Bw0" secondAttribute="centerX" id="1ik-zF-zBn"/>
                             <constraint firstItem="0lF-Ej-o0a" firstAttribute="leading" secondItem="Hlc-Io-XAp" secondAttribute="leading" id="2QK-mD-smf"/>
+                            <constraint firstItem="lYH-ch-z2I" firstAttribute="baseline" secondItem="9HY-u5-J5A" secondAttribute="baseline" id="2us-OA-8X3"/>
+                            <constraint firstItem="lYH-ch-z2I" firstAttribute="width" secondItem="9HY-u5-J5A" secondAttribute="width" id="3mH-rU-87B"/>
                             <constraint firstItem="oCt-Hg-ppf" firstAttribute="baseline" secondItem="y2N-q8-47f" secondAttribute="baseline" id="5g3-8M-LhL"/>
                             <constraint firstItem="oCt-Hg-ppf" firstAttribute="width" secondItem="Nrp-CQ-Bw0" secondAttribute="width" id="APG-LS-gYR"/>
                             <constraint firstItem="5jL-fd-WWX" firstAttribute="leading" secondItem="y2N-q8-47f" secondAttribute="leading" id="BJn-eH-faq"/>
+                            <constraint firstItem="9HY-u5-J5A" firstAttribute="leading" secondItem="lYH-ch-z2I" secondAttribute="trailing" id="Dyk-ZZ-wkI"/>
                             <constraint firstItem="0lF-Ej-o0a" firstAttribute="top" secondItem="SfB-zS-jUB" secondAttribute="bottom" id="ENf-X5-PBf"/>
                             <constraint firstItem="0lF-Ej-o0a" firstAttribute="bottom" secondItem="Mcn-41-md6" secondAttribute="top" id="EzU-Zu-XX1"/>
                             <constraint firstItem="SfB-zS-jUB" firstAttribute="top" secondItem="HSj-e0-bnY" secondAttribute="bottom" id="F0h-ZL-0pq"/>
@@ -489,6 +500,7 @@
                             <constraint firstItem="5jL-fd-WWX" firstAttribute="width" secondItem="Nrp-CQ-Bw0" secondAttribute="width" id="dK7-NR-dTJ"/>
                             <constraint firstItem="i6M-5f-OqY" firstAttribute="height" secondItem="Nrp-CQ-Bw0" secondAttribute="height" id="dYh-4p-6CO"/>
                             <constraint firstItem="ZJp-OP-bCL" firstAttribute="width" secondItem="0lF-Ej-o0a" secondAttribute="width" id="eHD-9Z-okq"/>
+                            <constraint firstItem="lYH-ch-z2I" firstAttribute="height" secondItem="9HY-u5-J5A" secondAttribute="height" id="elf-bd-1CS"/>
                             <constraint firstItem="y2N-q8-47f" firstAttribute="leading" secondItem="qIL-m4-KqU" secondAttribute="trailing" constant="8" symbolic="YES" id="fKF-pK-l2W"/>
                             <constraint firstItem="9HY-u5-J5A" firstAttribute="height" secondItem="Nrp-CQ-Bw0" secondAttribute="height" id="faR-Sl-OxP"/>
                             <constraint firstItem="i6M-5f-OqY" firstAttribute="leading" secondItem="Hlc-Io-XAp" secondAttribute="leadingMargin" id="fup-Os-o3B"/>
@@ -626,6 +638,7 @@
         <image name="heart" width="72" height="68"/>
         <image name="heart_selected" width="72" height="68"/>
         <image name="more" width="26" height="17"/>
+        <image name="undo_2" width="72" height="72"/>
     </resources>
     <color key="tintColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
 </document>
