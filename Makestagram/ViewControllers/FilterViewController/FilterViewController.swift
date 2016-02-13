@@ -42,7 +42,6 @@ class FilterViewController: UIViewController {
         self.imageView.image = image
         let cellNib = UINib(nibName: "FilterCollectionViewCell", bundle: nil)
         collectionView.registerNib(cellNib, forCellWithReuseIdentifier: "filterCell")
-        collectionView.reloadData()
         imageCache = NSCacheSwift()
     }
     

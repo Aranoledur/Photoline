@@ -10,9 +10,10 @@ import UIKit
 
 struct UndoQueue<Element> {
     var items = [Element]()
+    var maxLevel = 4
     mutating func push(item: Element) {
         items.append(item)
-        if items.count > 4 {
+        if items.count > maxLevel {
             items.removeFirst()
         }
     }

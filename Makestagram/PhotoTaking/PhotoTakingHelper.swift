@@ -85,7 +85,7 @@ extension PhotoTakingHelper: UIImagePickerControllerDelegate, UINavigationContro
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        viewController.dismissViewControllerAnimated(true, completion: nil)
+        imagePickerController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
 }
@@ -99,7 +99,7 @@ extension PhotoTakingHelper: FilterViewControllerDelegate {
     }
     
     func filterViewControllerCancelled(controller: FilterViewController) {
-        imagePickerController?.dismissViewControllerAnimated(true, completion: nil)
+        viewController.dismissViewControllerAnimated(true, completion: nil)
     }
     
 }

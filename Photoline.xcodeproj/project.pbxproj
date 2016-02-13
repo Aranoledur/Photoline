@@ -55,6 +55,14 @@
 		9478B5711C6A5E230083024E /* ConstantStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9478B5701C6A5E230083024E /* ConstantStrings.swift */; };
 		9478B5741C6CCE130083024E /* PostSectionHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9478B5731C6CCE130083024E /* PostSectionHeaderFooterView.swift */; };
 		9478B5761C6CCE3B0083024E /* PostSectionHeaderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9478B5751C6CCE3B0083024E /* PostSectionHeaderFooterView.xib */; };
+		9478B5941C6FCB900083024E /* filter_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9478B5921C6FCB900083024E /* filter_normal@2x.png */; };
+		9478B5951C6FCB900083024E /* filter_normal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9478B5931C6FCB900083024E /* filter_normal@3x.png */; };
+		9478B59C1C6FCCBC0083024E /* filter_sepia@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9478B5961C6FCCBC0083024E /* filter_sepia@2x.png */; };
+		9478B59D1C6FCCBC0083024E /* filter_sepia@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9478B5971C6FCCBC0083024E /* filter_sepia@3x.png */; };
+		9478B59E1C6FCCBC0083024E /* filter_vibrant@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9478B5981C6FCCBC0083024E /* filter_vibrant@2x.png */; };
+		9478B59F1C6FCCBC0083024E /* filter_vibrant@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9478B5991C6FCCBC0083024E /* filter_vibrant@3x.png */; };
+		9478B5A01C6FCCBC0083024E /* filter_vignette@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9478B59A1C6FCCBC0083024E /* filter_vignette@2x.png */; };
+		9478B5A11C6FCCBC0083024E /* filter_vignette@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9478B59B1C6FCCBC0083024E /* filter_vignette@3x.png */; };
 		947FF07F1C65F98700C8BC34 /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947FF07E1C65F98700C8BC34 /* DrawingViewController.swift */; };
 		947FF0821C65F99F00C8BC34 /* SmoothedBIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947FF0811C65F99F00C8BC34 /* SmoothedBIView.swift */; };
 		947FF0881C665DFA00C8BC34 /* UIImage+AvarageColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947FF0871C665DFA00C8BC34 /* UIImage+AvarageColor.swift */; };
@@ -224,6 +232,14 @@
 		9478B5701C6A5E230083024E /* ConstantStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstantStrings.swift; sourceTree = "<group>"; };
 		9478B5731C6CCE130083024E /* PostSectionHeaderFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostSectionHeaderFooterView.swift; sourceTree = "<group>"; };
 		9478B5751C6CCE3B0083024E /* PostSectionHeaderFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostSectionHeaderFooterView.xib; sourceTree = "<group>"; };
+		9478B5921C6FCB900083024E /* filter_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filter_normal@2x.png"; sourceTree = "<group>"; };
+		9478B5931C6FCB900083024E /* filter_normal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filter_normal@3x.png"; sourceTree = "<group>"; };
+		9478B5961C6FCCBC0083024E /* filter_sepia@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filter_sepia@2x.png"; sourceTree = "<group>"; };
+		9478B5971C6FCCBC0083024E /* filter_sepia@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filter_sepia@3x.png"; sourceTree = "<group>"; };
+		9478B5981C6FCCBC0083024E /* filter_vibrant@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filter_vibrant@2x.png"; sourceTree = "<group>"; };
+		9478B5991C6FCCBC0083024E /* filter_vibrant@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filter_vibrant@3x.png"; sourceTree = "<group>"; };
+		9478B59A1C6FCCBC0083024E /* filter_vignette@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filter_vignette@2x.png"; sourceTree = "<group>"; };
+		9478B59B1C6FCCBC0083024E /* filter_vignette@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filter_vignette@3x.png"; sourceTree = "<group>"; };
 		947FF07E1C65F98700C8BC34 /* DrawingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
 		947FF0811C65F99F00C8BC34 /* SmoothedBIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothedBIView.swift; sourceTree = "<group>"; };
 		947FF0871C665DFA00C8BC34 /* UIImage+AvarageColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+AvarageColor.swift"; sourceTree = "<group>"; };
@@ -355,6 +371,14 @@
 		627718861B0A581600AF5C6E /* FilterPreviewImages */ = {
 			isa = PBXGroup;
 			children = (
+				9478B5961C6FCCBC0083024E /* filter_sepia@2x.png */,
+				9478B5971C6FCCBC0083024E /* filter_sepia@3x.png */,
+				9478B5981C6FCCBC0083024E /* filter_vibrant@2x.png */,
+				9478B5991C6FCCBC0083024E /* filter_vibrant@3x.png */,
+				9478B59A1C6FCCBC0083024E /* filter_vignette@2x.png */,
+				9478B59B1C6FCCBC0083024E /* filter_vignette@3x.png */,
+				9478B5921C6FCB900083024E /* filter_normal@2x.png */,
+				9478B5931C6FCB900083024E /* filter_normal@3x.png */,
 				627718871B0A581600AF5C6E /* filter_normal.png */,
 				627718881B0A581600AF5C6E /* filter_sepia.png */,
 				627718891B0A581600AF5C6E /* filter_vibrant.png */,
@@ -726,16 +750,24 @@
 				627718961B0A581700AF5C6E /* filter_vignette.png in Resources */,
 				62C8C1EB1B06BD6500DC3EA7 /* Main.storyboard in Resources */,
 				947FF12A1C666BFF00C8BC34 /* colorPicker.bundle in Resources */,
+				9478B59E1C6FCCBC0083024E /* filter_vibrant@2x.png in Resources */,
 				627718951B0A581700AF5C6E /* filter_vibrant.png in Resources */,
 				627718941B0A581700AF5C6E /* filter_sepia.png in Resources */,
 				62C8C1F01B06BD6500DC3EA7 /* LaunchScreen.xib in Resources */,
 				947FF1341C666BFF00C8BC34 /* NEOColorPickerViewController.xib in Resources */,
+				9478B59C1C6FCCBC0083024E /* filter_sepia@2x.png in Resources */,
 				627718921B0A581700AF5C6E /* FilterCollectionViewCell.xib in Resources */,
+				9478B5A01C6FCCBC0083024E /* filter_vignette@2x.png in Resources */,
 				947FF12D1C666BFF00C8BC34 /* NEOColorPickerFavoritesViewController.xib in Resources */,
 				947FF1301C666BFF00C8BC34 /* NEOColorPickerHSLViewController.xib in Resources */,
 				627718981B0A581700AF5C6E /* FilterViewController.xib in Resources */,
 				62C8C1ED1B06BD6500DC3EA7 /* Images.xcassets in Resources */,
 				9478B5761C6CCE3B0083024E /* PostSectionHeaderFooterView.xib in Resources */,
+				9478B59F1C6FCCBC0083024E /* filter_vibrant@3x.png in Resources */,
+				9478B5941C6FCB900083024E /* filter_normal@2x.png in Resources */,
+				9478B59D1C6FCCBC0083024E /* filter_sepia@3x.png in Resources */,
+				9478B5A11C6FCCBC0083024E /* filter_vignette@3x.png in Resources */,
+				9478B5951C6FCB900083024E /* filter_normal@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
