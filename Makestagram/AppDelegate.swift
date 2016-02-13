@@ -68,6 +68,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // if we have a user, set the TabBarController to be the initial view controller
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             startViewController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
+            
+            self.crashlitycsLogUser()
         } else {
             // 4
             // Otherwise set the LoginViewController to be the first
@@ -77,8 +79,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             loginViewController.signUpController?.delegate = parseLoginHelper
             
             startViewController = loginViewController
-            
-            self.crashlitycsLogUser()
 
         }
         

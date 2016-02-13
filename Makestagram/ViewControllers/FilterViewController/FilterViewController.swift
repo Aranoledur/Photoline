@@ -16,7 +16,7 @@ protocol FilterViewControllerDelegate: class {
 
 class FilterViewController: UIViewController {
   
-  var image: UIImage
+  unowned var image: UIImage
   var filters = [Filters.NoFilter, Filters.SepiaFilter, Filters.VibranceFilter, Filters.VignetteFilter]
   weak var delegate: FilterViewControllerDelegate?
   
