@@ -116,7 +116,8 @@ class DrawingViewController: UIViewController {
             popOverController.presentPopoverFromRect(sender.bounds, inView: sender, permittedArrowDirections: .Any, animated: true)
         } else {
             let navController = UINavigationController(rootViewController: pickerController)
-            navController.navigationBar.tintColor = pickerController.view?.backgroundColor
+            navController.navigationBar.tintColor = UIColor(red: 193/255.0, green: 193/250.0, blue: 193/255.0, alpha: 1.0)
+            navController.navigationBar.barTintColor = UIColor.darkGrayColor()
             self.presentViewController(navController, animated: true, completion: nil)
         }
     }

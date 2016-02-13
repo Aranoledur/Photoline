@@ -9,91 +9,91 @@
 import Foundation
 
 public class NSCacheSwift<T, U> {
-  
-  private let cache: NSCache
-  
-  public var delegate: NSCacheDelegate? {
-    get {
-      return cache.delegate
+    
+    private let cache: NSCache
+    
+    public var delegate: NSCacheDelegate? {
+        get {
+            return cache.delegate
+        }
+        set {
+            cache.delegate = delegate
+        }
     }
-    set {
-      cache.delegate = delegate
+    
+    public var name: String {
+        get {
+            return cache.name
+        }
+        set {
+            cache.name = name
+        }
     }
-  }
-  
-  public var name: String {
-    get {
-      return cache.name
+    
+    public var totalCostLimit: Int {
+        get {
+            return cache.totalCostLimit
+        }
+        set {
+            cache.totalCostLimit = totalCostLimit
+        }
     }
-    set {
-      cache.name = name
+    
+    public var countLimit: Int {
+        get {
+            return cache.countLimit
+        }
+        set {
+            cache.countLimit = countLimit
+        }
     }
-  }
-  
-  public var totalCostLimit: Int {
-    get {
-      return cache.totalCostLimit
+    
+    public var evictsObjectsWithDiscardedContent: Bool {
+        get {
+            return cache.evictsObjectsWithDiscardedContent
+        }
+        set {
+            return cache.evictsObjectsWithDiscardedContent = evictsObjectsWithDiscardedContent
+        }
     }
-    set {
-      cache.totalCostLimit = totalCostLimit
+    
+    public init() {
+        cache = NSCache()
     }
-  }
-  
-  public var countLimit: Int {
-    get {
-      return cache.countLimit
+    
+    // MARK: Public Interface
+    
+    public func objectForKey(key: T) -> U? {
+        return cache.objectForKey(key as! AnyObject) as? U
     }
-    set {
-      cache.countLimit = countLimit
+    
+    public func setObject(obj: U, forKey key: T) {
+        cache.setObject(obj as! AnyObject, forKey: key as! AnyObject)
     }
-  }
-  
-  public var evictsObjectsWithDiscardedContent: Bool {
-    get {
-      return cache.evictsObjectsWithDiscardedContent
+    
+    public func setObject(obj: U, forKey key: T, cost g: Int) {
+        cache.setObject(obj as! AnyObject, forKey: key as! AnyObject, cost: g)
     }
-    set {
-      return cache.evictsObjectsWithDiscardedContent = evictsObjectsWithDiscardedContent
+    
+    public func removeObjectForKey(key: T) {
+        cache.removeObjectForKey(key as! AnyObject)
     }
-  }
-  
-  public init() {
-    cache = NSCache()
-  }
-  
-  // MARK: Public Interface
-
-  public func objectForKey(key: T) -> U? {
-    return cache.objectForKey(key as! AnyObject) as? U
-  }
-
-  public func setObject(obj: U, forKey key: T) {
-    cache.setObject(obj as! AnyObject, forKey: key as! AnyObject)
-  }
-  
-  public func setObject(obj: U, forKey key: T, cost g: Int) {
-    cache.setObject(obj as! AnyObject, forKey: key as! AnyObject, cost: g)
-  }
-  
-  public func removeObjectForKey(key: T) {
-    cache.removeObjectForKey(key as! AnyObject)
-  }
-  
-  public func removeAllObjects() {
-   cache.removeAllObjects()
-  }
-  
-  // MARK: Subscribt Functionality
-  
-  public subscript(key: T) -> U? {
-    get {
-      return objectForKey(key)
+    
+    public func removeAllObjects() {
+        cache.removeAllObjects()
     }
-    set(newValue) {
-      if let newValue = newValue {
-        setObject(newValue, forKey: key)
-      }
+    
+    // MARK: Subscribt Functionality
+    
+    public subscript(key: T) -> U? {
+        get {
+            return objectForKey(key)
+        }
+        set(newValue) {
+            if let newValue = newValue {
+                setObject(newValue, forKey: key)
+            }
+        }
     }
-  }
-  
+    
 }
