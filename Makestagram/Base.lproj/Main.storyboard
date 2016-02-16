@@ -161,19 +161,6 @@
                                                         </mask>
                                                     </variation>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0H0-Gn-iLn">
-                                                    <rect key="frame" x="552" y="660" width="44" height="44"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="44" id="1hy-iz-1Ik"/>
-                                                        <constraint firstAttribute="height" constant="44" id="Dt1-C0-yMg"/>
-                                                    </constraints>
-                                                    <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
-                                                    <state key="normal" image="heart"/>
-                                                    <state key="selected" image="heart_selected"/>
-                                                    <connections>
-                                                        <action selector="likeButtonTapped:" destination="585-Vg-WJU" eventType="touchUpInside" id="bl0-SY-Z8m"/>
-                                                    </connections>
-                                                </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FmA-dn-qAs">
                                                     <rect key="frame" x="8" y="660" width="44" height="44"/>
                                                     <constraints>
@@ -192,6 +179,19 @@
                                                         <constraint firstAttribute="width" constant="20" id="qJf-eS-wN3"/>
                                                     </constraints>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0H0-Gn-iLn">
+                                                    <rect key="frame" x="8" y="608" width="44" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="44" id="1hy-iz-1Ik"/>
+                                                        <constraint firstAttribute="height" constant="44" id="Dt1-C0-yMg"/>
+                                                    </constraints>
+                                                    <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                                                    <state key="normal" image="heart"/>
+                                                    <state key="selected" image="heart_selected"/>
+                                                    <connections>
+                                                        <action selector="likeButtonTapped:" destination="585-Vg-WJU" eventType="touchUpInside" id="bl0-SY-Z8m"/>
+                                                    </connections>
+                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOg-sA-PfQ">
                                                     <rect key="frame" x="60" y="619" width="482" height="21"/>
                                                     <constraints>
@@ -221,6 +221,7 @@
                                                 <constraint firstItem="T6c-1K-csy" firstAttribute="leading" secondItem="lVE-tX-6OL" secondAttribute="leading" id="JuB-yx-tlp"/>
                                                 <constraint firstItem="FmA-dn-qAs" firstAttribute="top" secondItem="B3N-aH-rM7" secondAttribute="bottom" constant="20" id="L65-A9-4Ma"/>
                                                 <constraint firstItem="FmA-dn-qAs" firstAttribute="top" secondItem="B3N-aH-rM7" secondAttribute="bottom" constant="20" id="Lut-lq-rgL"/>
+                                                <constraint firstItem="0H0-Gn-iLn" firstAttribute="centerX" secondItem="B3N-aH-rM7" secondAttribute="centerX" id="Ngj-jJ-JEY"/>
                                                 <constraint firstItem="53d-jB-ScN" firstAttribute="leading" secondItem="lVE-tX-6OL" secondAttribute="leading" id="Oyj-KC-VRB"/>
                                                 <constraint firstItem="FmA-dn-qAs" firstAttribute="leading" secondItem="lVE-tX-6OL" secondAttribute="leadingMargin" id="WKS-rO-fOn"/>
                                                 <constraint firstAttribute="trailing" secondItem="53d-jB-ScN" secondAttribute="trailing" id="X6p-BE-mwX"/>
@@ -233,6 +234,7 @@
                                                 <constraint firstItem="zOg-sA-PfQ" firstAttribute="centerY" secondItem="B3N-aH-rM7" secondAttribute="centerY" id="lpf-0N-3Ea"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="0H0-Gn-iLn" secondAttribute="bottom" constant="16" id="lpi-SD-INv"/>
                                                 <constraint firstItem="B3N-aH-rM7" firstAttribute="top" secondItem="53d-jB-ScN" secondAttribute="bottom" constant="10" id="nHJ-xb-OWc"/>
+                                                <constraint firstItem="0H0-Gn-iLn" firstAttribute="centerY" secondItem="B3N-aH-rM7" secondAttribute="centerY" id="qde-bE-1KV"/>
                                                 <constraint firstItem="FmA-dn-qAs" firstAttribute="top" secondItem="zOg-sA-PfQ" secondAttribute="bottom" constant="20" id="tgj-gg-kwD"/>
                                                 <constraint firstItem="B3N-aH-rM7" firstAttribute="leading" secondItem="lVE-tX-6OL" secondAttribute="leadingMargin" constant="12" id="uCN-cY-Ntl"/>
                                                 <constraint firstItem="T6c-1K-csy" firstAttribute="width" secondItem="53d-jB-ScN" secondAttribute="width" id="x53-wB-JfI"/>
@@ -247,6 +249,8 @@
                                                     <exclude reference="L65-A9-4Ma"/>
                                                     <exclude reference="cWK-qx-IIA"/>
                                                     <exclude reference="tgj-gg-kwD"/>
+                                                    <exclude reference="J3A-JG-ob0"/>
+                                                    <exclude reference="XJA-Ki-nKs"/>
                                                     <exclude reference="lpi-SD-INv"/>
                                                 </mask>
                                             </variation>
