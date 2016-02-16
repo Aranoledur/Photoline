@@ -36,8 +36,6 @@ class PhotoTakingHelper: NSObject {
     
     func showPhotoSourceSelection() {
         let alertController = PSTAlertController(title: nil, message: "Where do you want to get your picture from?", preferredStyle: .ActionSheet)
-        let cancelAction = PSTAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-        alertController.addAction(cancelAction)
         
         let photoLibraryAction = PSTAlertAction(title: "Photo from Library", style: .Default) { (action) in
             self.showImagePickerController(.PhotoLibrary);
@@ -52,7 +50,9 @@ class PhotoTakingHelper: NSObject {
             
             alertController.addAction(cameraAction)
         }
-        
+        let cancelAction = PSTAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        alertController.addAction(cancelAction)
+
         alertController.showWithSender(self.senderView, controller: viewController, animated: true, completion: nil)
     }
     

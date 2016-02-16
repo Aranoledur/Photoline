@@ -64,6 +64,16 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
             let posts = result as? [Post] ?? []
             // 3
             completionBlock(posts)
+            
+            if posts.isEmpty && range.startIndex == 0 {
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    let label = UILabel()
+                    label.text = NSLocalizedString("Your timeline is empty right now. Try to find someone and follow them or upload your own photo!", comment: "Empty timeline message")
+                    label.numberOfLines = 0
+                    label.textAlignment = .Center
+                    self.tableView.backgroundView = label
+                })
+            }
         }
     }
     

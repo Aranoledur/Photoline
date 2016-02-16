@@ -638,7 +638,7 @@
         <image name="heart" width="72" height="68"/>
         <image name="heart_selected" width="72" height="68"/>
         <image name="more" width="26" height="17"/>
-        <image name="undo_2" width="72" height="72"/>
+        <image name="undo_2" width="82" height="82"/>
     </resources>
     <color key="tintColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
 </document>

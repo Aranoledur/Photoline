@@ -38,7 +38,6 @@ func sepiaFilter(image: UIImage) -> UIImage {
 
 func vignetteFilter(image: UIImage) -> UIImage {
     let beginImage = CIImage(image: image)
-    
     let filter = CIFilter(name: "CIVignette")
     
     filter!.setValue(0.7, forKey: kCIInputRadiusKey)

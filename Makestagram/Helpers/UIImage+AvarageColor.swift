@@ -42,7 +42,7 @@ extension UIImage {
     }
     
     class func imageWithImage(image: UIImage, scaledToSize newSize: CGSize) -> UIImage {
-        UIGraphicsBeginImageContext(newSize)
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
         image.drawInRect(CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
