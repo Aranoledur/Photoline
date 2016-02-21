@@ -9,7 +9,7 @@
 import UIKit
 import ParseUI
 
-class PLoginControllerViewController: PFLogInViewController {
+class PLoginViewController: PFLogInViewController {
 
     var viewsToUp: [UIView?]!
     var labelTermsMessage: UILabel!
@@ -77,7 +77,7 @@ class PLoginControllerViewController: PFLogInViewController {
         let termsMessageFrame = labelTermsMessage.frame
         labelAnd.center = CGPointMake(termsMessageFrame.origin.x + termsMessageFrame.size.width/2 - 5, termsMessageFrame.origin.y + termsMessageFrame.size.height + 10)
         
-        buttonTerms.center = CGPointMake(labelAnd.frame.origin.x - 4 - buttonTerms.frame.size.width/2, labelAnd.center.y)
+        buttonTerms.center = CGPointMake(labelAnd.frame.origin.x - 3 - buttonTerms.frame.size.width/2, labelAnd.center.y)
         buttonPrivacy.frame.origin.x = labelAnd.frame.origin.x + labelAnd.frame.size.width - 4
         buttonPrivacy.center.y = labelAnd.center.y
         

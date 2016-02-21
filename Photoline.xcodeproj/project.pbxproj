@@ -65,6 +65,7 @@
 		9478B5A11C6FCCBC0083024E /* filter_vignette@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9478B59B1C6FCCBC0083024E /* filter_vignette@3x.png */; };
 		9478B5EC1C7482D80083024E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9478B5EB1C7482D80083024E /* ProfileViewController.swift */; };
 		9478B5EE1C74925B0083024E /* LaunchScreenImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9478B5ED1C74925B0083024E /* LaunchScreenImages.xcassets */; };
+		9478B66C1C7A4B490083024E /* PLoginControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9478B66B1C7A4B490083024E /* PLoginControllerViewController.swift */; };
 		947FF07F1C65F98700C8BC34 /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947FF07E1C65F98700C8BC34 /* DrawingViewController.swift */; };
 		947FF0821C65F99F00C8BC34 /* SmoothedBIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947FF0811C65F99F00C8BC34 /* SmoothedBIView.swift */; };
 		947FF0881C665DFA00C8BC34 /* UIImage+AvarageColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947FF0871C665DFA00C8BC34 /* UIImage+AvarageColor.swift */; };
@@ -244,6 +245,7 @@
 		9478B59B1C6FCCBC0083024E /* filter_vignette@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filter_vignette@3x.png"; sourceTree = "<group>"; };
 		9478B5EB1C7482D80083024E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = Profile/ProfileViewController.swift; sourceTree = "<group>"; };
 		9478B5ED1C74925B0083024E /* LaunchScreenImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = LaunchScreenImages.xcassets; path = Photoline/LaunchScreenImages.xcassets; sourceTree = SOURCE_ROOT; };
+		9478B66B1C7A4B490083024E /* PLoginControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PLoginControllerViewController.swift; sourceTree = "<group>"; };
 		947FF07E1C65F98700C8BC34 /* DrawingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
 		947FF0811C65F99F00C8BC34 /* SmoothedBIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothedBIView.swift; sourceTree = "<group>"; };
 		947FF0871C665DFA00C8BC34 /* UIImage+AvarageColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+AvarageColor.swift"; sourceTree = "<group>"; };
@@ -350,6 +352,7 @@
 		627718811B0A581600AF5C6E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9478B66A1C7A4B490083024E /* Login */,
 				9478B5EA1C7482B90083024E /* Profile */,
 				627718821B0A581600AF5C6E /* FilterViewController */,
 				947082CE1C5C0D96006EC322 /* TimelineViewController.swift */,
@@ -545,6 +548,14 @@
 				9478B5EB1C7482D80083024E /* ProfileViewController.swift */,
 			);
 			name = Profile;
+			sourceTree = "<group>";
+		};
+		9478B66A1C7A4B490083024E /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				9478B66B1C7A4B490083024E /* PLoginControllerViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		947FF07D1C65F98700C8BC34 /* Drawing */ = {
@@ -888,6 +899,7 @@
 				947FF07F1C65F98700C8BC34 /* DrawingViewController.swift in Sources */,
 				947083291C611251006EC322 /* PostSectionHeaderView.swift in Sources */,
 				627718971B0A581700AF5C6E /* FilterViewController.swift in Sources */,
+				9478B66C1C7A4B490083024E /* PLoginControllerViewController.swift in Sources */,
 				947082E61C5D5E1E006EC322 /* ParseHelper.swift in Sources */,
 				947FF12E1C666BFF00C8BC34 /* NEOColorPickerGradientView.m in Sources */,
 				947082E41C5D5B80006EC322 /* PostTableViewCell.swift in Sources */,
