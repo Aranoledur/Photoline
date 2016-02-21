@@ -15,7 +15,7 @@ import ConvenienceKit
 struct ErrorHandling {
     
     static let ErrorTitle           = "Error"
-    static let ErrorOKButtonTitle   = "Ok"
+    static let ErrorOKButtonTitle   = "OK"
     static let ErrorDefaultMessage  = "Something unexpected happened, sorry for that!"
     
     /**
@@ -34,6 +34,15 @@ struct ErrorHandling {
     static func defaultErrorHandler(errorMessage: String) {
         
         let alert = PSTAlertController(title: ErrorTitle, message: errorMessage, preferredStyle: .Alert)
+        alert.addAction(PSTAlertAction(title: ErrorOKButtonTitle, style: .Default, handler: nil))
+        
+        let window = UIApplication.sharedApplication().windows[0]
+        alert.showWithSender(nil, controller: window.rootViewController?.presentedViewController, animated: true, completion: nil)
+    }
+    
+    static func defaultErrorHandler(title: String, errorMessage: String) {
+        
+        let alert = PSTAlertController(title: title, message: errorMessage, preferredStyle: .Alert)
         alert.addAction(PSTAlertAction(title: ErrorOKButtonTitle, style: .Default, handler: nil))
         
         let window = UIApplication.sharedApplication().windows[0]
