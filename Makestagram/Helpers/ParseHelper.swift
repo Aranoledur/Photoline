@@ -44,7 +44,15 @@ class ParseHelper {
         let postsFromThisUser = Post.query()
         postsFromThisUser!.whereKey(ParsePostUser, equalTo: PFUser.currentUser()!)
         
+//        let postsQuery = PFQuery.orQueryWithSubqueries([postsFromFollowedUsers!, postsFromThisUser!])
+        
+        let flaggedContentQuery = PFQuery(className: ParseFlaggedContentClass)
+//        flaggedContentQuery.whereKey(ParseFlaggedContentToPost, matchesQuery: postsQuery)
+        
+//        flaggedContentQuery.findObjectsInBackgroundWithBlock(completionBlock)
+        
         let query = PFQuery.orQueryWithSubqueries([postsFromFollowedUsers!, postsFromThisUser!])
+        query.whereKey("objectId", doesNotMatchKey: "toPostObjectId", inQuery: flaggedContentQuery)
         query.includeKey(ParsePostUser)
         query.orderByDescending(ParsePostCreatedAt)
         
@@ -147,6 +155,7 @@ class ParseHelper {
         let flagObject = PFObject(className: ParseFlaggedContentClass)
         flagObject.setObject(user, forKey: ParseFlaggedContentFromUser)
         flagObject.setObject(post, forKey: ParseFlaggedContentToPost)
+        flagObject.setObject(post.objectId!, forKey: "toPostObjectId")
         
         let ACL = PFACL(user: PFUser.currentUser()!)
         ACL.publicReadAccess = true

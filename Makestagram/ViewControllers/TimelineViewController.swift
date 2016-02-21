@@ -98,7 +98,6 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
                 post.deleteInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
                     if (success) {
                         self.timelineComponent.removeObject(post)
-                        //                        self.tableView?.reloadData()
                         if let indexPath = self.tableView?.indexPathForCell(cell) {
                             
                             self.tableView?.beginUpdates()
@@ -117,6 +116,13 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
         } else {
             let destroyAction = PSTAlertAction(title: NSLocalizedString("Flag", comment: "Flag title"), style: .Destructive, handler: { (action) -> Void in
                 post.flagPost(PFUser.currentUser()!)
+                self.timelineComponent.removeObject(post)
+                if let indexPath = self.tableView?.indexPathForCell(cell) {
+                    
+                    self.tableView?.beginUpdates()
+                    self.tableView?.deleteSections(NSIndexSet(index: indexPath.section), withRowAnimation: .Right)
+                    self.tableView?.endUpdates()
+                }
             })
             alertController.addAction(destroyAction)
         }
