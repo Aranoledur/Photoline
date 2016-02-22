@@ -79,6 +79,22 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
     
     // MARK: UIActionSheets
     
+    func showFlagUserAlertView(user: PFUser) {
+        let message = NSString(format: NSLocalizedString("Do you want to also flag this user (%@)?", comment: "Flagging user message"), user.username!)
+        let alertController = PSTAlertController(title: nil, message: message as String, preferredStyle: .Alert)
+        
+        let flagUserAction = PSTAlertAction(title: ConstantStrings.yesString, style: .Destructive) {(action) -> Void in
+            ParseHelper.removeFollowRelationshipFromUser(PFUser.currentUser()!, toUser: user)
+            ParseHelper.flagUserFromUser(PFUser.currentUser()!, toUser: user)
+        }
+        alertController.addAction(flagUserAction)
+        
+        let cancelAction = PSTAlertAction(title: ConstantStrings.noString, style: .Cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        alertController.showWithSender(nil, controller: self, animated: true, completion: nil)
+    }
+    
     func showActionSheetForPost(post: Post, cell: PostTableViewCell) {
         let message = NSLocalizedString("What do you want to do with this post?", comment: "Message of alert controller in timeline")
         let editTitle = NSLocalizedString("Edit", comment: "Edit photo in timeline")
@@ -122,12 +138,13 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
                     self.tableView?.beginUpdates()
                     self.tableView?.deleteSections(NSIndexSet(index: indexPath.section), withRowAnimation: .Right)
                     self.tableView?.endUpdates()
+                    self.showFlagUserAlertView(post.user!)
                 }
             })
             alertController.addAction(destroyAction)
         }
         
-        let cancelAction = PSTAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel title"), style: .Cancel, handler: nil)
+        let cancelAction = PSTAlertAction(title: ConstantStrings.cancelString, style: .Cancel, handler: nil)
         alertController.addAction(cancelAction)
         alertController.showWithSender(cell.moreButton, arrowDirection: .Any, controller: self, animated: true, completion: nil)
     }

@@ -30,8 +30,14 @@ class ParseHelper {
     static let ParseFlaggedContentFromUser = "fromUser"
     static let ParseFlaggedContentToPost   = "toPost"
     
+    // Flagged User Relation
+    static let ParseFlaggedUsersClass    = "FlaggedUsers"
+    static let ParseFlaggedUsersFromUser = "fromUser"
+    static let ParseFlaggedUsersToUser   = "toUser"
+    
     // User Relation
     static let ParseUserUsername      = "username"
+    static let ParseUserIsSuspended = "isSuspended"
     
     // 2
     static func timelineRequestForCurrentUser(range: Range<Int>, completionBlock: PFQueryArrayResultBlock) {
@@ -165,6 +171,18 @@ class ParseHelper {
         flagObject.saveInBackgroundWithBlock(ErrorHandling.errorHandlingCallback)
     }
     
+    static func flagUserFromUser(user: PFUser, toUser: PFUser) {
+        let flagObject = PFObject(className: ParseFlaggedUsersClass)
+        flagObject.setObject(user, forKey: ParseFlaggedUsersFromUser)
+        flagObject.setObject(toUser, forKey: ParseFlaggedUsersToUser)
+        
+        let ACL = PFACL(user: PFUser.currentUser()!)
+        ACL.publicReadAccess = true
+        flagObject.ACL = ACL
+        
+        flagObject.saveInBackgroundWithBlock(ErrorHandling.errorHandlingCallback)
+    }
+    
     // MARK: Users
     
     /**
@@ -180,6 +198,7 @@ class ParseHelper {
         // exclude the current user
         query.whereKey(ParseHelper.ParseUserUsername,
             notEqualTo: PFUser.currentUser()!.username!)
+        query.whereKey(ParseUserIsSuspended, notEqualTo: true)
         query.orderByAscending(ParseHelper.ParseUserUsername)
         query.limit = 20
         
@@ -208,6 +227,7 @@ class ParseHelper {
             
             query.whereKey(ParseHelper.ParseUserUsername,
                 notEqualTo: PFUser.currentUser()!.username!)
+            query.whereKey(ParseUserIsSuspended, notEqualTo: true)
             
             query.orderByAscending(ParseHelper.ParseUserUsername)
             query.limit = 20
