@@ -28,6 +28,7 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
         self.tabBarController?.delegate = self
         timelineComponent.loadInitialIfRequired()
         self.tableView.registerNib(UINib(nibName: "PostSectionHeaderFooterView", bundle: nil), forHeaderFooterViewReuseIdentifier: "PostSectionHeaderFooterView")
+
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -57,6 +58,14 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
     }
     
     func loadInRange(range: Range<Int>, completionBlock: ([Post]?) -> Void) {
+        if ParseHelper.isThisUserSuspended(PFUser.currentUser()!) {
+            let label = UILabel()
+            label.text = NSLocalizedString("Your account was suspended. Contact us for more details: easyverzilla@gmail.com.", comment: "Message when suspended account.")
+            label.numberOfLines = 0
+            label.textAlignment = .Center
+            self.tableView.backgroundView = label
+            return
+        }
         // 1
         ParseHelper.timelineRequestForCurrentUser(range) {
             (result: [PFObject]?, error: NSError?) -> Void in
@@ -189,7 +198,10 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
 // MARK: - Tab Bar Delegate
 extension TimelineViewController : UITabBarControllerDelegate {
     func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
-        if(viewController is PhotoViewController) {
+        if ParseHelper.isThisUserSuspended(PFUser.currentUser()!) {
+            return false
+        }
+        else if(viewController is PhotoViewController) {
             takePhoto();
             return false;
         } else {

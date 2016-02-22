@@ -183,6 +183,13 @@ class ParseHelper {
         flagObject.saveInBackgroundWithBlock(ErrorHandling.errorHandlingCallback)
     }
     
+    static func isThisUserSuspended(user: PFUser) -> Bool {
+        if let isSuspended = user.objectForKey(ParseUserIsSuspended) {
+            return isSuspended as! Bool
+        }
+        return false
+    }
+    
     // MARK: Users
     
     /**
