@@ -31,9 +31,14 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
 
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("toggleUIForSuspending"), name: NotificationNames.updateUserSuspendedStatus, object: nil)
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: NotificationNames.updateUserSuspendedStatus, object: nil)
+        super.viewDidDisappear(animated)
     }
     
     override func didReceiveMemoryWarning() {
@@ -55,6 +60,12 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
                 weakSelf?.tableView?.insertSections(NSIndexSet(index: 0), withRowAnimation: .Top)
                 weakSelf?.tableView?.endUpdates()
         }
+    }
+    
+    func toggleUIForSuspending() {
+        timelineComponent.content = []
+        timelineComponent.loadInitialIfRequired()
+        self.tableView.reloadData()
     }
     
     func loadInRange(range: Range<Int>, completionBlock: ([Post]?) -> Void) {

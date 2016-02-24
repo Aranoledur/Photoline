@@ -59,7 +59,6 @@ class PLoginViewController: PFLogInViewController {
         
         logInView?.facebookButton?.removeConstraints((logInView?.facebookButton?.constraints)!)
         logInView?.signUpButton?.removeConstraints((logInView?.signUpButton?.constraints)!)
-        // Do any additional setup after loading the view.
     }
     
     override func viewDidLayoutSubviews() {

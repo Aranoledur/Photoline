@@ -35,6 +35,7 @@
 		62C8C1ED1B06BD6500DC3EA7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62C8C1EC1B06BD6500DC3EA7 /* Images.xcassets */; };
 		62C8C1F01B06BD6500DC3EA7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62C8C1EE1B06BD6500DC3EA7 /* LaunchScreen.xib */; };
 		62C8C1FC1B06BD6500DC3EA7 /* MakestagramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C8C1FB1B06BD6500DC3EA7 /* MakestagramTests.swift */; };
+		9407FF841C7DA0CD00D8E148 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9407FF831C7DA0CD00D8E148 /* SignUpViewController.swift */; };
 		947082CF1C5C0D96006EC322 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947082CE1C5C0D96006EC322 /* TimelineViewController.swift */; };
 		947082D11C5C0DA4006EC322 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947082D01C5C0DA4006EC322 /* PhotoViewController.swift */; };
 		947082D31C5C0DB3006EC322 /* FriendSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947082D21C5C0DB3006EC322 /* FriendSearchViewController.swift */; };
@@ -215,6 +216,7 @@
 		62C8C1F51B06BD6500DC3EA7 /* Photoline.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Photoline.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		62C8C1FA1B06BD6500DC3EA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62C8C1FB1B06BD6500DC3EA7 /* MakestagramTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakestagramTests.swift; sourceTree = "<group>"; };
+		9407FF831C7DA0CD00D8E148 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		947082CE1C5C0D96006EC322 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		947082D01C5C0DA4006EC322 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		947082D21C5C0DB3006EC322 /* FriendSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendSearchViewController.swift; sourceTree = "<group>"; };
@@ -554,6 +556,7 @@
 			isa = PBXGroup;
 			children = (
 				9478B66B1C7A4B490083024E /* PLoginControllerViewController.swift */,
+				9407FF831C7DA0CD00D8E148 /* SignUpViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -872,6 +875,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9407FF841C7DA0CD00D8E148 /* SignUpViewController.swift in Sources */,
 				947FF13C1C666CCD00C8BC34 /* ColorPickerViewController.swift in Sources */,
 				627718901B0A581600AF5C6E /* Filter.swift in Sources */,
 				947FF12B1C666BFF00C8BC34 /* NEOColorPickerBaseViewController.m in Sources */,
