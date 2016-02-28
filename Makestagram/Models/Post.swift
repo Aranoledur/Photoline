@@ -32,7 +32,7 @@ class Post : PFObject, PFSubclassing {
 
         if let image = image.value {
             
-            photoUploadTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler {
+            photoUploadTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler { [unowned self]
                 () -> Void in
                 UIApplication.sharedApplication().endBackgroundTask(self.photoUploadTask!)
             }
@@ -54,7 +54,7 @@ class Post : PFObject, PFSubclassing {
     func uploadDrawing() {
         
         if let drawingImage = drawingImage.value {
-            drawingUploadTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler({ () -> Void in
+            drawingUploadTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler({[unowned self] () -> Void in
                 UIApplication.sharedApplication().endBackgroundTask(self.drawingUploadTask!)
             })
             
