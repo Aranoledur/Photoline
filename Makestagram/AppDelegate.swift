@@ -68,17 +68,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // if we have a user, set the TabBarController to be the initial view controller
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             startViewController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
+            
+            self.crashlitycsLogUser()
         } else {
             // 4
             // Otherwise set the LoginViewController to be the first
-            let loginViewController = PFLogInViewController()
+            let loginViewController = PLoginViewController()
             loginViewController.fields = [.UsernameAndPassword, .LogInButton, .SignUpButton, .PasswordForgotten, .Facebook]
             loginViewController.delegate = parseLoginHelper
+            loginViewController.signUpController = SignUpViewController()
             loginViewController.signUpController?.delegate = parseLoginHelper
             
             startViewController = loginViewController
-            
-            self.crashlitycsLogUser()
 
         }
         
@@ -114,6 +115,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         FBSDKAppEvents.activateApp()
+        let wasSuspended: Bool
+        if let cUser = PFUser.currentUser() {
+            wasSuspended = ParseHelper.isThisUserSuspended(cUser)
+        } else {
+            wasSuspended = false
+        }
+        PFUser.currentUser()?.fetchInBackgroundWithBlock({ (user, error) -> Void in
+            if error == nil {
+                if wasSuspended != ParseHelper.isThisUserSuspended(user as! PFUser) {
+                    NSNotificationCenter.defaultCenter().postNotificationName(NotificationNames.updateUserSuspendedStatus, object: nil)
+                }
+            }
+        })
         
     }
     

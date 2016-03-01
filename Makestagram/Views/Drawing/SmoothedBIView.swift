@@ -8,9 +8,29 @@
 
 import UIKit
 
+struct UndoQueue<Element> {
+    var items = [Element]()
+    var maxLevel = 4
+    mutating func push(item: Element) {
+        items.append(item)
+        if items.count > maxLevel {
+            items.removeFirst()
+        }
+    }
+    mutating func pop() -> Element {
+        return items.removeLast()
+    }
+    var topItem: Element? {
+        return items.isEmpty ? nil : items[items.count - 1]
+    }
+}
+
 class SmoothedBIView: UIView {
     let path: UIBezierPath! = UIBezierPath()
-    var incrementalImage: UIImage?
+    var incrementalImage: UIImage? {
+        didSet {
+        }
+    }
     var pts: [CGPoint] = [CGPoint](count: 5, repeatedValue: CGPoint())
     var ctr: Int = 0
     var currentColor: UIColor = UIColor.blackColor()
@@ -20,9 +40,15 @@ class SmoothedBIView: UIView {
             path?.lineWidth = lineWidth
         }
     }
+    var imageStack = UndoQueue<UIImage?>()
+    
+    func setIncrementalIMage(image: UIImage?) {
+        imageStack.push(incrementalImage)
+        incrementalImage = image
+    }
     
     func clearDrawing() {
-        incrementalImage = nil
+        setIncrementalIMage(nil)
         self.setNeedsDisplay()
     }
     
@@ -124,7 +150,14 @@ class SmoothedBIView: UIView {
             color.setFill()
             dotPath.fill()
         }
-        incrementalImage = UIGraphicsGetImageFromCurrentImageContext()
+        setIncrementalIMage(UIGraphicsGetImageFromCurrentImageContext())
         UIGraphicsEndImageContext()
+    }
+    
+    func undo() {
+        if imageStack.topItem != nil {
+            incrementalImage = imageStack.pop()
+            setNeedsDisplay()
+        }
     }
 }

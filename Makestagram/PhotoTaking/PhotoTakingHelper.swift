@@ -36,8 +36,6 @@ class PhotoTakingHelper: NSObject {
     
     func showPhotoSourceSelection() {
         let alertController = PSTAlertController(title: nil, message: "Where do you want to get your picture from?", preferredStyle: .ActionSheet)
-        let cancelAction = PSTAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-        alertController.addAction(cancelAction)
         
         let photoLibraryAction = PSTAlertAction(title: "Photo from Library", style: .Default) { (action) in
             self.showImagePickerController(.PhotoLibrary);
@@ -52,7 +50,9 @@ class PhotoTakingHelper: NSObject {
             
             alertController.addAction(cameraAction)
         }
-        
+        let cancelAction = PSTAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        alertController.addAction(cancelAction)
+
         alertController.showWithSender(self.senderView, controller: viewController, animated: true, completion: nil)
     }
     
@@ -60,6 +60,7 @@ class PhotoTakingHelper: NSObject {
         imagePickerController = UIImagePickerController()
         imagePickerController!.sourceType = sourceType
         imagePickerController!.delegate = self
+        imagePickerController?.allowsEditing = true
         self.viewController.presentViewController(imagePickerController!, animated: true, completion: nil)
     }
     
@@ -67,14 +68,24 @@ class PhotoTakingHelper: NSObject {
 
 extension PhotoTakingHelper: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+    func imagePickerController(picker: UIImagePickerController, var didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+        let imageOriginalSize = image.size
+        let maxWidth: CGFloat = 1080
+        let imageScaleW = maxWidth / imageOriginalSize.width
+        let imageScaleH = maxWidth / imageOriginalSize.height
+        let imageScale = max(imageScaleW, imageScaleH)
+        if imageScale < 1.0 {
+            let imageMaxSize = CGSize(width: imageOriginalSize.width * imageScale, height: imageOriginalSize.height * imageScale)
+            image = UIImage.imageWithImage(image, scaledToSize: imageMaxSize)
+        }
+        
         let filterViewController = FilterViewController(image: image)
         filterViewController.delegate = self
         imagePickerController?.presentViewController(filterViewController, animated: true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        viewController.dismissViewControllerAnimated(true, completion: nil)
+        imagePickerController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
 }
@@ -88,7 +99,7 @@ extension PhotoTakingHelper: FilterViewControllerDelegate {
     }
     
     func filterViewControllerCancelled(controller: FilterViewController) {
-        imagePickerController?.dismissViewControllerAnimated(true, completion: nil)
+        viewController.dismissViewControllerAnimated(true, completion: nil)
     }
     
 }

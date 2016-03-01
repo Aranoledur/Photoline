@@ -81,9 +81,16 @@ extension ParseLoginHelper : PFLogInViewControllerDelegate {
 }
 
 extension ParseLoginHelper : PFSignUpViewControllerDelegate {
-  
-  func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {
-    self.callback(user, nil)
-  }
+    
+    func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {
+        signUpController.dismissViewControllerAnimated(true, completion: nil)
+        self.callback(user, nil)
+    }
+    
+    func signUpViewController(signUpController: PFSignUpViewController, didFailToSignUpWithError error: NSError?) {
+        if let error = error {
+            ErrorHandling.defaultErrorHandler(error.localizedDescription)
+        }
+    }
   
 }

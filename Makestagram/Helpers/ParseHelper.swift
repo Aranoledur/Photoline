@@ -30,8 +30,14 @@ class ParseHelper {
     static let ParseFlaggedContentFromUser = "fromUser"
     static let ParseFlaggedContentToPost   = "toPost"
     
+    // Flagged User Relation
+    static let ParseFlaggedUsersClass    = "FlaggedUsers"
+    static let ParseFlaggedUsersFromUser = "fromUser"
+    static let ParseFlaggedUsersToUser   = "toUser"
+    
     // User Relation
     static let ParseUserUsername      = "username"
+    static let ParseUserIsSuspended = "isSuspended"
     
     // 2
     static func timelineRequestForCurrentUser(range: Range<Int>, completionBlock: PFQueryArrayResultBlock) {
@@ -44,7 +50,15 @@ class ParseHelper {
         let postsFromThisUser = Post.query()
         postsFromThisUser!.whereKey(ParsePostUser, equalTo: PFUser.currentUser()!)
         
+//        let postsQuery = PFQuery.orQueryWithSubqueries([postsFromFollowedUsers!, postsFromThisUser!])
+        
+        let flaggedContentQuery = PFQuery(className: ParseFlaggedContentClass)
+//        flaggedContentQuery.whereKey(ParseFlaggedContentToPost, matchesQuery: postsQuery)
+        
+//        flaggedContentQuery.findObjectsInBackgroundWithBlock(completionBlock)
+        
         let query = PFQuery.orQueryWithSubqueries([postsFromFollowedUsers!, postsFromThisUser!])
+        query.whereKey("objectId", doesNotMatchKey: "toPostObjectId", inQuery: flaggedContentQuery)
         query.includeKey(ParsePostUser)
         query.orderByDescending(ParsePostCreatedAt)
         
@@ -147,6 +161,7 @@ class ParseHelper {
         let flagObject = PFObject(className: ParseFlaggedContentClass)
         flagObject.setObject(user, forKey: ParseFlaggedContentFromUser)
         flagObject.setObject(post, forKey: ParseFlaggedContentToPost)
+        flagObject.setObject(post.objectId!, forKey: "toPostObjectId")
         
         let ACL = PFACL(user: PFUser.currentUser()!)
         ACL.publicReadAccess = true
@@ -154,6 +169,25 @@ class ParseHelper {
         
         //TODO: add error handling
         flagObject.saveInBackgroundWithBlock(ErrorHandling.errorHandlingCallback)
+    }
+    
+    static func flagUserFromUser(user: PFUser, toUser: PFUser) {
+        let flagObject = PFObject(className: ParseFlaggedUsersClass)
+        flagObject.setObject(user, forKey: ParseFlaggedUsersFromUser)
+        flagObject.setObject(toUser, forKey: ParseFlaggedUsersToUser)
+        
+        let ACL = PFACL(user: PFUser.currentUser()!)
+        ACL.publicReadAccess = true
+        flagObject.ACL = ACL
+        
+        flagObject.saveInBackgroundWithBlock(ErrorHandling.errorHandlingCallback)
+    }
+    
+    static func isThisUserSuspended(user: PFUser) -> Bool {
+        if let isSuspended = user.objectForKey(ParseUserIsSuspended) {
+            return isSuspended as! Bool
+        }
+        return false
     }
     
     // MARK: Users
@@ -171,6 +205,7 @@ class ParseHelper {
         // exclude the current user
         query.whereKey(ParseHelper.ParseUserUsername,
             notEqualTo: PFUser.currentUser()!.username!)
+        query.whereKey(ParseUserIsSuspended, notEqualTo: true)
         query.orderByAscending(ParseHelper.ParseUserUsername)
         query.limit = 20
         
@@ -199,6 +234,7 @@ class ParseHelper {
             
             query.whereKey(ParseHelper.ParseUserUsername,
                 notEqualTo: PFUser.currentUser()!.username!)
+            query.whereKey(ParseUserIsSuspended, notEqualTo: true)
             
             query.orderByAscending(ParseHelper.ParseUserUsername)
             query.limit = 20

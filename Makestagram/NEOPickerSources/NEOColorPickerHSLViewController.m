@@ -132,7 +132,7 @@
 
 -(void)viewDidLayoutSubviews {
     
-    [super viewWillLayoutSubviews];
+    [super viewDidLayoutSubviews];
     CGRect frame = self.hueImageView.frame;
     frame.origin.x += (self.hueImageView.frame.size.width - 100) / 2;
     frame.origin.y += (self.hueImageView.frame.size.height - 100) / 2;
@@ -140,6 +140,7 @@
     _colorLayer.frame = frame;
     
     [self positionHue];
+    [self.gradientViewLuminosity setNeedsLayout];
 }
 
 

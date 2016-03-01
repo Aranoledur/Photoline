@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 import ConvenienceKit
+import Crashlytics
 
 class TimelineViewController: UIViewController, TimelineComponentTarget {
 
@@ -27,11 +28,17 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
         self.tabBarController?.delegate = self
         timelineComponent.loadInitialIfRequired()
         self.tableView.registerNib(UINib(nibName: "PostSectionHeaderFooterView", bundle: nil), forHeaderFooterViewReuseIdentifier: "PostSectionHeaderFooterView")
+
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("toggleUIForSuspending"), name: NotificationNames.updateUserSuspendedStatus, object: nil)
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: NotificationNames.updateUserSuspendedStatus, object: nil)
+        super.viewDidDisappear(animated)
     }
     
     override func didReceiveMemoryWarning() {
@@ -55,7 +62,21 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
         }
     }
     
+    func toggleUIForSuspending() {
+        timelineComponent.content = []
+        timelineComponent.loadInitialIfRequired()
+        self.tableView.reloadData()
+    }
+    
     func loadInRange(range: Range<Int>, completionBlock: ([Post]?) -> Void) {
+        if ParseHelper.isThisUserSuspended(PFUser.currentUser()!) {
+            let label = UILabel()
+            label.text = NSLocalizedString("Your account was suspended. Contact us for more details: easyverzilla@gmail.com.", comment: "Message when suspended account.")
+            label.numberOfLines = 0
+            label.textAlignment = .Center
+            self.tableView.backgroundView = label
+            return
+        }
         // 1
         ParseHelper.timelineRequestForCurrentUser(range) {
             (result: [PFObject]?, error: NSError?) -> Void in
@@ -63,10 +84,36 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
             let posts = result as? [Post] ?? []
             // 3
             completionBlock(posts)
+            
+            if posts.isEmpty && range.startIndex == 0 {
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    let label = UILabel()
+                    label.text = NSLocalizedString("Your timeline is empty right now. Try to find someone and follow them or upload your own photo!", comment: "Empty timeline message")
+                    label.numberOfLines = 0
+                    label.textAlignment = .Center
+                    self.tableView.backgroundView = label
+                })
+            }
         }
     }
     
     // MARK: UIActionSheets
+    
+    func showFlagUserAlertView(user: PFUser) {
+        let message = NSString(format: NSLocalizedString("Do you want to also flag this user (%@)?", comment: "Flagging user message"), user.username!)
+        let alertController = PSTAlertController(title: nil, message: message as String, preferredStyle: .Alert)
+        
+        let flagUserAction = PSTAlertAction(title: ConstantStrings.yesString, style: .Destructive) {(action) -> Void in
+            ParseHelper.removeFollowRelationshipFromUser(PFUser.currentUser()!, toUser: user)
+            ParseHelper.flagUserFromUser(PFUser.currentUser()!, toUser: user)
+        }
+        alertController.addAction(flagUserAction)
+        
+        let cancelAction = PSTAlertAction(title: ConstantStrings.noString, style: .Cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        alertController.showWithSender(nil, controller: self, animated: true, completion: nil)
+    }
     
     func showActionSheetForPost(post: Post, cell: PostTableViewCell) {
         let message = NSLocalizedString("What do you want to do with this post?", comment: "Message of alert controller in timeline")
@@ -87,7 +134,6 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
                 post.deleteInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
                     if (success) {
                         self.timelineComponent.removeObject(post)
-                        //                        self.tableView?.reloadData()
                         if let indexPath = self.tableView?.indexPathForCell(cell) {
                             
                             self.tableView?.beginUpdates()
@@ -106,11 +152,19 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
         } else {
             let destroyAction = PSTAlertAction(title: NSLocalizedString("Flag", comment: "Flag title"), style: .Destructive, handler: { (action) -> Void in
                 post.flagPost(PFUser.currentUser()!)
+                self.timelineComponent.removeObject(post)
+                if let indexPath = self.tableView?.indexPathForCell(cell) {
+                    
+                    self.tableView?.beginUpdates()
+                    self.tableView?.deleteSections(NSIndexSet(index: indexPath.section), withRowAnimation: .Right)
+                    self.tableView?.endUpdates()
+                    self.showFlagUserAlertView(post.user!)
+                }
             })
             alertController.addAction(destroyAction)
         }
         
-        let cancelAction = PSTAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel title"), style: .Cancel, handler: nil)
+        let cancelAction = PSTAlertAction(title: ConstantStrings.cancelString, style: .Cancel, handler: nil)
         alertController.addAction(cancelAction)
         alertController.showWithSender(cell.moreButton, arrowDirection: .Any, controller: self, animated: true, completion: nil)
     }
@@ -155,7 +209,10 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
 // MARK: - Tab Bar Delegate
 extension TimelineViewController : UITabBarControllerDelegate {
     func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
-        if(viewController is PhotoViewController) {
+        if ParseHelper.isThisUserSuspended(PFUser.currentUser()!) {
+            return false
+        }
+        else if(viewController is PhotoViewController) {
             takePhoto();
             return false;
         } else {
